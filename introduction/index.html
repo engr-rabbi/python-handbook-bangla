@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>পরিচিতি ও সেটআপ | সম্পূর্ণ পাইথন কোর্স</title>
+<meta name="description" content="Python আসলে কী, কেন ইন্টারনেটের বিশাল একটা অংশ এর উপর দাঁড়িয়ে আছে, এবং বাস্তব কোড লেখার জন্য আপনার কম্পিউটার প্রস্তুত করা।">
+<link rel="canonical" href="https://engr-rabbi.github.io/python-handbook-bangla/introduction/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="পরিচিতি ও সেটআপ | সম্পূর্ণ পাইথন কোর্স">
+<meta property="og:description" content="Python আসলে কী, কেন ইন্টারনেটের বিশাল একটা অংশ এর উপর দাঁড়িয়ে আছে, এবং বাস্তব কোড লেখার জন্য আপনার কম্পিউটার প্রস্তুত করা।">
+<meta property="og:url" content="https://engr-rabbi.github.io/python-handbook-bangla/introduction/">
+<meta property="og:site_name" content="সম্পূর্ণ পাইথন কোর্স">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="পরিচিতি ও সেটআপ | সম্পূর্ণ পাইথন কোর্স">
+<meta name="twitter:description" content="Python আসলে কী, কেন ইন্টারনেটের বিশাল একটা অংশ এর উপর দাঁড়িয়ে আছে, এবং বাস্তব কোড লেখার জন্য আপনার কম্পিউটার প্রস্তুত করা।">
+<meta name="theme-color" content="#B65C38">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23B65C38'/%3E%3Ctext x='50' y='68' font-size='55' font-family='monospace' fill='white' text-anchor='middle'%3EPy%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "\u09aa\u09b0\u09bf\u099a\u09bf\u09a4\u09bf \u0993 \u09b8\u09c7\u099f\u0986\u09aa", "description": "Python \u0986\u09b8\u09b2\u09c7 \u0995\u09c0, \u0995\u09c7\u09a8 \u0987\u09a8\u09cd\u099f\u09be\u09b0\u09a8\u09c7\u099f\u09c7\u09b0 \u09ac\u09bf\u09b6\u09be\u09b2 \u098f\u0995\u099f\u09be \u0985\u0982\u09b6 \u098f\u09b0 \u0989\u09aa\u09b0 \u09a6\u09be\u0981\u09a1\u09bc\u09bf\u09af\u09bc\u09c7 \u0986\u099b\u09c7, \u098f\u09ac\u0982 \u09ac\u09be\u09b8\u09cd\u09a4\u09ac \u0995\u09cb\u09a1 \u09b2\u09c7\u0996\u09be\u09b0 \u099c\u09a8\u09cd\u09af \u0986\u09aa\u09a8\u09be\u09b0 \u0995\u09ae\u09cd\u09aa\u09bf\u0989\u099f\u09be\u09b0 \u09aa\u09cd\u09b0\u09b8\u09cd\u09a4\u09c1\u09a4 \u0995\u09b0\u09be\u0964", "educationalLevel": "Beginner", "learningResourceType": "Lesson", "isPartOf": {"@type": "Course", "name": "\u09b8\u09ae\u09cd\u09aa\u09c2\u09b0\u09cd\u09a3 \u09aa\u09be\u0987\u09a5\u09a8 \u0995\u09cb\u09b0\u09cd\u09b8"}, "inLanguage": "bn"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "\u09b9\u09cb\u09ae", "item": "https://engr-rabbi.github.io/python-handbook-bangla/"}, {"@type": "ListItem", "position": 2, "name": "\u0995\u09cb\u09b0\u09cd\u09b8", "item": "https://engr-rabbi.github.io/python-handbook-bangla/roadmap/"}, {"@type": "ListItem", "position": 3, "name": "\u09aa\u09b0\u09bf\u099a\u09bf\u09a4\u09bf \u0993 \u09b8\u09c7\u099f\u0986\u09aa", "item": "https://engr-rabbi.github.io/python-handbook-bangla/introduction/"}]}</script>
+</head>
+<body data-root="../" data-slug="introduction">
+<script>window.PY_TOTAL_LESSONS = 20;</script>
+<a class="skip-link" href="#main-content">মূল কনটেন্টে যান</a>
+
+<header class="topbar">
+  <button id="menu-toggle" class="icon-btn menu-toggle" aria-label="কোর্স মেনু খুলুন" aria-controls="course-sidebar">☰</button>
+  <a class="brand" href="../index.html"><span class="mark">Py</span>সম্পূর্ণ পাইথন কোর্স</a>
+  <nav class="topnav" aria-label="মূল নেভিগেশন"><a href="../" aria-current="page">হোম</a><a href="../roadmap/">কোর্স</a><a href="../playground/">প্লেগ্রাউন্ড</a><a href="../exercises/">অনুশীলনী</a><a href="../projects/">প্রজেক্ট</a><a href="../cheatsheets/">চিটশিট</a><a href="../glossary/">শব্দকোষ</a><a href="../about/">আমাদের কথা</a></nav>
+  <div class="topbar-spacer"></div>
+  <div id="search-box" role="search">
+    <input id="search-input" type="search" placeholder="লেসন খুঁজুন… ( / )" aria-label="কোর্সে অনুসন্ধান করুন">
+    <div id="search-results" role="listbox"></div>
+  </div>
+  <button id="theme-toggle" class="icon-btn" type="button">🖥 <span class="vis-label">সিস্টেম</span></button>
+</header>
+<div class="page-with-sidebar">
+
+<aside class="sidebar" id="course-sidebar">
+  <div class="sidebar-progress">
+    <div class="label"><span>কোর্সের অগ্রগতি</span><span data-progress-pct>0%</span></div>
+    <div class="progress-track"><div class="progress-fill" data-progress-fill style="width:0%"></div></div>
+  </div>
+  <div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-faint);font-weight:700;padding:0 .5rem;margin-bottom:.4rem;">কোর্স মডিউল</div>
+  
+<details class="side-module" open>
+  <summary><span class="num">01</span><span class="side-check" data-slug="introduction"></span> পরিচিতি ও সেটআপ</summary>
+  <a href="../introduction/#concept">ধারণা ও সিনট্যাক্স</a><a href="../introduction/#examples">উদাহরণ</a><a href="../introduction/#mistakes">সাধারণ ভুল</a><a href="../introduction/#exercise">অনুশীলনী ও চ্যালেঞ্জ</a><a href="../introduction/#quiz">কুইজ</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">02</span><span class="side-check" data-slug="print-output"></span> প্রিন্ট, ভ্যারিয়েবল ও বেসিক আউটপুট</summary>
+  <a href="../print-output/">প্রিন্ট, ভ্যারিয়েবল ও বেসিক আউটপুট</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">03</span><span class="side-check" data-slug="strings"></span> স্ট্রিং ও ইউজার ইনপুট</summary>
+  <a href="../strings/">স্ট্রিং ও ইউজার ইনপুট</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">04</span><span class="side-check" data-slug="control-flow"></span> কন্ট্রোল ফ্লো ও লুপ</summary>
+  <a href="../control-flow/">কন্ট্রোল ফ্লো ও লুপ</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">05</span><span class="side-check" data-slug="functions"></span> ফাংশন</summary>
+  <a href="../functions/">ফাংশন</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">06</span><span class="side-check" data-slug="lists"></span> লিস্ট</summary>
+  <a href="../lists/">লিস্ট</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">07</span><span class="side-check" data-slug="tuples"></span> টাপল</summary>
+  <a href="../tuples/">টাপল</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">08</span><span class="side-check" data-slug="dictionaries"></span> ডিকশনারি</summary>
+  <a href="../dictionaries/">ডিকশনারি</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">09</span><span class="side-check" data-slug="sets-comprehensions"></span> সেট ও কম্প্রিহেনশন</summary>
+  <a href="../sets-comprehensions/">সেট ও কম্প্রিহেনশন</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">10</span><span class="side-check" data-slug="args-kwargs"></span> *args এবং **kwargs</summary>
+  <a href="../args-kwargs/">*args এবং **kwargs</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">11</span><span class="side-check" data-slug="functional-programming"></span> ফাংশনাল প্রোগ্রামিং ও অ্যাডভান্সড ফাংশন</summary>
+  <a href="../functional-programming/">ফাংশনাল প্রোগ্রামিং ও অ্যাডভান্সড ফাংশন</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">12</span><span class="side-check" data-slug="closures-decorators"></span> ক্লোজার ও ডেকোরেটর</summary>
+  <a href="../closures-decorators/">ক্লোজার ও ডেকোরেটর</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">13</span><span class="side-check" data-slug="generators"></span> জেনারেটর</summary>
+  <a href="../generators/">জেনারেটর</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">14</span><span class="side-check" data-slug="oop"></span> অবজেক্ট-ওরিয়েন্টেড প্রোগ্রামিং</summary>
+  <a href="../oop/">অবজেক্ট-ওরিয়েন্টেড প্রোগ্রামিং</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">15</span><span class="side-check" data-slug="exceptions"></span> এরর ও এক্সসেপশন হ্যান্ডলিং</summary>
+  <a href="../exceptions/">এরর ও এক্সসেপশন হ্যান্ডলিং</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">16</span><span class="side-check" data-slug="file-io"></span> ফাইল I/O</summary>
+  <a href="../file-io/">ফাইল I/O</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">17</span><span class="side-check" data-slug="os-system"></span> OS ও সিস্টেম মডিউল</summary>
+  <a href="../os-system/">OS ও সিস্টেম মডিউল</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">18</span><span class="side-check" data-slug="tkinter"></span> Tkinter দিয়ে GUI প্রোগ্রামিং</summary>
+  <a href="../tkinter/">Tkinter দিয়ে GUI প্রোগ্রামিং</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">19</span><span class="side-check" data-slug="projects"></span> Python প্রজেক্ট</summary>
+  <a href="../projects/">Python প্রজেক্ট</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">20</span><span class="side-check" data-slug="sql"></span> Python + SQL</summary>
+  <a href="../sql/">Python + SQL</a>
+</details>
+  <button id="reset-progress-btn" class="btn btn-ghost btn-sm" type="button" style="margin-top:1rem;width:100%;">অগ্রগতি রিসেট করুন</button>
+</aside>
+<main class="main" id="main-content">
+
+<div class="paper">
+  <nav class="breadcrumb"><a href="../index.html">হোম</a> / <a href="../roadmap/">কোর্স</a> / পরিচিতি ও সেটআপ</nav>
+  <div class="badge-row"><span class="badge beginner">শুরুর স্তর</span> <span class="badge time">৩০ মিনিট</span></div>
+  <h1>মডিউল 01 — পরিচিতি ও সেটআপ</h1>
+  <p style="font-size:1.05rem;color:var(--ink-soft);max-width:62ch;">Python আসলে কী, কেন ইন্টারনেটের বিশাল একটা অংশ এর উপর দাঁড়িয়ে আছে, এবং বাস্তব কোড লেখার জন্য আপনার কম্পিউটার প্রস্তুত করা।</p>
+  <p class="note">পূর্বশর্ত: কিছুই না — এখান থেকেই সবাই শুরু করে।</p>
+
+  <div class="objectives"><h3>এই লেসন শেষে আপনি যা করতে পারবেন</h3><ul><li>Python আসলে কী এবং কেন এটি প্রথম ভাষা হিসেবে এত জনপ্রিয়, তা ব্যাখ্যা করতে পারা</li><li>Python 3 ইনস্টল করে টার্মিনাল থেকে সেটি কাজ করছে কিনা নিশ্চিত করা</li><li>VS Code ইনস্টল করে সেটিকে Git Bash-এর সাথে সংযুক্ত করা</li><li>নিজের প্রথম .py ফাইল লেখা, সংরক্ষণ করা এবং চালানো</li></ul></div>
+
+  <h2 id="concept">ধারণা ও সিনট্যাক্স</h2>
+  
+<p><strong>Python</strong> একটি সাধারণ-উদ্দেশ্যের প্রোগ্রামিং ভাষা, যা প্রায় সাধারণ ইংরেজির মতোই সহজে পড়া যায় বলে
+পরিচিত। এটি তৈরি করেছেন Guido van Rossum, এবং প্রথম প্রকাশিত হয় ১৯৯১ সালে। আজ এটি চালাচ্ছে Instagram-এর ব্যাকএন্ড
+থেকে শুরু করে NASA-এর ডেটা পাইপলাইন, এমনকি ChatGPT-এর মতো টুলের পেছনের মেশিন-লার্নিং মডেল পর্যন্ত — সবকিছু।</p>
+<p>একজন শিক্ষানবিসের জন্য Python গুরুত্বপূর্ণ একটি বাস্তব কারণে: <em>"আমার একটা আইডিয়া আছে" থেকে "আমার কাজ করা কোড
+আছে" পর্যন্ত পৌঁছানোর দূরত্বটা Python-এ প্রায় অন্য যেকোনো ভাষার চেয়ে কম।</em> মুখস্থ করার মতো যতিচিহ্ন কম, লেখার মতো
+বয়লারপ্লেট কোডও কম — তাই লেসনগুলো মনোযোগ দিতে পারে প্রোগ্রাম কীভাবে চিন্তা করে তার উপর, খুঁতখুঁতে কম্পাইলারকে খুশি
+করার উপর নয়।</p>
+<p>পুরনো টিউটোরিয়ালে কখনো কখনো "Python 2"-এর কথা দেখতে পাবেন। Python 2-এর অফিসিয়াল সাপোর্ট শেষ হয়ে গেছে ১ জানুয়ারি,
+২০২০ তারিখে, এবং এটি আর মেইনটেইন বা সুরক্ষিত নয়। এই সাইটের প্রতিটি লেসন আধুনিক <strong>Python 3</strong>-কে লক্ষ্য
+করে তৈরি — যদি কখনো <code>print "text"</code>-এর মতো প্যারেন্থিসিস ছাড়া কোড দেখেন, বুঝে নিন এটি Python 2, এবং
+মনে মনে সেটাকে <code>print("text")</code>-এ রূপান্তর করে নিতে পারেন।</p>
+<p>Python বাস্তবে ব্যবহৃত হয়: ওয়েব ব্যাকএন্ডে (Django, Flask), ডেটা অ্যানালাইসিস ও ভিজ্যুয়ালাইজেশনে, অটোমেশন
+স্ক্রিপ্টে, ডেস্কটপ GUI অ্যাপে, এবং আধুনিক AI/ML গবেষণার সিংহভাগেই। এর মূল trade-off হলো কাঁচা এক্সিকিউশন গতি —
+Python প্রোগ্রাম সাধারণত C++ বা Rust-এর চেয়ে ধীরে চলে — কিন্তু বেশিরভাগ দৈনন্দিন সমস্যার জন্য, কোড লিখতে ও ডিবাগ
+করতে যে সময় বাঁচে, তা চালাতে যে মিলিসেকেন্ড খরচ হয় তার চেয়ে বেশি গুরুত্বপূর্ণ।</p>
+
+  <div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">সিনট্যাক্স</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-53622"><code><span class="cm"># ইন্টারপ্রিটার এই ফাইলটি উপর থেকে নিচে, একটি একটি স্টেটমেন্ট করে পড়ে</span>
+<span class="kw">print</span>(<span class="str">&quot;Hello, World!&quot;</span>)</code></pre></div>
+
+  <h2 id="examples">উদাহরণ</h2>
+  <h3>আপনার প্রথম প্রোগ্রাম <span class="badge veryeasy" style="margin-left:.4rem;">খুব সহজ</span></h3><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">আপনার প্রথম প্রোগ্রাম</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-71016"><code><span class="kw">print</span>(<span class="str">&quot;Hello, World!&quot;</span>)</code></pre><div class="cb-output"><span class="out-label">আউটপুট</span>Hello, World!</div><div data-runner class="runner"><textarea class="run-editor" spellcheck="false" aria-label="সম্পাদনাযোগ্য Python কোড">print(&quot;Hello, World!&quot;)</textarea><div class="tracer-controls"><button class="btn btn-primary btn-sm run-btn" type="button">▶ ব্রাউজারে চালান</button><button class="btn btn-ghost btn-sm run-reset" type="button">রিসেট</button></div><div class="run-output" role="status" aria-live="polite"></div></div></div><p>প্রতিটি Python প্রোগ্রামারের একেবারে প্রথম প্রোগ্রাম এটি। <code>print()</code> একটি বিল্ট-ইন ফাংশন — একটি পুনর্ব্যবহারযোগ্য, নামযুক্ত আচরণ — যা এর প্যারেন্থিসিসের ভেতরে যা দেওয়া হয় তা প্রদর্শন করে।</p><h3>টার্মিনাল থেকে চালানো <span class="badge easy" style="margin-left:.4rem;">সহজ</span></h3><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">টার্মিনাল থেকে চালানো</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-94934"><code><span class="cm"># ফাইলটি hello.py নামে সংরক্ষণ করুন, তারপর টার্মিনালে চালান:</span>
+<span class="cm"># python hello.py</span>
+<span class="cm">#</span>
+<span class="cm"># কিছু সিস্টেমে কমান্ডটি python-এর বদলে python3 হয়</span>
+<span class="kw">print</span>(<span class="str">&quot;Running from the command line works the same way.&quot;</span>)</code></pre><div class="cb-output"><span class="out-label">আউটপুট</span>Running from the command line works the same way.</div><div data-runner class="runner"><textarea class="run-editor" spellcheck="false" aria-label="সম্পাদনাযোগ্য Python কোড"># ফাইলটি hello.py নামে সংরক্ষণ করুন, তারপর টার্মিনালে চালান:
+# python hello.py
+#
+# কিছু সিস্টেমে কমান্ডটি python-এর বদলে python3 হয়
+print(&quot;Running from the command line works the same way.&quot;)</textarea><div class="tracer-controls"><button class="btn btn-primary btn-sm run-btn" type="button">▶ ব্রাউজারে চালান</button><button class="btn btn-ghost btn-sm run-reset" type="button">রিসেট</button></div><div class="run-output" role="status" aria-live="polite"></div></div></div><p>একটি <code>.py</code> ফাইল আসলে শুধু একটি সাধারণ টেক্সট ফাইল। <code>python</code> কমান্ড সেই টেক্সটটি Python ইন্টারপ্রিটারের হাতে তুলে দেয়, যা লাইন বাই লাইন পড়ে ও চালায়।</p><h3>নিজের ইনস্টল করা ভার্সন যাচাই করা <span class="badge realworld" style="margin-left:.4rem;">বাস্তব উদাহরণ</span></h3><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">নিজের ইনস্টল করা ভার্সন যাচাই করা</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-55336"><code><span class="cm"># টার্মিনালে (Python-এর ভেতরে না) এটি চালান:</span>
+<span class="cm"># python --version</span>
+<span class="cm">#</span>
+<span class="cm"># প্রত্যাশিত আউটপুট এমন দেখতে হবে:</span>
+<span class="cm"># Python 3.12.4</span>
+<span class="kw">import</span> sys
+<span class="kw">print</span>(sys.version)</code></pre><div class="cb-output"><span class="out-label">আউটপুট</span>3.12.4 (main, ...)  [বিস্তারিত কম্পিউটার ভেদে ভিন্ন হবে]</div><div data-runner class="runner"><textarea class="run-editor" spellcheck="false" aria-label="সম্পাদনাযোগ্য Python কোড"># টার্মিনালে (Python-এর ভেতরে না) এটি চালান:
+# python --version
+#
+# প্রত্যাশিত আউটপুট এমন দেখতে হবে:
+# Python 3.12.4
+import sys
+print(sys.version)</textarea><div class="tracer-controls"><button class="btn btn-primary btn-sm run-btn" type="button">▶ ব্রাউজারে চালান</button><button class="btn btn-ghost btn-sm run-reset" type="button">রিসেট</button></div><div class="run-output" role="status" aria-live="polite"></div></div></div><p><code>sys.version</code> Python-কেই জিজ্ঞেস করে যে আপনার কোড এখন কোন ভার্সনে চলছে — কোনো টিউটোরিয়াল প্রত্যাশার চেয়ে আলাদা আচরণ করলে এটি কাজে লাগে।</p>
+
+  <h2>ভিজ্যুয়াল ব্যাখ্যা</h2>
+  <figure class="diagram"><svg viewBox="0 0 520 282" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flow diagram"><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" style="fill:var(--ink-faint)"/></marker></defs><rect x="120" y="10" width="280" height="46" rx="8" style="fill:var(--surface);stroke:var(--rule);stroke-width:1.5"/><text x="260" y="38" text-anchor="middle" style="fill:var(--ink);font-family:var(--font-mono);font-size:14px">আপনার কোড (.py ফাইল)</text><line x1="260" y1="56" x2="260" y2="80" style="stroke:var(--ink-faint);stroke-width:1.5" marker-end="url(#arrow)"/><rect x="120" y="82" width="280" height="46" rx="8" style="fill:var(--surface);stroke:var(--rule);stroke-width:1.5"/><text x="260" y="110" text-anchor="middle" style="fill:var(--ink);font-family:var(--font-mono);font-size:14px">Python ইন্টারপ্রিটার এটি পড়ে</text><line x1="260" y1="128" x2="260" y2="152" style="stroke:var(--ink-faint);stroke-width:1.5" marker-end="url(#arrow)"/><rect x="120" y="154" width="280" height="46" rx="8" style="fill:var(--surface);stroke:var(--rule);stroke-width:1.5"/><text x="260" y="182" text-anchor="middle" style="fill:var(--ink);font-family:var(--font-mono);font-size:14px">print() চলে</text><line x1="260" y1="200" x2="260" y2="224" style="stroke:var(--ink-faint);stroke-width:1.5" marker-end="url(#arrow)"/><rect x="120" y="226" width="280" height="46" rx="8" style="fill:var(--surface);stroke:var(--rule);stroke-width:1.5"/><text x="260" y="254" text-anchor="middle" style="fill:var(--ink);font-family:var(--font-mono);font-size:14px">কনসোলে আউটপুট দেখা যায়</text></svg><figcaption>একটি Python ফাইল চালানোর সাথে সাথেই এই ঘটনাগুলো ঘটে।</figcaption></figure>
+
+  
+
+  <details class="disclosure"><summary>🔍 ভেতরে ভেতরে কী ঘটে? (অ্যাডভান্সড)</summary><div class="disclosure-body"><p>ভেতরে ভেতরে, Python আপনার সোর্স কোডকে বাইটকোডে কম্পাইল করে এবং একটি ভার্চুয়াল মেশিনে (CPython ইন্টারপ্রিটার) চালায়। ভ্যারিয়েবলগুলো একটি নেমস্পেস ডিকশনারিতে থাকা নাম, যা মেমরিতে থাকা অবজেক্টের দিকে নির্দেশ করে — উপরের ট্রেসারের মেমরি প্যানেলে ঠিক এটাই দেখানো হচ্ছে।</p></div></details>
+
+  <h3>ইন্টারপ্রিটার আপনার প্রথম লাইনটি কীভাবে চালায়, তা দেখুন</h3><p>নিচের নিয়ন্ত্রণগুলো দিয়ে এই উদাহরণটি এক লাইন করে চালিয়ে দেখুন এবং ইন্টারপ্রিটারের মেমরি লাইভ পরিবর্তন হতে দেখুন।</p>
+<div class="tracer" data-trace="[{&quot;line&quot;: 0, &quot;vars&quot;: {}, &quot;output&quot;: &quot;&quot;, &quot;desc&quot;: &quot;Python \u0986\u09aa\u09a8\u09be\u09b0 \u09b8\u09cb\u09b0\u09cd\u09b8 \u0995\u09cb\u09a1\u09c7\u09b0 \u098f\u0987 \u09b2\u09be\u0987\u09a8\u099f\u09bf \u09aa\u09a1\u09bc\u09c7\u0964&quot;}, {&quot;line&quot;: 0, &quot;vars&quot;: {}, &quot;output&quot;: &quot;&quot;, &quot;desc&quot;: &quot;\u0987\u09a8\u09cd\u099f\u09be\u09b0\u09aa\u09cd\u09b0\u09bf\u099f\u09be\u09b0 print(...)-\u0995\u09c7 \u09ac\u09bf\u09b2\u09cd\u099f-\u0987\u09a8 print \u09ab\u09be\u0982\u09b6\u09a8\u09c7\u09b0 \u098f\u0995\u099f\u09bf \u0995\u09b2 \u09b9\u09bf\u09b8\u09c7\u09ac\u09c7 \u099a\u09bf\u09b9\u09cd\u09a8\u09bf\u09a4 \u0995\u09b0\u09c7\u0964&quot;}, {&quot;line&quot;: 0, &quot;vars&quot;: {}, &quot;output&quot;: &quot;Hello, World!&quot;, &quot;desc&quot;: &quot;print() \u099f\u09c7\u0995\u09cd\u09b8\u099f\u099f\u09bf \u0995\u09a8\u09b8\u09cb\u09b2\u09c7 \u09b2\u09bf\u0996\u09c7 \u09a6\u09c7\u09af\u09bc\u0964 \u098f\u099f\u09be\u0987 \u0986\u09aa\u09a8\u09be\u09b0 \u09aa\u09cd\u09b0\u09cb\u0997\u09cd\u09b0\u09be\u09ae\u09c7\u09b0 \u0986\u0989\u099f\u09aa\u09c1\u099f\u0964&quot;}]">
+  <div class="tracer-panel trace-code">
+    <h4>কোড</h4>
+    <div class="codeblock" style="margin:0;">
+      <div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">কোড</span></div>
+      <pre><code><span class="cb-line"><span class="kw">print</span>(<span class="str">&quot;Hello, World!&quot;</span>)</span></code></pre>
+    </div>
+  </div>
+  <div class="tracer-panel">
+    <h4>ইন্টারপ্রিটারের অবস্থা</h4>
+    <div class="trace-mem"></div>
+    <div style="margin-top:.8rem;">
+      <h4 style="margin-bottom:.3rem;">কনসোল আউটপুট</h4>
+      <div class="cb-output trace-out" style="border-top:none;"></div>
+    </div>
+    <div class="tracer-desc"></div>
+    <div class="tracer-controls">
+      <button class="btn btn-primary btn-sm trace-play" type="button">▶ চালান</button>
+      <button class="btn btn-ghost btn-sm trace-step" type="button">পরের ধাপ ⏭</button>
+      <button class="btn btn-ghost btn-sm trace-restart" type="button">⏮ পুনরায় শুরু</button>
+      <label class="range-wrap">গতি
+        <select class="trace-speed">
+          <option value="1600">ধীর</option>
+          <option value="900" selected>স্বাভাবিক</option>
+          <option value="400">দ্রুত</option>
+        </select>
+      </label>
+      <span class="tracer-step-of"></span>
+    </div>
+    <input type="range" class="trace-range" min="0" max="0" value="0" step="1" style="width:100%;margin-top:.6rem;" aria-label="ধাপে ধাপে এক্সিকিউশন দেখুন">
+  </div>
+</div>
+
+  <h2 id="mistakes">সাধারণ ভুল</h2>
+  
+<div class="callout callout-mistake">
+  <div class="callout-head">✗ সাধারণ ভুল 1</div>
+  <p>ভুল ফোল্ডারে থেকে &lt;code&gt;python hello.py&lt;/code&gt; টাইপ করা, বা &lt;code&gt;.py&lt;/code&gt; এক্সটেনশন লিখতে ভুলে যাওয়া — এটাই শিক্ষানবিসদের সবচেয়ে সাধারণ প্রথম হোঁচট।</p>
+  <div class="mistake-pair">
+    <div class="mp-bad">
+      <div class="mp-label">✗ এটি এড়িয়ে চলুন</div>
+      <div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">এতে দেখা দেবে &#x27;ফাইল খুঁজে পাওয়া যায়নি&#x27; ধরনের একটি এরর</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-88214"><code>python hello
+<span class="cm"># bash: python: command not found: hello</span></code></pre></div>
+    </div>
+    <div class="mp-good">
+      <div class="mp-label">✓ সঠিক পদ্ধতি</div>
+      <div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">সংশোধিত</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-66207"><code>cd path/to/your/folder
+python hello.py</code></pre></div>
+    </div>
+  </div>
+</div>
+
+  <div class="callout callout-tip"><div class="callout-head">✓ ভালো অভ্যাস</div><ul><li>প্রতিটি প্রজেক্টের জন্য একটি করে ফোল্ডার রাখুন, যাতে ফাইলগুলো কম্পিউটারের এখানে-সেখানে ছড়িয়ে না পড়ে।</li><li>ফাইলের নাম ছোট হাতের অক্ষর ও আন্ডারস্কোর দিয়ে দিন, যেমন <code>first_program.py</code> — কখনো স্পেস দেবেন না।</li><li>৫০ লাইন কোড লিখে একসাথে পরীক্ষা করার বদলে, প্রতি কয়েক লাইনেই কোড চালিয়ে দেখুন।</li><li>python.org (বা আপনার OS-এর প্যাকেজ ম্যানেজার) থেকে অফিসিয়াল Python ইনস্টল করুন, অন্য কোনো অনির্ভরযোগ্য উৎস থেকে নয়।</li></ul></div>
+
+  <h2 id="exercise">অনুশীলনী ও চ্যালেঞ্জ</h2>
+  
+<div class="exercise-box" data-answer="I am learning Python.
+This is line two.|2 lines|two lines" data-explain="প্রতিটি print() কল একটি অদৃশ্য newline দিয়ে শেষ হয়, তাই দুটি কল দুটি লাইনের আউটপুট তৈরি করে।">
+  <p><strong>অনুশীলনী 1 — আউটপুট অনুমান করুন</strong></p>
+  <div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">এই কোডটি দেওয়া আছে</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-84823"><code><span class="kw">print</span>(<span class="str">&quot;I am learning Python.&quot;</span>)
+<span class="kw">print</span>(<span class="str">&quot;This is line two.&quot;</span>)</code></pre></div>
+  <p>এই প্রোগ্রামটি কী প্রিন্ট করবে, এবং আউটপুটে কতগুলো লাইন থাকবে?</p>
+  <textarea class="ex-input" placeholder="এখানে আপনার উত্তর লিখুন…" aria-label="আপনার উত্তর"></textarea>
+  <div class="tracer-controls">
+    <button class="btn btn-primary btn-sm ex-check" type="button">উত্তর যাচাই করুন</button>
+    <button class="btn btn-ghost btn-sm ex-hint-btn" type="button">ইঙ্গিত</button>
+    <button class="btn btn-ghost btn-sm ex-sol-btn" type="button">সমাধান দেখুন</button>
+  </div>
+  <div class="ex-feedback"></div>
+  <div class="ex-hint" style="display:none;margin-top:.6rem;color:var(--ink-soft);font-size:.88rem;">💡 প্রতিটি print() কলের পর একটি অদৃশ্য নতুন লাইন স্বয়ংক্রিয়ভাবে শুরু হয়।</div>
+  <div class="ex-sol" style="display:none;margin-top:.6rem;"><p>I am learning Python.
+This is line two.</p></div>
+</div>
+  
+<div class="exercise-box" style="border-color:var(--rule);">
+  <p><strong>🏆 চ্যালেঞ্জ</strong></p>
+  <p>একটি ছোট প্রোগ্রাম লিখুন যা আপনার নাম, প্রিয় শখ, এবং Python শেখার একটি লক্ষ্য প্রিন্ট করে — তিনটি আলাদা print() কল দিয়ে।</p>
+  <ul><li>ঠিক তিনটি print() কল ব্যবহার করুন</li><li>প্রতিটিতে একটি সম্পূর্ণ বাক্য থাকতে হবে</li><li>about_me.py নামে সংরক্ষণ করে টার্মিনাল থেকে চালান</li></ul>
+  <details class="disclosure"><summary>💡 ইঙ্গিত প্রয়োজন?</summary><div class="disclosure-body"><p>প্রতিটি print() কলের নিজের একটি লাইন ও নিজের প্যারেন্থিসিস লাগবে।</p></div></details>
+  <details class="disclosure"><summary>🔍 একটি নমুনা সমাধান দেখুন</summary><div class="disclosure-body"><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">Python</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-81206"><code><span class="kw">print</span>(<span class="str">&quot;My name is Asha.&quot;</span>)
+<span class="kw">print</span>(<span class="str">&quot;My favorite hobby is chess.&quot;</span>)
+<span class="kw">print</span>(<span class="str">&quot;My goal is to build my own app.&quot;</span>)</code></pre></div></div></details>
+</div>
+
+  <h2 id="quiz">কুইজ</h2>
+  <p>প্রতিটি প্রশ্নের উত্তর দিন, তারপর জমা দিয়ে নিজের স্কোর ও ব্যাখ্যা দেখুন।</p>
+  
+<div class="quiz" id="quiz-introduction">
+  
+<div class="quiz-q" data-correct="0" id="quiz-introduction-q0">
+  <p class="qtext">1. Python 2-এর জায়গা কী নিয়েছে, এবং Python 2-এর সাপোর্ট কবে অফিসিয়ালি শেষ হয়েছে?</p>
+  <div class="quiz-opt" role="button" tabindex="0" data-idx="0">Python 3, ১ জানুয়ারি ২০২০-এ</div><div class="quiz-opt" role="button" tabindex="0" data-idx="1">Python 4, ২০২২ সালে</div><div class="quiz-opt" role="button" tabindex="0" data-idx="2">Python 3, ২০১০ সালে</div><div class="quiz-opt" role="button" tabindex="0" data-idx="3">এখনো এটি মেইনটেইন করা হয়</div>
+  <div class="quiz-explain">Python 2-এর সাপোর্ট শেষ হয়েছে ১ জানুয়ারি ২০২০-এ — সব নতুন কোড Python 3 লক্ষ্য করে লেখা উচিত।</div>
+</div>
+<div class="quiz-q" data-correct="1" id="quiz-introduction-q1">
+  <p class="qtext">2. Python ইন্টারপ্রিটার আসলে কী করে?</p>
+  <div class="quiz-opt" role="button" tabindex="0" data-idx="0">আপনার কোডকে একটি মোবাইল অ্যাপে কম্পাইল করে</div><div class="quiz-opt" role="button" tabindex="0" data-idx="1">আপনার .py ফাইল লাইন বাই লাইন পড়ে ও চালায়</div><div class="quiz-opt" role="button" tabindex="0" data-idx="2">শুধু বানান ভুল চেক করে</div><div class="quiz-opt" role="button" tabindex="0" data-idx="3">Python-কে JavaScript-এ রূপান্তর করে</div>
+  <div class="quiz-explain">ইন্টারপ্রিটারই সেই প্রোগ্রাম যা আসলে আপনার Python সোর্স কোড চালায়।</div>
+</div>
+<div class="quiz-q" data-correct="1" id="quiz-introduction-q2">
+  <p class="qtext">3. app.py নামের একটি ফাইল টার্মিনাল থেকে চালাতে সাধারণত কোন কমান্ড ব্যবহার হয়?</p>
+  <div class="quiz-opt" role="button" tabindex="0" data-idx="0">run app.py</div><div class="quiz-opt" role="button" tabindex="0" data-idx="1">python app.py</div><div class="quiz-opt" role="button" tabindex="0" data-idx="2">open app.py</div><div class="quiz-opt" role="button" tabindex="0" data-idx="3">app.py --start</div>
+  <div class="quiz-explain">python app.py (বা python3 app.py) ফাইলটি ইন্টারপ্রিটারের হাতে তুলে দেয়।</div>
+</div>
+<div class="quiz-q" data-correct="1" id="quiz-introduction-q3">
+  <p class="qtext">4. শিক্ষানবিসদের কাছে Python কেন এত জনপ্রিয়?</p>
+  <div class="quiz-opt" role="button" tabindex="0" data-idx="0">এটি রানটাইমে সবচেয়ে দ্রুত ভাষা</div><div class="quiz-opt" role="button" tabindex="0" data-idx="1">এর সিনট্যাক্স প্রায় সাধারণ ইংরেজির মতো, বয়লারপ্লেট খুব কম</div><div class="quiz-opt" role="button" tabindex="0" data-idx="2">এটি শুধু Windows-এ চলে</div><div class="quiz-opt" role="button" tabindex="0" data-idx="3">এটি ইনস্টল করার প্রয়োজন নেই</div>
+  <div class="quiz-explain">প্রোগ্রামিংয়ে নতুন মানুষদের জন্য পড়ার সহজতাই Python-এর সবচেয়ে বড় সুবিধা।</div>
+</div>
+<div class="quiz-q" data-correct="0" id="quiz-introduction-q4">
+  <p class="qtext">5. Python সোর্স ফাইলের এক্সটেনশন কী?</p>
+  <div class="quiz-opt" role="button" tabindex="0" data-idx="0">.py</div><div class="quiz-opt" role="button" tabindex="0" data-idx="1">.pt</div><div class="quiz-opt" role="button" tabindex="0" data-idx="2">.pyt</div><div class="quiz-opt" role="button" tabindex="0" data-idx="3">.python</div>
+  <div class="quiz-explain">Python সোর্স ফাইল .py এক্সটেনশন ব্যবহার করে।</div>
+</div>
+  <div class="tracer-controls">
+    <button class="btn btn-primary quiz-submit" type="button">উত্তর জমা দিন</button>
+    <button class="btn btn-ghost quiz-retry" type="button" style="display:none;">আবার চেষ্টা করুন</button>
+  </div>
+  <div class="quiz-score" style="display:none;"></div>
+</div>
+
+  <h2>সারাংশ</h2>
+  <ul><li>Python একটি শিক্ষানবিস-বান্ধব, সাধারণ-উদ্দেশ্যের ভাষা, যা ওয়েব, ডেটা, অটোমেশন এবং AI-তে ব্যবহৃত হয়।</li><li>সবসময় Python 3 ব্যবহার করুন — Python 2 আর সাপোর্টেড নয়।</li><li>একটি .py ফাইল আসলে সাধারণ টেক্সট; ইন্টারপ্রিটার এটি উপর থেকে নিচে পড়ে চালায়।</li><li>আপনি <code>python filename.py</code> দিয়ে টার্মিনাল থেকে ফাইল চালাতে পারেন।</li></ul>
+
+  <h2>সম্পর্কিত লেসন</h2><div class="related-list"><a href="../print-output/">প্রিন্ট, ভ্যারিয়েবল ও বেসিক আউটপুট</a><a href="../strings/">স্ট্রিং ও ইউজার ইনপুট</a></div>
+
+  
+<div class="mark-complete-row">
+  <button id="mark-complete-btn" class="btn btn-primary" type="button" aria-live="polite">এই লেসনটি সম্পন্ন হিসেবে চিহ্নিত করুন</button>
+  <span style="color:var(--ink-faint);font-size:.85rem;">আপনার ব্রাউজারে ব্যক্তিগতভাবে সংরক্ষিত হয় — কোনো অ্যাকাউন্ট প্রয়োজন নেই।</span>
+</div>
+</div>
+<nav class="lesson-nav" aria-label="লেসন নেভিগেশন"><div></div><a class="next" href="../print-output/"><div class="dir">পরের লেসন →</div><div>02 — প্রিন্ট, ভ্যারিয়েবল ও বেসিক আউটপুট</div></a></nav>
+
+</main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <a class="brand" href="../index.html" style="margin-bottom:.6rem;"><span class="mark">Py</span>সম্পূর্ণ পাইথন কোর্স</a>
+      <p style="color:var(--ink-soft);font-size:.88rem;max-width:32ch;">যারা সত্যিকার অর্থে পাইথন বুঝতে চান, তাদের জন্য তৈরি — সম্পূর্ণ ফ্রি, উন্মুক্ত এবং নিজের গতিতে শেখার সুযোগ।</p>
+    </div>
+    <div><h4>শিখুন</h4><a href="../roadmap/">কোর্স রোডম্যাপ</a><a href="../exercises/">অনুশীলনী</a><a href="../projects/">প্রজেক্ট</a><a href="../playground/">প্লেগ্রাউন্ড</a></div><div><h4>রেফারেন্স</h4><a href="../cheatsheets/">চিটশিট</a><a href="../glossary/">শব্দকোষ</a><a href="../faq/">প্রশ্নোত্তর</a></div><div><h4>মডিউল</h4><a href="../introduction/">০১ পরিচিতি</a><a href="../oop/">১৪ OOP</a><a href="../sql/">২০ Python + SQL</a></div><div><h4>সাইট</h4><a href="../about/">আমাদের কথা</a><a href="../sitemap.xml">সাইটম্যাপ</a></div>
+  </div>
+  <div class="footer-bottom">© ২০২৬ সম্পূর্ণ পাইথন কোর্স। শেখার জন্য কনটেন্ট সম্পূর্ণ ফ্রি। কোনো অ্যাকাউন্ট প্রয়োজন নেই — আপনার অগ্রগতি আপনার ব্রাউজারেই থাকে।</div>
+</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

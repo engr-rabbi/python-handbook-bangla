@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>চিটশিট | সম্পূর্ণ পাইথন কোর্স</title>
+<meta name="description" content="সিনট্যাক্স, স্ট্রিং, লিস্ট, ডিকশনারি, কন্ট্রোল ফ্লো, ফাংশন, OOP, এক্সসেপশন, ফাইল I/O এবং SQL কভার করা প্রিন্টযোগ্য পাইথন চিটশিট।">
+<link rel="canonical" href="https://engr-rabbi.github.io/python-handbook-bangla/cheatsheets/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="চিটশিট | সম্পূর্ণ পাইথন কোর্স">
+<meta property="og:description" content="সিনট্যাক্স, স্ট্রিং, লিস্ট, ডিকশনারি, কন্ট্রোল ফ্লো, ফাংশন, OOP, এক্সসেপশন, ফাইল I/O এবং SQL কভার করা প্রিন্টযোগ্য পাইথন চিটশিট।">
+<meta property="og:url" content="https://engr-rabbi.github.io/python-handbook-bangla/cheatsheets/">
+<meta property="og:site_name" content="সম্পূর্ণ পাইথন কোর্স">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="চিটশিট | সম্পূর্ণ পাইথন কোর্স">
+<meta name="twitter:description" content="সিনট্যাক্স, স্ট্রিং, লিস্ট, ডিকশনারি, কন্ট্রোল ফ্লো, ফাংশন, OOP, এক্সসেপশন, ফাইল I/O এবং SQL কভার করা প্রিন্টযোগ্য পাইথন চিটশিট।">
+<meta name="theme-color" content="#B65C38">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23B65C38'/%3E%3Ctext x='50' y='68' font-size='55' font-family='monospace' fill='white' text-anchor='middle'%3EPy%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+
+</head>
+<body data-root="../" data-slug="">
+<script>window.PY_TOTAL_LESSONS = 20;</script>
+<a class="skip-link" href="#main-content">মূল কনটেন্টে যান</a>
+
+<header class="topbar">
+  <button id="menu-toggle" class="icon-btn menu-toggle" aria-label="কোর্স মেনু খুলুন" aria-controls="course-sidebar">☰</button>
+  <a class="brand" href="../index.html"><span class="mark">Py</span>সম্পূর্ণ পাইথন কোর্স</a>
+  <nav class="topnav" aria-label="মূল নেভিগেশন"><a href="../">হোম</a><a href="../roadmap/">কোর্স</a><a href="../playground/">প্লেগ্রাউন্ড</a><a href="../exercises/">অনুশীলনী</a><a href="../projects/">প্রজেক্ট</a><a href="../cheatsheets/" aria-current="page">চিটশিট</a><a href="../glossary/">শব্দকোষ</a><a href="../about/">আমাদের কথা</a></nav>
+  <div class="topbar-spacer"></div>
+  <div id="search-box" role="search">
+    <input id="search-input" type="search" placeholder="লেসন খুঁজুন… ( / )" aria-label="কোর্সে অনুসন্ধান করুন">
+    <div id="search-results" role="listbox"></div>
+  </div>
+  <button id="theme-toggle" class="icon-btn" type="button">🖥 <span class="vis-label">সিস্টেম</span></button>
+</header>
+<div class="page-with-sidebar">
+
+<aside class="sidebar" id="course-sidebar">
+  <div class="sidebar-progress">
+    <div class="label"><span>কোর্সের অগ্রগতি</span><span data-progress-pct>0%</span></div>
+    <div class="progress-track"><div class="progress-fill" data-progress-fill style="width:0%"></div></div>
+  </div>
+  <div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-faint);font-weight:700;padding:0 .5rem;margin-bottom:.4rem;">কোর্স মডিউল</div>
+  
+<details class="side-module">
+  <summary><span class="num">01</span><span class="side-check" data-slug="introduction"></span> পরিচিতি ও সেটআপ</summary>
+  <a href="../introduction/">পরিচিতি ও সেটআপ</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">02</span><span class="side-check" data-slug="print-output"></span> প্রিন্ট, ভ্যারিয়েবল ও বেসিক আউটপুট</summary>
+  <a href="../print-output/">প্রিন্ট, ভ্যারিয়েবল ও বেসিক আউটপুট</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">03</span><span class="side-check" data-slug="strings"></span> স্ট্রিং ও ইউজার ইনপুট</summary>
+  <a href="../strings/">স্ট্রিং ও ইউজার ইনপুট</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">04</span><span class="side-check" data-slug="control-flow"></span> কন্ট্রোল ফ্লো ও লুপ</summary>
+  <a href="../control-flow/">কন্ট্রোল ফ্লো ও লুপ</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">05</span><span class="side-check" data-slug="functions"></span> ফাংশন</summary>
+  <a href="../functions/">ফাংশন</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">06</span><span class="side-check" data-slug="lists"></span> লিস্ট</summary>
+  <a href="../lists/">লিস্ট</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">07</span><span class="side-check" data-slug="tuples"></span> টাপল</summary>
+  <a href="../tuples/">টাপল</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">08</span><span class="side-check" data-slug="dictionaries"></span> ডিকশনারি</summary>
+  <a href="../dictionaries/">ডিকশনারি</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">09</span><span class="side-check" data-slug="sets-comprehensions"></span> সেট ও কম্প্রিহেনশন</summary>
+  <a href="../sets-comprehensions/">সেট ও কম্প্রিহেনশন</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">10</span><span class="side-check" data-slug="args-kwargs"></span> *args এবং **kwargs</summary>
+  <a href="../args-kwargs/">*args এবং **kwargs</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">11</span><span class="side-check" data-slug="functional-programming"></span> ফাংশনাল প্রোগ্রামিং ও অ্যাডভান্সড ফাংশন</summary>
+  <a href="../functional-programming/">ফাংশনাল প্রোগ্রামিং ও অ্যাডভান্সড ফাংশন</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">12</span><span class="side-check" data-slug="closures-decorators"></span> ক্লোজার ও ডেকোরেটর</summary>
+  <a href="../closures-decorators/">ক্লোজার ও ডেকোরেটর</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">13</span><span class="side-check" data-slug="generators"></span> জেনারেটর</summary>
+  <a href="../generators/">জেনারেটর</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">14</span><span class="side-check" data-slug="oop"></span> অবজেক্ট-ওরিয়েন্টেড প্রোগ্রামিং</summary>
+  <a href="../oop/">অবজেক্ট-ওরিয়েন্টেড প্রোগ্রামিং</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">15</span><span class="side-check" data-slug="exceptions"></span> এরর ও এক্সসেপশন হ্যান্ডলিং</summary>
+  <a href="../exceptions/">এরর ও এক্সসেপশন হ্যান্ডলিং</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">16</span><span class="side-check" data-slug="file-io"></span> ফাইল I/O</summary>
+  <a href="../file-io/">ফাইল I/O</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">17</span><span class="side-check" data-slug="os-system"></span> OS ও সিস্টেম মডিউল</summary>
+  <a href="../os-system/">OS ও সিস্টেম মডিউল</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">18</span><span class="side-check" data-slug="tkinter"></span> Tkinter দিয়ে GUI প্রোগ্রামিং</summary>
+  <a href="../tkinter/">Tkinter দিয়ে GUI প্রোগ্রামিং</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">19</span><span class="side-check" data-slug="projects"></span> Python প্রজেক্ট</summary>
+  <a href="../projects/">Python প্রজেক্ট</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">20</span><span class="side-check" data-slug="sql"></span> Python + SQL</summary>
+  <a href="../sql/">Python + SQL</a>
+</details>
+  <button id="reset-progress-btn" class="btn btn-ghost btn-sm" type="button" style="margin-top:1rem;width:100%;">অগ্রগতি রিসেট করুন</button>
+</aside>
+<main class="main" id="main-content">
+
+<div class="paper">
+  <nav class="breadcrumb"><a href="../index.html">হোম</a> / চিটশিট</nav>
+  <div class="print-btn-row"><button class="btn btn-ghost btn-sm" onclick="window.print()" type="button">🖨 এই পেজটি প্রিন্ট করুন</button></div>
+  <h1>চিটশিট</h1>
+  <p style="color:var(--ink-soft);max-width:62ch;">কোর্সের প্রতিটি প্রধান বিষয়ের জন্য দ্রুত, প্রিন্টযোগ্য রেফারেন্স টেবিল।</p>
+  <h2>সিনট্যাক্স ও ভ্যারিয়েবল</h2><table class="cheat-table"><thead><tr><th>সিনট্যাক্স</th><th>এটি যা করে</th></tr></thead><tbody><tr><td><code>x = 5</code></td><td>x নামে 5 মান assign করা হলো</td></tr><tr><td><code>x, y = 1, 2</code></td><td>এক লাইনে একাধিক ভ্যারিয়েবল assign করা</td></tr><tr><td><code>type(x)</code></td><td>একটি মানের টাইপ জানা</td></tr><tr><td><code># comment</code></td><td>একটি সিঙ্গেল-লাইন কমেন্ট, Python এটি উপেক্ষা করে</td></tr><tr><td><code>&quot;&quot;&quot;docstring&quot;&quot;&quot;</code></td><td>একটি মাল্টি-লাইন স্ট্রিং, প্রায়ই ফাংশন ডকুমেন্ট করতে ব্যবহৃত হয়</td></tr></tbody></table><h2>সংখ্যা ও অপারেটর</h2><table class="cheat-table"><thead><tr><th>সিনট্যাক্স</th><th>এটি যা করে</th></tr></thead><tbody><tr><td><code>+  -  *  /</code></td><td>যোগ, বিয়োগ, গুণ, ভাগ</td></tr><tr><td><code>//</code></td><td>ফ্লোর (পূর্ণসংখ্যা) ভাগ</td></tr><tr><td><code>%</code></td><td>মডুলো — ভাগের অবশিষ্টাংশ</td></tr><tr><td><code>**</code></td><td>এক্সপোনেন্ট (ঘাত)</td></tr><tr><td><code>round(x, 2)</code></td><td>x-কে ২ দশমিক স্থান পর্যন্ত রাউন্ড করা</td></tr></tbody></table><h2>স্ট্রিং</h2><table class="cheat-table"><thead><tr><th>সিনট্যাক্স</th><th>এটি যা করে</th></tr></thead><tbody><tr><td><code>f&quot;{name} is {age}&quot;</code></td><td>f-স্ট্রিং — টেক্সটের ভেতরে ভ্যারিয়েবল বসানো</td></tr><tr><td><code>s[0], s[-1]</code></td><td>প্রথম ক্যারেক্টার, শেষ ক্যারেক্টার</td></tr><tr><td><code>s[1:4]</code></td><td>ইনডেক্স 1 থেকে (4 বাদ দিয়ে) পর্যন্ত slice</td></tr><tr><td><code>s.strip()</code></td><td>শুরু ও শেষের whitespace বাদ দেওয়া</td></tr><tr><td><code>s.upper() / s.lower()</code></td><td>কেস পরিবর্তন করা</td></tr><tr><td><code>s.split(&#x27;,&#x27;)</code></td><td>একটি separator দিয়ে লিস্টে ভাগ করা</td></tr><tr><td><code>s.replace(a, b)</code></td><td>সব a-কে b দিয়ে বদলানো</td></tr></tbody></table><h2>লিস্ট</h2><table class="cheat-table"><thead><tr><th>সিনট্যাক্স</th><th>এটি যা করে</th></tr></thead><tbody><tr><td><code>lst.append(x)</code></td><td>শেষে x যোগ করা</td></tr><tr><td><code>lst.insert(i, x)</code></td><td>i ইনডেক্সে x বসানো</td></tr><tr><td><code>lst.remove(x)</code></td><td>প্রথম পাওয়া x বাদ দেওয়া</td></tr><tr><td><code>lst.pop()</code></td><td>শেষ আইটেম বাদ দিয়ে রিটার্ন করা</td></tr><tr><td><code>lst.sort()</code></td><td>লিস্ট নিজের জায়গায় সাজানো</td></tr><tr><td><code>len(lst)</code></td><td>আইটেমের সংখ্যা</td></tr><tr><td><code>x in lst</code></td><td>মেম্বারশিপ টেস্ট</td></tr></tbody></table><h2>ডিকশনারি</h2><table class="cheat-table"><thead><tr><th>সিনট্যাক্স</th><th>এটি যা করে</th></tr></thead><tbody><tr><td><code>d[&quot;key&quot;]</code></td><td>key দিয়ে value খোঁজা (না থাকলে KeyError)</td></tr><tr><td><code>d.get(&quot;key&quot;, default)</code></td><td>ফলব্যাক সহ নিরাপদ lookup</td></tr><tr><td><code>d.items()</code></td><td>(key, value) জোড়া নিয়ে লুপ চালানো</td></tr><tr><td><code>d.keys() / d.values()</code></td><td>শুধু key, বা শুধু value</td></tr><tr><td><code>&quot;key&quot; in d</code></td><td>একটি key আছে কিনা চেক করা</td></tr></tbody></table><h2>কন্ট্রোল ফ্লো</h2><table class="cheat-table"><thead><tr><th>সিনট্যাক্স</th><th>এটি যা করে</th></tr></thead><tbody><tr><td><code>if / elif / else</code></td><td>শর্তের ভিত্তিতে branch করা</td></tr><tr><td><code>for x in iterable:</code></td><td>জানা একটি সিকোয়েন্সে লুপ চালানো</td></tr><tr><td><code>while condition:</code></td><td>শর্ত False না হওয়া পর্যন্ত লুপ চালানো</td></tr><tr><td><code>break</code></td><td>লুপ থেকে সঙ্গে সঙ্গে বের হওয়া</td></tr><tr><td><code>continue</code></td><td>পরের ইটারেশনে চলে যাওয়া</td></tr></tbody></table><h2>ফাংশন ও ল্যাম্বডা</h2><table class="cheat-table"><thead><tr><th>সিনট্যাক্স</th><th>এটি যা করে</th></tr></thead><tbody><tr><td><code>def f(a, b=1):</code></td><td>ডিফল্ট প্যারামিটার দিয়ে ফাংশন সংজ্ঞায়িত করা</td></tr><tr><td><code>return value</code></td><td>কলারের কাছে মান ফেরত দেওয়া</td></tr><tr><td><code>lambda x: x * 2</code></td><td>ছোট, নামহীন ইনলাইন ফাংশন</td></tr><tr><td><code>*args</code></td><td>অতিরিক্ত positional আর্গুমেন্ট একটি tuple-এ জমা করা</td></tr><tr><td><code>**kwargs</code></td><td>অতিরিক্ত keyword আর্গুমেন্ট একটি dictionary-এ জমা করা</td></tr></tbody></table><h2>OOP</h2><table class="cheat-table"><thead><tr><th>সিনট্যাক্স</th><th>এটি যা করে</th></tr></thead><tbody><tr><td><code>class Dog:</code></td><td>একটি ক্লাস সংজ্ঞায়িত করা</td></tr><tr><td><code>def __init__(self, name):</code></td><td>কনস্ট্রাক্টর, অবজেক্ট তৈরি হলে চলে</td></tr><tr><td><code>self.name = name</code></td><td>একটি instance অ্যাট্রিবিউট সেট করা</td></tr><tr><td><code>class Dog(Animal):</code></td><td>একটি সুপারক্লাস থেকে ইনহেরিট করা</td></tr><tr><td><code>@property</code></td><td>একটি মেথডকে সাধারণ অ্যাট্রিবিউটের মতো কল করার সুযোগ দেওয়া</td></tr></tbody></table><h2>এক্সসেপশন</h2><table class="cheat-table"><thead><tr><th>সিনট্যাক্স</th><th>এটি যা করে</th></tr></thead><tbody><tr><td><code>try / except ValueError:</code></td><td>একটি নির্দিষ্ট এরর টাইপ ধরা</td></tr><tr><td><code>except Exception as e:</code></td><td>একটি এরর ধরে তার মেসেজ দেখা</td></tr><tr><td><code>else:</code></td><td>কোনো এক্সসেপশন না হলেই চলে</td></tr><tr><td><code>finally:</code></td><td>সবসময় চলে, এরর হোক বা না হোক</td></tr><tr><td><code>raise ValueError(&quot;msg&quot;)</code></td><td>ইচ্ছাকৃতভাবে একটি এক্সসেপশন তৈরি করা</td></tr></tbody></table><h2>ফাইল I/O</h2><table class="cheat-table"><thead><tr><th>সিনট্যাক্স</th><th>এটি যা করে</th></tr></thead><tbody><tr><td><code>open(&quot;f.txt&quot;, &quot;r&quot;)</code></td><td>পড়ার জন্য খোলা (ডিফল্ট মোড)</td></tr><tr><td><code>open(&quot;f.txt&quot;, &quot;w&quot;)</code></td><td>লেখার জন্য খোলা (বিদ্যমান কনটেন্ট মুছে যাবে)</td></tr><tr><td><code>open(&quot;f.txt&quot;, &quot;a&quot;)</code></td><td>যুক্ত করার (append) জন্য খোলা</td></tr><tr><td><code>with open(...) as f:</code></td><td>কাজ শেষে ফাইল স্বয়ংক্রিয়ভাবে বন্ধ হয়</td></tr><tr><td><code>f.read() / f.readlines()</code></td><td>পুরো ফাইল পড়া, অথবা লাইনের লিস্ট হিসেবে</td></tr></tbody></table><h2>SQL (SQLite)</h2><table class="cheat-table"><thead><tr><th>সিনট্যাক্স</th><th>এটি যা করে</th></tr></thead><tbody><tr><td><code>sqlite3.connect(&#x27;app.db&#x27;)</code></td><td>একটি ডেটাবেস ফাইল খোলা (বা তৈরি করা)</td></tr><tr><td><code>cursor.execute(sql, params)</code></td><td>? placeholder দিয়ে নিরাপদে একটি query চালানো</td></tr><tr><td><code>conn.commit()</code></td><td>INSERT/UPDATE/DELETE পরিবর্তন সংরক্ষণ করা</td></tr><tr><td><code>cursor.fetchall()</code></td><td>SELECT-এর সব row একটি tuple-এর লিস্ট হিসেবে পাওয়া</td></tr><tr><td><code>WHERE ... ORDER BY ...</code></td><td>row ফিল্টার করা, তারপর সাজানো</td></tr></tbody></table>
+</div>
+
+</main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <a class="brand" href="../index.html" style="margin-bottom:.6rem;"><span class="mark">Py</span>সম্পূর্ণ পাইথন কোর্স</a>
+      <p style="color:var(--ink-soft);font-size:.88rem;max-width:32ch;">যারা সত্যিকার অর্থে পাইথন বুঝতে চান, তাদের জন্য তৈরি — সম্পূর্ণ ফ্রি, উন্মুক্ত এবং নিজের গতিতে শেখার সুযোগ।</p>
+    </div>
+    <div><h4>শিখুন</h4><a href="../roadmap/">কোর্স রোডম্যাপ</a><a href="../exercises/">অনুশীলনী</a><a href="../projects/">প্রজেক্ট</a><a href="../playground/">প্লেগ্রাউন্ড</a></div><div><h4>রেফারেন্স</h4><a href="../cheatsheets/">চিটশিট</a><a href="../glossary/">শব্দকোষ</a><a href="../faq/">প্রশ্নোত্তর</a></div><div><h4>মডিউল</h4><a href="../introduction/">০১ পরিচিতি</a><a href="../oop/">১৪ OOP</a><a href="../sql/">২০ Python + SQL</a></div><div><h4>সাইট</h4><a href="../about/">আমাদের কথা</a><a href="../sitemap.xml">সাইটম্যাপ</a></div>
+  </div>
+  <div class="footer-bottom">© ২০২৬ সম্পূর্ণ পাইথন কোর্স। শেখার জন্য কনটেন্ট সম্পূর্ণ ফ্রি। কোনো অ্যাকাউন্ট প্রয়োজন নেই — আপনার অগ্রগতি আপনার ব্রাউজারেই থাকে।</div>
+</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

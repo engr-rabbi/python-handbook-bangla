@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>প্রিন্ট, ভ্যারিয়েবল ও বেসিক আউটপুট | সম্পূর্ণ পাইথন কোর্স</title>
+<meta name="description" content="স্ক্রিনের সাথে কথা বলা, নামের মাধ্যমে মান সংরক্ষণ করা, এবং Python-এর মূল ডেটা টাইপ।">
+<link rel="canonical" href="https://engr-rabbi.github.io/python-handbook-bangla/print-output/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="প্রিন্ট, ভ্যারিয়েবল ও বেসিক আউটপুট | সম্পূর্ণ পাইথন কোর্স">
+<meta property="og:description" content="স্ক্রিনের সাথে কথা বলা, নামের মাধ্যমে মান সংরক্ষণ করা, এবং Python-এর মূল ডেটা টাইপ।">
+<meta property="og:url" content="https://engr-rabbi.github.io/python-handbook-bangla/print-output/">
+<meta property="og:site_name" content="সম্পূর্ণ পাইথন কোর্স">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="প্রিন্ট, ভ্যারিয়েবল ও বেসিক আউটপুট | সম্পূর্ণ পাইথন কোর্স">
+<meta name="twitter:description" content="স্ক্রিনের সাথে কথা বলা, নামের মাধ্যমে মান সংরক্ষণ করা, এবং Python-এর মূল ডেটা টাইপ।">
+<meta name="theme-color" content="#B65C38">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23B65C38'/%3E%3Ctext x='50' y='68' font-size='55' font-family='monospace' fill='white' text-anchor='middle'%3EPy%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "\u09aa\u09cd\u09b0\u09bf\u09a8\u09cd\u099f, \u09ad\u09cd\u09af\u09be\u09b0\u09bf\u09af\u09bc\u09c7\u09ac\u09b2 \u0993 \u09ac\u09c7\u09b8\u09bf\u0995 \u0986\u0989\u099f\u09aa\u09c1\u099f", "description": "\u09b8\u09cd\u0995\u09cd\u09b0\u09bf\u09a8\u09c7\u09b0 \u09b8\u09be\u09a5\u09c7 \u0995\u09a5\u09be \u09ac\u09b2\u09be, \u09a8\u09be\u09ae\u09c7\u09b0 \u09ae\u09be\u09a7\u09cd\u09af\u09ae\u09c7 \u09ae\u09be\u09a8 \u09b8\u0982\u09b0\u0995\u09cd\u09b7\u09a3 \u0995\u09b0\u09be, \u098f\u09ac\u0982 Python-\u098f\u09b0 \u09ae\u09c2\u09b2 \u09a1\u09c7\u099f\u09be \u099f\u09be\u0987\u09aa\u0964", "educationalLevel": "Beginner", "learningResourceType": "Lesson", "isPartOf": {"@type": "Course", "name": "\u09b8\u09ae\u09cd\u09aa\u09c2\u09b0\u09cd\u09a3 \u09aa\u09be\u0987\u09a5\u09a8 \u0995\u09cb\u09b0\u09cd\u09b8"}, "inLanguage": "bn"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "\u09b9\u09cb\u09ae", "item": "https://engr-rabbi.github.io/python-handbook-bangla/"}, {"@type": "ListItem", "position": 2, "name": "\u0995\u09cb\u09b0\u09cd\u09b8", "item": "https://engr-rabbi.github.io/python-handbook-bangla/roadmap/"}, {"@type": "ListItem", "position": 3, "name": "\u09aa\u09cd\u09b0\u09bf\u09a8\u09cd\u099f, \u09ad\u09cd\u09af\u09be\u09b0\u09bf\u09af\u09bc\u09c7\u09ac\u09b2 \u0993 \u09ac\u09c7\u09b8\u09bf\u0995 \u0986\u0989\u099f\u09aa\u09c1\u099f", "item": "https://engr-rabbi.github.io/python-handbook-bangla/print-output/"}]}</script>
+</head>
+<body data-root="../" data-slug="print-output">
+<script>window.PY_TOTAL_LESSONS = 20;</script>
+<a class="skip-link" href="#main-content">মূল কনটেন্টে যান</a>
+
+<header class="topbar">
+  <button id="menu-toggle" class="icon-btn menu-toggle" aria-label="কোর্স মেনু খুলুন" aria-controls="course-sidebar">☰</button>
+  <a class="brand" href="../index.html"><span class="mark">Py</span>সম্পূর্ণ পাইথন কোর্স</a>
+  <nav class="topnav" aria-label="মূল নেভিগেশন"><a href="../" aria-current="page">হোম</a><a href="../roadmap/">কোর্স</a><a href="../playground/">প্লেগ্রাউন্ড</a><a href="../exercises/">অনুশীলনী</a><a href="../projects/">প্রজেক্ট</a><a href="../cheatsheets/">চিটশিট</a><a href="../glossary/">শব্দকোষ</a><a href="../about/">আমাদের কথা</a></nav>
+  <div class="topbar-spacer"></div>
+  <div id="search-box" role="search">
+    <input id="search-input" type="search" placeholder="লেসন খুঁজুন… ( / )" aria-label="কোর্সে অনুসন্ধান করুন">
+    <div id="search-results" role="listbox"></div>
+  </div>
+  <button id="theme-toggle" class="icon-btn" type="button">🖥 <span class="vis-label">সিস্টেম</span></button>
+</header>
+<div class="page-with-sidebar">
+
+<aside class="sidebar" id="course-sidebar">
+  <div class="sidebar-progress">
+    <div class="label"><span>কোর্সের অগ্রগতি</span><span data-progress-pct>0%</span></div>
+    <div class="progress-track"><div class="progress-fill" data-progress-fill style="width:0%"></div></div>
+  </div>
+  <div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-faint);font-weight:700;padding:0 .5rem;margin-bottom:.4rem;">কোর্স মডিউল</div>
+  
+<details class="side-module">
+  <summary><span class="num">01</span><span class="side-check" data-slug="introduction"></span> পরিচিতি ও সেটআপ</summary>
+  <a href="../introduction/">পরিচিতি ও সেটআপ</a>
+</details>
+<details class="side-module" open>
+  <summary><span class="num">02</span><span class="side-check" data-slug="print-output"></span> প্রিন্ট, ভ্যারিয়েবল ও বেসিক আউটপুট</summary>
+  <a href="../print-output/#concept">ধারণা ও সিনট্যাক্স</a><a href="../print-output/#examples">উদাহরণ</a><a href="../print-output/#mistakes">সাধারণ ভুল</a><a href="../print-output/#exercise">অনুশীলনী ও চ্যালেঞ্জ</a><a href="../print-output/#quiz">কুইজ</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">03</span><span class="side-check" data-slug="strings"></span> স্ট্রিং ও ইউজার ইনপুট</summary>
+  <a href="../strings/">স্ট্রিং ও ইউজার ইনপুট</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">04</span><span class="side-check" data-slug="control-flow"></span> কন্ট্রোল ফ্লো ও লুপ</summary>
+  <a href="../control-flow/">কন্ট্রোল ফ্লো ও লুপ</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">05</span><span class="side-check" data-slug="functions"></span> ফাংশন</summary>
+  <a href="../functions/">ফাংশন</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">06</span><span class="side-check" data-slug="lists"></span> লিস্ট</summary>
+  <a href="../lists/">লিস্ট</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">07</span><span class="side-check" data-slug="tuples"></span> টাপল</summary>
+  <a href="../tuples/">টাপল</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">08</span><span class="side-check" data-slug="dictionaries"></span> ডিকশনারি</summary>
+  <a href="../dictionaries/">ডিকশনারি</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">09</span><span class="side-check" data-slug="sets-comprehensions"></span> সেট ও কম্প্রিহেনশন</summary>
+  <a href="../sets-comprehensions/">সেট ও কম্প্রিহেনশন</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">10</span><span class="side-check" data-slug="args-kwargs"></span> *args এবং **kwargs</summary>
+  <a href="../args-kwargs/">*args এবং **kwargs</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">11</span><span class="side-check" data-slug="functional-programming"></span> ফাংশনাল প্রোগ্রামিং ও অ্যাডভান্সড ফাংশন</summary>
+  <a href="../functional-programming/">ফাংশনাল প্রোগ্রামিং ও অ্যাডভান্সড ফাংশন</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">12</span><span class="side-check" data-slug="closures-decorators"></span> ক্লোজার ও ডেকোরেটর</summary>
+  <a href="../closures-decorators/">ক্লোজার ও ডেকোরেটর</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">13</span><span class="side-check" data-slug="generators"></span> জেনারেটর</summary>
+  <a href="../generators/">জেনারেটর</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">14</span><span class="side-check" data-slug="oop"></span> অবজেক্ট-ওরিয়েন্টেড প্রোগ্রামিং</summary>
+  <a href="../oop/">অবজেক্ট-ওরিয়েন্টেড প্রোগ্রামিং</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">15</span><span class="side-check" data-slug="exceptions"></span> এরর ও এক্সসেপশন হ্যান্ডলিং</summary>
+  <a href="../exceptions/">এরর ও এক্সসেপশন হ্যান্ডলিং</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">16</span><span class="side-check" data-slug="file-io"></span> ফাইল I/O</summary>
+  <a href="../file-io/">ফাইল I/O</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">17</span><span class="side-check" data-slug="os-system"></span> OS ও সিস্টেম মডিউল</summary>
+  <a href="../os-system/">OS ও সিস্টেম মডিউল</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">18</span><span class="side-check" data-slug="tkinter"></span> Tkinter দিয়ে GUI প্রোগ্রামিং</summary>
+  <a href="../tkinter/">Tkinter দিয়ে GUI প্রোগ্রামিং</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">19</span><span class="side-check" data-slug="projects"></span> Python প্রজেক্ট</summary>
+  <a href="../projects/">Python প্রজেক্ট</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">20</span><span class="side-check" data-slug="sql"></span> Python + SQL</summary>
+  <a href="../sql/">Python + SQL</a>
+</details>
+  <button id="reset-progress-btn" class="btn btn-ghost btn-sm" type="button" style="margin-top:1rem;width:100%;">অগ্রগতি রিসেট করুন</button>
+</aside>
+<main class="main" id="main-content">
+
+<div class="paper">
+  <nav class="breadcrumb"><a href="../index.html">হোম</a> / <a href="../roadmap/">কোর্স</a> / প্রিন্ট, ভ্যারিয়েবল ও বেসিক আউটপুট</nav>
+  <div class="badge-row"><span class="badge beginner">শুরুর স্তর</span> <span class="badge time">৪০ মিনিট</span></div>
+  <h1>মডিউল 02 — প্রিন্ট, ভ্যারিয়েবল ও বেসিক আউটপুট</h1>
+  <p style="font-size:1.05rem;color:var(--ink-soft);max-width:62ch;">স্ক্রিনের সাথে কথা বলা, নামের মাধ্যমে মান সংরক্ষণ করা, এবং Python-এর মূল ডেটা টাইপ।</p>
+  <p class="note">পূর্বশর্ত: মডিউল ০১ — পরিচিতি ও সেটআপ</p>
+
+  <div class="objectives"><h3>এই লেসন শেষে আপনি যা করতে পারবেন</h3><ul><li>একাধিক মান, separator এবং escape sequence দিয়ে print() ব্যবহার করা</li><li>ভ্যারিয়েবল তৈরি ও আপডেট করা, এবং Python-এর নামকরণের নিয়ম বোঝা</li><li>+, -, *, /, //, %, ** দিয়ে Python-কে ক্যালকুলেটর হিসেবে ব্যবহার করা</li><li>type() দিয়ে একটি মানের টাইপ চিহ্নিত করা</li></ul></div>
+
+  <h2 id="concept">ধারণা ও সিনট্যাক্স</h2>
+  
+<p><code>print()</code> হলো Python প্রোগ্রামের বাইরের জগতের সাথে কথা বলার মাধ্যম। একটি <strong>ভ্যারিয়েবল</strong>
+হলো আপনার কম্পিউটারের মেমরিতে একটি নামযুক্ত বাক্স, যা একটি মান ধরে রাখে — যেন একটি ডেটার টুকরোর সাথে সাঁটা একটি
+নাম-লেখা স্টিকি নোট। এই দুটো বিষয় বুঝে গেলে, আপনি ইতিমধ্যেই এমন কিছু বানাতে পারেন যা হিসাব করে ও ফলাফল জানায়,
+যা প্রোগ্রামিংয়ের একদম মূল বিষয়।</p>
+<p>ভ্যারিয়েবল গুরুত্বপূর্ণ কারণ প্রোগ্রামকে প্রায়ই দুই স্টেপের মাঝে কিছু <em>মনে রাখতে</em> হয়: একজন ব্যবহারকারীর
+বয়স, একটি চলতি টোটাল, একটি গেমের স্কোর। কোনো মানের নাম না থাকলে, পরে তার কাছে ফিরে যাওয়ার কোনো উপায় থাকবে না।</p>
+
+  <div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">সিনট্যাক্স</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-41335"><code>variable_name = value
+<span class="kw">print</span>(value1, value2, sep=<span class="str">&quot;, &quot;</span>, end=<span class="str">&quot;\n&quot;</span>)</code></pre></div>
+
+  <h2 id="examples">উদাহরণ</h2>
+  <h3>একাধিক মান দিয়ে print() <span class="badge veryeasy" style="margin-left:.4rem;">খুব সহজ</span></h3><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">একাধিক মান দিয়ে print()</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-39715"><code><span class="kw">print</span>(<span class="str">&quot;Score:&quot;</span>, <span class="num">95</span>, <span class="str">&quot;/&quot;</span>, <span class="num">100</span>)</code></pre><div class="cb-output"><span class="out-label">আউটপুট</span>Score: 95 / 100</div><div data-runner class="runner"><textarea class="run-editor" spellcheck="false" aria-label="সম্পাদনাযোগ্য Python কোড">print(&quot;Score:&quot;, 95, &quot;/&quot;, 100)</textarea><div class="tracer-controls"><button class="btn btn-primary btn-sm run-btn" type="button">▶ ব্রাউজারে চালান</button><button class="btn btn-ghost btn-sm run-reset" type="button">রিসেট</button></div><div class="run-output" role="status" aria-live="polite"></div></div></div><p>print() কমা দিয়ে ভাগ করা যতগুলো আইটেম ইচ্ছা গ্রহণ করতে পারে এবং প্রতিটির মাঝে স্বয়ংক্রিয়ভাবে একটি স্পেস যোগ করে।</p><h3>এসকেপ সিকোয়েন্স <span class="badge easy" style="margin-left:.4rem;">সহজ</span></h3><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">এসকেপ সিকোয়েন্স</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-57470"><code><span class="kw">print</span>(<span class="str">&quot;She said, \&quot;Python is fun!\&quot;&quot;</span>)
+<span class="kw">print</span>(<span class="str">&quot;Line one\nLine two&quot;</span>)
+<span class="kw">print</span>(<span class="str">&quot;Tab\tSeparated&quot;</span>)</code></pre><div class="cb-output"><span class="out-label">আউটপুট</span>She said, &quot;Python is fun!&quot;
+Line one
+Line two
+Tab	Separated</div><div data-runner class="runner"><textarea class="run-editor" spellcheck="false" aria-label="সম্পাদনাযোগ্য Python কোড">print(&quot;She said, \&quot;Python is fun!\&quot;&quot;)
+print(&quot;Line one\nLine two&quot;)
+print(&quot;Tab\tSeparated&quot;)</textarea><div class="tracer-controls"><button class="btn btn-primary btn-sm run-btn" type="button">▶ ব্রাউজারে চালান</button><button class="btn btn-ghost btn-sm run-reset" type="button">রিসেট</button></div><div class="run-output" role="status" aria-live="polite"></div></div></div><p>কোনো ক্যারেক্টারের আগে একটি ব্যাকস্ল্যাশ তাকে বিশেষ অর্থ দেয়: <code>\"</code> মানে একটি লিটারাল কোটেশন চিহ্ন, <code>\n</code> মানে নতুন লাইন, এবং <code>\t</code> মানে ট্যাব।</p><h3>Raw স্ট্রিং ও ইমোজি <span class="badge intermediate" style="margin-left:.4rem;">মধ্যম</span></h3><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">Raw স্ট্রিং ও ইমোজি</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-29804"><code>path = r<span class="str">&quot;C:\Users\name\Documents&quot;</span>
+<span class="kw">print</span>(path)
+<span class="kw">print</span>(<span class="str">&quot;Python is fun 🐍&quot;</span>)</code></pre><div class="cb-output"><span class="out-label">আউটপুট</span>C:\Users\name\Documents
+Python is fun 🐍</div><div data-runner class="runner"><textarea class="run-editor" spellcheck="false" aria-label="সম্পাদনাযোগ্য Python কোড">path = r&quot;C:\Users\name\Documents&quot;
+print(path)
+print(&quot;Python is fun 🐍&quot;)</textarea><div class="tracer-controls"><button class="btn btn-primary btn-sm run-btn" type="button">▶ ব্রাউজারে চালান</button><button class="btn btn-ghost btn-sm run-reset" type="button">রিসেট</button></div><div class="run-output" role="status" aria-live="polite"></div></div></div><p>একটি স্ট্রিংয়ের আগে <code>r</code> লিখলে সেটি একটি <strong>raw string</strong> হয়ে যায়, ফলে ব্যাকস্ল্যাশগুলো লিটারালি বিবেচিত হয় — Windows-এর ফাইল পাথের জন্য এটি অপরিহার্য। ইমোজি আসলে শুধু Unicode ক্যারেক্টার, তাই এগুলো অন্য টেক্সটের মতোই প্রিন্ট হয়।</p><h3>Python একটি ক্যালকুলেটর হিসেবে <span class="badge easy" style="margin-left:.4rem;">সহজ</span></h3><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">Python একটি ক্যালকুলেটর হিসেবে</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-85880"><code><span class="kw">print</span>(<span class="num">7</span> + <span class="num">3</span>)
+<span class="kw">print</span>(<span class="num">7</span> - <span class="num">3</span>)
+<span class="kw">print</span>(<span class="num">7</span> * <span class="num">3</span>)
+<span class="kw">print</span>(<span class="num">7</span> / <span class="num">3</span>)
+<span class="kw">print</span>(<span class="num">7</span> // <span class="num">3</span>)
+<span class="kw">print</span>(<span class="num">7</span> % <span class="num">3</span>)
+<span class="kw">print</span>(<span class="num">7</span> ** <span class="num">2</span>)</code></pre><div class="cb-output"><span class="out-label">আউটপুট</span>10
+4
+21
+2.3333333333333335
+2
+1
+49</div><div data-runner class="runner"><textarea class="run-editor" spellcheck="false" aria-label="সম্পাদনাযোগ্য Python কোড">print(7 + 3)
+print(7 - 3)
+print(7 * 3)
+print(7 / 3)
+print(7 // 3)
+print(7 % 3)
+print(7 ** 2)</textarea><div class="tracer-controls"><button class="btn btn-primary btn-sm run-btn" type="button">▶ ব্রাউজারে চালান</button><button class="btn btn-ghost btn-sm run-reset" type="button">রিসেট</button></div><div class="run-output" role="status" aria-live="polite"></div></div></div><p><code>/</code> সবসময় দশমিক ফলাফল দেয়, <code>//</code> পূর্ণসংখ্যা (floor) ভাগফল দেয়, <code>%</code> ভাগশেষ দেয়, এবং <code>**</code> ঘাত হিসাব করে।</p><h3>ভ্যারিয়েবল ও type() <span class="badge realworld" style="margin-left:.4rem;">বাস্তব উদাহরণ</span></h3><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">ভ্যারিয়েবল ও type()</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-59244"><code>age = <span class="num">25</span>
+price = <span class="num">19.99</span>
+name = <span class="str">&quot;Maria&quot;</span>
+is_member = <span class="kw">True</span>
+<span class="kw">print</span>(type(age), type(price), type(name), type(is_member))</code></pre><div class="cb-output"><span class="out-label">আউটপুট</span>&lt;class &#x27;int&#x27;&gt; &lt;class &#x27;float&#x27;&gt; &lt;class &#x27;str&#x27;&gt; &lt;class &#x27;bool&#x27;&gt;</div><div data-runner class="runner"><textarea class="run-editor" spellcheck="false" aria-label="সম্পাদনাযোগ্য Python কোড">age = 25
+price = 19.99
+name = &quot;Maria&quot;
+is_member = True
+print(type(age), type(price), type(name), type(is_member))</textarea><div class="tracer-controls"><button class="btn btn-primary btn-sm run-btn" type="button">▶ ব্রাউজারে চালান</button><button class="btn btn-ghost btn-sm run-reset" type="button">রিসেট</button></div><div class="run-output" role="status" aria-live="polite"></div></div></div><p>Python নিজেই একটি মানের টাইপ বের করে নেয়। এখানকার চারটি মৌলিক টাইপ হলো ইন্টিজার, ফ্লোটিং-পয়েন্ট সংখ্যা, স্ট্রিং (টেক্সট), এবং বুলিয়ান (True/False)।</p>
+
+  <h2>ভিজ্যুয়াল ব্যাখ্যা</h2>
+  <figure class="diagram"><svg viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Variable name pointing to value Python">
+<text x="160" y="24" text-anchor="middle" style="fill:var(--ink);font-family:var(--font-mono);font-size:16px;font-weight:700">name</text>
+<line x1="160" y1="32" x2="160" y2="54" style="stroke:var(--rule);stroke-width:2" marker-end="url(#arrow)"/>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" style="fill:var(--ink-faint)"/></marker></defs>
+<rect x="80" y="58" width="160" height="48" rx="6" style="fill:var(--surface);stroke:var(--accent-2);stroke-width:2"/>
+<text x="160" y="88" text-anchor="middle" style="fill:var(--accent-2);font-family:var(--font-mono);font-size:15px;font-weight:700">Python</text>
+</svg><figcaption>একটি ভ্যারিয়েবল হলো একটি নাম, যা মেমরিতে সংরক্ষিত একটি মানের দিকে নির্দেশ করে।</figcaption></figure>
+
+  
+
+  <details class="disclosure"><summary>🔍 ভেতরে ভেতরে কী ঘটে? (অ্যাডভান্সড)</summary><div class="disclosure-body"><p>ভেতরে ভেতরে, Python আপনার সোর্স কোডকে বাইটকোডে কম্পাইল করে এবং একটি ভার্চুয়াল মেশিনে (CPython ইন্টারপ্রিটার) চালায়। ভ্যারিয়েবলগুলো একটি নেমস্পেস ডিকশনারিতে থাকা নাম, যা মেমরিতে থাকা অবজেক্টের দিকে নির্দেশ করে — উপরের ট্রেসারের মেমরি প্যানেলে ঠিক এটাই দেখানো হচ্ছে।</p></div></details>
+
+  <h3>প্রতিটি লাইন চলার সাথে সাথে মেমরিতে ভ্যারিয়েবল তৈরি হতে দেখুন</h3><p>নিচের নিয়ন্ত্রণগুলো দিয়ে এই উদাহরণটি এক লাইন করে চালিয়ে দেখুন এবং ইন্টারপ্রিটারের মেমরি লাইভ পরিবর্তন হতে দেখুন।</p>
+<div class="tracer" data-trace="[{&quot;line&quot;: 0, &quot;vars&quot;: {&quot;x&quot;: 10}, &quot;output&quot;: &quot;&quot;, &quot;desc&quot;: &quot;x = 10 \u09ae\u09c7\u09ae\u09b0\u09bf\u09a4\u09c7 x \u09a8\u09be\u09ae\u09c7 \u098f\u0995\u099f\u09bf \u09a8\u09be\u09ae \u09a4\u09c8\u09b0\u09bf \u0995\u09b0\u09c7 \u098f\u09ac\u0982 \u09b8\u09c7\u099f\u09bf 10 \u09ae\u09be\u09a8\u09c7\u09b0 \u09a6\u09bf\u0995\u09c7 \u09a8\u09bf\u09b0\u09cd\u09a6\u09c7\u09b6 \u0995\u09b0\u09be\u09af\u09bc\u0964&quot;}, {&quot;line&quot;: 1, &quot;vars&quot;: {&quot;x&quot;: 10, &quot;y&quot;: 20}, &quot;output&quot;: &quot;&quot;, &quot;desc&quot;: &quot;y = 20 \u09a6\u09cd\u09ac\u09bf\u09a4\u09c0\u09af\u09bc \u098f\u0995\u099f\u09bf \u09a8\u09be\u09ae \u09a4\u09c8\u09b0\u09bf \u0995\u09b0\u09c7, y, \u09af\u09be 20-\u098f\u09b0 \u09a6\u09bf\u0995\u09c7 \u09a8\u09bf\u09b0\u09cd\u09a6\u09c7\u09b6 \u0995\u09b0\u09c7\u0964&quot;}, {&quot;line&quot;: 2, &quot;vars&quot;: {&quot;x&quot;: 10, &quot;y&quot;: 20, &quot;result&quot;: 30}, &quot;output&quot;: &quot;&quot;, &quot;desc&quot;: &quot;Python x + y \u09b9\u09bf\u09b8\u09be\u09ac \u0995\u09b0\u09c7 (10 + 20 = 30) \u098f\u09ac\u0982 result-\u098f \u09b8\u0982\u09b0\u0995\u09cd\u09b7\u09a3 \u0995\u09b0\u09c7\u0964&quot;}, {&quot;line&quot;: 3, &quot;vars&quot;: {&quot;x&quot;: 10, &quot;y&quot;: 20, &quot;result&quot;: 30}, &quot;output&quot;: &quot;30&quot;, &quot;desc&quot;: &quot;print(result) result-\u098f\u09b0 \u09ac\u09b0\u09cd\u09a4\u09ae\u09be\u09a8 \u09ae\u09be\u09a8 \u0996\u09c1\u0981\u099c\u09c7 \u09ac\u09c7\u09b0 \u0995\u09b0\u09c7 \u09aa\u09cd\u09b0\u09a6\u09b0\u09cd\u09b6\u09a8 \u0995\u09b0\u09c7\u0964&quot;}]">
+  <div class="tracer-panel trace-code">
+    <h4>কোড</h4>
+    <div class="codeblock" style="margin:0;">
+      <div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">কোড</span></div>
+      <pre><code><span class="cb-line">x = <span class="num">10</span></span>
+<span class="cb-line">y = <span class="num">20</span></span>
+<span class="cb-line">result = x + y</span>
+<span class="cb-line"><span class="kw">print</span>(result)</span></code></pre>
+    </div>
+  </div>
+  <div class="tracer-panel">
+    <h4>ইন্টারপ্রিটারের অবস্থা</h4>
+    <div class="trace-mem"></div>
+    <div style="margin-top:.8rem;">
+      <h4 style="margin-bottom:.3rem;">কনসোল আউটপুট</h4>
+      <div class="cb-output trace-out" style="border-top:none;"></div>
+    </div>
+    <div class="tracer-desc"></div>
+    <div class="tracer-controls">
+      <button class="btn btn-primary btn-sm trace-play" type="button">▶ চালান</button>
+      <button class="btn btn-ghost btn-sm trace-step" type="button">পরের ধাপ ⏭</button>
+      <button class="btn btn-ghost btn-sm trace-restart" type="button">⏮ পুনরায় শুরু</button>
+      <label class="range-wrap">গতি
+        <select class="trace-speed">
+          <option value="1600">ধীর</option>
+          <option value="900" selected>স্বাভাবিক</option>
+          <option value="400">দ্রুত</option>
+        </select>
+      </label>
+      <span class="tracer-step-of"></span>
+    </div>
+    <input type="range" class="trace-range" min="0" max="0" value="0" step="1" style="width:100%;margin-top:.6rem;" aria-label="ধাপে ধাপে এক্সিকিউশন দেখুন">
+  </div>
+</div>
+
+  <h2 id="mistakes">সাধারণ ভুল</h2>
+  
+<div class="callout callout-mistake">
+  <div class="callout-head">✗ সাধারণ ভুল 1</div>
+  <p>Python-এ ভ্যারিয়েবলের নাম অক্ষর বা আন্ডারস্কোর দিয়ে শুরু হতে হবে, স্পেস থাকতে পারবে না, এবং &lt;code&gt;print&lt;/code&gt; বা &lt;code&gt;class&lt;/code&gt;-এর মতো কোনো সংরক্ষিত শব্দ হতে পারবে না।</p>
+  <div class="mistake-pair">
+    <div class="mp-bad">
+      <div class="mp-label">✗ এটি এড়িয়ে চলুন</div>
+      <div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">এতে দেখা দেবে SyntaxError</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-38157"><code>2nd_place = <span class="str">&quot;Silver&quot;</span>
+my variable = <span class="num">5</span></code></pre></div>
+    </div>
+    <div class="mp-good">
+      <div class="mp-label">✓ সঠিক পদ্ধতি</div>
+      <div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">সংশোধিত</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-89861"><code>second_place = <span class="str">&quot;Silver&quot;</span>
+my_variable = <span class="num">5</span></code></pre></div>
+    </div>
+  </div>
+</div>
+<div class="callout callout-mistake">
+  <div class="callout-head">✗ সাধারণ ভুল 2</div>
+  <p>টেক্সটের চারপাশে কোটেশন চিহ্ন দিতে ভুলে গেলে, Python মনে করে আপনি এমন একটি ভ্যারিয়েবলের কথা বলছেন যা এখনো তৈরিই হয়নি।</p>
+  <div class="mistake-pair">
+    <div class="mp-bad">
+      <div class="mp-label">✗ এটি এড়িয়ে চলুন</div>
+      <div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">এতে দেখা দেবে NameError: name &#x27;Hello&#x27; is not defined</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-6646"><code><span class="kw">print</span>(Hello)</code></pre></div>
+    </div>
+    <div class="mp-good">
+      <div class="mp-label">✓ সঠিক পদ্ধতি</div>
+      <div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">সংশোধিত</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-65269"><code><span class="kw">print</span>(<span class="str">&quot;Hello&quot;</span>)</code></pre></div>
+    </div>
+  </div>
+</div>
+
+  <div class="callout callout-tip"><div class="callout-head">✓ ভালো অভ্যাস</div><ul><li>ভ্যারিয়েবলের নামে <code>snake_case</code> ব্যবহার করুন: <code>total_price</code>, <code>TotalPrice</code> নয়।</li><li>বর্ণনামূলক নাম বাছুন — কোড কয়েক লাইনের বেশি হয়ে গেলে <code>age</code>, <code>a</code>-এর চেয়ে ভালো।</li><li>Windows ফাইল পাথ ও রেগুলার এক্সপ্রেশনের জন্য raw string (<code>r"..."</code>) ব্যবহার করুন।</li><li>টাইপ-সম্পর্কিত কোনো বাগ দেখলে <code>type()</code> দিয়ে মান যাচাই করুন।</li></ul></div>
+
+  <h2 id="exercise">অনুশীলনী ও চ্যালেঞ্জ</h2>
+  
+<div class="exercise-box" data-answer="print(&quot;Total:&quot;, count, &quot;apples&quot;)|print(f&quot;Total: {count} apples&quot;)" data-explain="কমা-বিভক্ত একটি print() এবং একটি f-string দুটোই একই দৃশ্যমান আউটপুট তৈরি করে।">
+  <p><strong>অনুশীলনী 1 — ফাঁকা পূরণ করুন</strong></p>
+  <div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">এই কোডটি দেওয়া আছে</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-14517"><code>count = <span class="num">42</span>
+____________________</code></pre></div>
+  <p>লাইনটি এমনভাবে সম্পূর্ণ করুন যাতে এটি ঠিক এভাবে প্রিন্ট করে: Total: 42 apples (&quot;Total:&quot; শব্দ, একটি স্পেস, সংখ্যাটি, একটি স্পেস, এবং &quot;apples&quot;)। শুধু বাদ পড়া print() কলটি লিখুন।</p>
+  <textarea class="ex-input" placeholder="এখানে আপনার উত্তর লিখুন…" aria-label="আপনার উত্তর"></textarea>
+  <div class="tracer-controls">
+    <button class="btn btn-primary btn-sm ex-check" type="button">উত্তর যাচাই করুন</button>
+    <button class="btn btn-ghost btn-sm ex-hint-btn" type="button">ইঙ্গিত</button>
+    <button class="btn btn-ghost btn-sm ex-sol-btn" type="button">সমাধান দেখুন</button>
+  </div>
+  <div class="ex-feedback"></div>
+  <div class="ex-hint" style="display:none;margin-top:.6rem;color:var(--ink-soft);font-size:.88rem;">💡 print() একাধিক কমা-বিভক্ত আর্গুমেন্ট নিতে পারে এবং সেগুলোর মাঝে স্বয়ংক্রিয়ভাবে স্পেস দেয়।</div>
+  <div class="ex-sol" style="display:none;margin-top:.6rem;"><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">Python</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-34472"><code><span class="kw">print</span>(<span class="str">&quot;Total:&quot;</span>, count, <span class="str">&quot;apples&quot;</span>)</code></pre></div></div>
+</div>
+  
+<div class="exercise-box" style="border-color:var(--rule);">
+  <p><strong>🏆 চ্যালেঞ্জ</strong></p>
+  <p>একটি প্রোগ্রাম লিখুন যা দুটি ভ্যারিয়েবলে একটি পণ্যের দাম ও পরিমাণ সংরক্ষণ করে, তারপর মোট খরচ দুই দশমিক স্থান পর্যন্ত ফরম্যাট করে প্রিন্ট করে।</p>
+  <ul><li>price এবং quantity নামের ভ্যারিয়েবল ব্যবহার করুন</li><li>total = price * quantity হিসাব করুন</li><li>&#x27;Total: $59.97&#x27;-এর মতো কিছু প্রিন্ট করুন</li></ul>
+  <details class="disclosure"><summary>💡 ইঙ্গিত প্রয়োজন?</summary><div class="disclosure-body"><p>round(total, 2) দিয়ে রাউন্ড করতে পারেন, অথবা f&quot;{total:.2f}&quot;-এর মতো ফরম্যাট করতে পারেন।</p></div></details>
+  <details class="disclosure"><summary>🔍 একটি নমুনা সমাধান দেখুন</summary><div class="disclosure-body"><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">Python</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-48708"><code>price = <span class="num">19.99</span>
+quantity = <span class="num">3</span>
+total = price * quantity
+<span class="kw">print</span>(f<span class="str">&quot;Total: ${total:.2f}&quot;</span>)</code></pre></div></div></details>
+</div>
+
+  <h2 id="quiz">কুইজ</h2>
+  <p>প্রতিটি প্রশ্নের উত্তর দিন, তারপর জমা দিয়ে নিজের স্কোর ও ব্যাখ্যা দেখুন।</p>
+  
+<div class="quiz" id="quiz-print-output">
+  
+<div class="quiz-q" data-correct="1" id="quiz-print-output-q0">
+  <p class="qtext">1. Python-এ 7 // 3-এর মান কত?</p>
+  <div class="quiz-opt" role="button" tabindex="0" data-idx="0">2.33</div><div class="quiz-opt" role="button" tabindex="0" data-idx="1">2</div><div class="quiz-opt" role="button" tabindex="0" data-idx="2">3</div><div class="quiz-opt" role="button" tabindex="0" data-idx="3">1</div>
+  <div class="quiz-explain">// হলো floor (পূর্ণসংখ্যা) ভাগ, তাই 7 // 3 হয় 2।</div>
+</div>
+<div class="quiz-q" data-correct="1" id="quiz-print-output-q1">
+  <p class="qtext">2. কোন এসকেপ সিকোয়েন্স একটি স্ট্রিংয়ের ভেতরে নতুন লাইন বসায়?</p>
+  <div class="quiz-opt" role="button" tabindex="0" data-idx="0">\t</div><div class="quiz-opt" role="button" tabindex="0" data-idx="1">\n</div><div class="quiz-opt" role="button" tabindex="0" data-idx="2">\\</div><div class="quiz-opt" role="button" tabindex="0" data-idx="3">\s</div>
+  <div class="quiz-explain">\n একটি newline ক্যারেক্টার বোঝায়।</div>
+</div>
+<div class="quiz-q" data-correct="2" id="quiz-print-output-q2">
+  <p class="qtext">3. এর মধ্যে কোনটি একটি বৈধ Python ভ্যারিয়েবলের নাম?</p>
+  <div class="quiz-opt" role="button" tabindex="0" data-idx="0">2nd_place</div><div class="quiz-opt" role="button" tabindex="0" data-idx="1">my-variable</div><div class="quiz-opt" role="button" tabindex="0" data-idx="2">_score</div><div class="quiz-opt" role="button" tabindex="0" data-idx="3">class</div>
+  <div class="quiz-explain">নাম আন্ডারস্কোর বা অক্ষর দিয়ে শুরু হতে পারে; হাইফেন চলবে না এবং &#x27;class&#x27; একটি সংরক্ষিত কিওয়ার্ড।</div>
+</div>
+<div class="quiz-q" data-correct="2" id="quiz-print-output-q3">
+  <p class="qtext">4. type(19.99) কী রিপোর্ট করে?</p>
+  <div class="quiz-opt" role="button" tabindex="0" data-idx="0">int</div><div class="quiz-opt" role="button" tabindex="0" data-idx="1">str</div><div class="quiz-opt" role="button" tabindex="0" data-idx="2">float</div><div class="quiz-opt" role="button" tabindex="0" data-idx="3">bool</div>
+  <div class="quiz-explain">দশমিক বিন্দু থাকা সংখ্যাগুলো float।</div>
+</div>
+<div class="quiz-q" data-correct="1" id="quiz-print-output-q4">
+  <p class="qtext">5. r&quot;C:\Users&quot;-এর মতো একটি raw string কী করে?</p>
+  <div class="quiz-opt" role="button" tabindex="0" data-idx="0">টেক্সটকে বড় হাতের অক্ষরে রূপান্তর করে</div><div class="quiz-opt" role="button" tabindex="0" data-idx="1">ব্যাকস্ল্যাশগুলোকে escape কোড না ধরে লিটারাল ক্যারেক্টার হিসেবে ধরে</div><div class="quiz-opt" role="button" tabindex="0" data-idx="2">সব স্পেস বাদ দেয়</div><div class="quiz-opt" role="button" tabindex="0" data-idx="3">স্ট্রিংটিকে কোড হিসেবে চালায়</div>
+  <div class="quiz-explain">r প্রিফিক্স escape-sequence প্রসেসিং বন্ধ করে দেয়, যা Windows পাথের জন্য উপকারী।</div>
+</div>
+  <div class="tracer-controls">
+    <button class="btn btn-primary quiz-submit" type="button">উত্তর জমা দিন</button>
+    <button class="btn btn-ghost quiz-retry" type="button" style="display:none;">আবার চেষ্টা করুন</button>
+  </div>
+  <div class="quiz-score" style="display:none;"></div>
+</div>
+
+  <h2>সারাংশ</h2>
+  <ul><li>print() একটি বা একাধিক মান দেখায়, স্বয়ংক্রিয়ভাবে স্পেস ও নতুন লাইন দিয়ে।</li><li>ভ্যারিয়েবল হলো মানের দিকে নির্দেশকারী নাম; নামকরণের নিয়ম গুরুত্বপূর্ণ (স্পেস নয়, সংরক্ষিত শব্দ নয়)।</li><li>Python-এর মূল গণিত অপারেটরের মধ্যে পরিচিত +, -, *, / এর পাশাপাশি //, %, ** আছে।</li><li>type() আপনাকে ঠিক জানিয়ে দেয় আপনি কোন ধরনের মান নিয়ে কাজ করছেন।</li></ul>
+
+  <h2>সম্পর্কিত লেসন</h2><div class="related-list"><a href="../introduction/">পরিচিতি ও সেটআপ</a><a href="../strings/">স্ট্রিং ও ইউজার ইনপুট</a><a href="../control-flow/">কন্ট্রোল ফ্লো ও লুপ</a></div>
+
+  
+<div class="mark-complete-row">
+  <button id="mark-complete-btn" class="btn btn-primary" type="button" aria-live="polite">এই লেসনটি সম্পন্ন হিসেবে চিহ্নিত করুন</button>
+  <span style="color:var(--ink-faint);font-size:.85rem;">আপনার ব্রাউজারে ব্যক্তিগতভাবে সংরক্ষিত হয় — কোনো অ্যাকাউন্ট প্রয়োজন নেই।</span>
+</div>
+</div>
+<nav class="lesson-nav" aria-label="লেসন নেভিগেশন"><a href="../introduction/"><div class="dir">← আগের লেসন</div><div>01 — পরিচিতি ও সেটআপ</div></a><a class="next" href="../strings/"><div class="dir">পরের লেসন →</div><div>03 — স্ট্রিং ও ইউজার ইনপুট</div></a></nav>
+
+</main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <a class="brand" href="../index.html" style="margin-bottom:.6rem;"><span class="mark">Py</span>সম্পূর্ণ পাইথন কোর্স</a>
+      <p style="color:var(--ink-soft);font-size:.88rem;max-width:32ch;">যারা সত্যিকার অর্থে পাইথন বুঝতে চান, তাদের জন্য তৈরি — সম্পূর্ণ ফ্রি, উন্মুক্ত এবং নিজের গতিতে শেখার সুযোগ।</p>
+    </div>
+    <div><h4>শিখুন</h4><a href="../roadmap/">কোর্স রোডম্যাপ</a><a href="../exercises/">অনুশীলনী</a><a href="../projects/">প্রজেক্ট</a><a href="../playground/">প্লেগ্রাউন্ড</a></div><div><h4>রেফারেন্স</h4><a href="../cheatsheets/">চিটশিট</a><a href="../glossary/">শব্দকোষ</a><a href="../faq/">প্রশ্নোত্তর</a></div><div><h4>মডিউল</h4><a href="../introduction/">০১ পরিচিতি</a><a href="../oop/">১৪ OOP</a><a href="../sql/">২০ Python + SQL</a></div><div><h4>সাইট</h4><a href="../about/">আমাদের কথা</a><a href="../sitemap.xml">সাইটম্যাপ</a></div>
+  </div>
+  <div class="footer-bottom">© ২০২৬ সম্পূর্ণ পাইথন কোর্স। শেখার জন্য কনটেন্ট সম্পূর্ণ ফ্রি। কোনো অ্যাকাউন্ট প্রয়োজন নেই — আপনার অগ্রগতি আপনার ব্রাউজারেই থাকে।</div>
+</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

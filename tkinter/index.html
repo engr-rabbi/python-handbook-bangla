@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tkinter দিয়ে GUI প্রোগ্রামিং | সম্পূর্ণ পাইথন কোর্স</title>
+<meta name="description" content="আপনার প্রথম উইন্ডো-যুক্ত, ক্লিকযোগ্য ডেস্কটপ অ্যাপ্লিকেশন তৈরি করা।">
+<link rel="canonical" href="https://engr-rabbi.github.io/python-handbook-bangla/tkinter/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tkinter দিয়ে GUI প্রোগ্রামিং | সম্পূর্ণ পাইথন কোর্স">
+<meta property="og:description" content="আপনার প্রথম উইন্ডো-যুক্ত, ক্লিকযোগ্য ডেস্কটপ অ্যাপ্লিকেশন তৈরি করা।">
+<meta property="og:url" content="https://engr-rabbi.github.io/python-handbook-bangla/tkinter/">
+<meta property="og:site_name" content="সম্পূর্ণ পাইথন কোর্স">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tkinter দিয়ে GUI প্রোগ্রামিং | সম্পূর্ণ পাইথন কোর্স">
+<meta name="twitter:description" content="আপনার প্রথম উইন্ডো-যুক্ত, ক্লিকযোগ্য ডেস্কটপ অ্যাপ্লিকেশন তৈরি করা।">
+<meta name="theme-color" content="#B65C38">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23B65C38'/%3E%3Ctext x='50' y='68' font-size='55' font-family='monospace' fill='white' text-anchor='middle'%3EPy%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Tkinter \u09a6\u09bf\u09af\u09bc\u09c7 GUI \u09aa\u09cd\u09b0\u09cb\u0997\u09cd\u09b0\u09be\u09ae\u09bf\u0982", "description": "\u0986\u09aa\u09a8\u09be\u09b0 \u09aa\u09cd\u09b0\u09a5\u09ae \u0989\u0987\u09a8\u09cd\u09a1\u09cb-\u09af\u09c1\u0995\u09cd\u09a4, \u0995\u09cd\u09b2\u09bf\u0995\u09af\u09cb\u0997\u09cd\u09af \u09a1\u09c7\u09b8\u09cd\u0995\u099f\u09aa \u0985\u09cd\u09af\u09be\u09aa\u09cd\u09b2\u09bf\u0995\u09c7\u09b6\u09a8 \u09a4\u09c8\u09b0\u09bf \u0995\u09b0\u09be\u0964", "educationalLevel": "Intermediate", "learningResourceType": "Lesson", "isPartOf": {"@type": "Course", "name": "\u09b8\u09ae\u09cd\u09aa\u09c2\u09b0\u09cd\u09a3 \u09aa\u09be\u0987\u09a5\u09a8 \u0995\u09cb\u09b0\u09cd\u09b8"}, "inLanguage": "bn"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "\u09b9\u09cb\u09ae", "item": "https://engr-rabbi.github.io/python-handbook-bangla/"}, {"@type": "ListItem", "position": 2, "name": "\u0995\u09cb\u09b0\u09cd\u09b8", "item": "https://engr-rabbi.github.io/python-handbook-bangla/roadmap/"}, {"@type": "ListItem", "position": 3, "name": "Tkinter \u09a6\u09bf\u09af\u09bc\u09c7 GUI \u09aa\u09cd\u09b0\u09cb\u0997\u09cd\u09b0\u09be\u09ae\u09bf\u0982", "item": "https://engr-rabbi.github.io/python-handbook-bangla/tkinter/"}]}</script>
+</head>
+<body data-root="../" data-slug="tkinter">
+<script>window.PY_TOTAL_LESSONS = 20;</script>
+<a class="skip-link" href="#main-content">মূল কনটেন্টে যান</a>
+
+<header class="topbar">
+  <button id="menu-toggle" class="icon-btn menu-toggle" aria-label="কোর্স মেনু খুলুন" aria-controls="course-sidebar">☰</button>
+  <a class="brand" href="../index.html"><span class="mark">Py</span>সম্পূর্ণ পাইথন কোর্স</a>
+  <nav class="topnav" aria-label="মূল নেভিগেশন"><a href="../" aria-current="page">হোম</a><a href="../roadmap/">কোর্স</a><a href="../playground/">প্লেগ্রাউন্ড</a><a href="../exercises/">অনুশীলনী</a><a href="../projects/">প্রজেক্ট</a><a href="../cheatsheets/">চিটশিট</a><a href="../glossary/">শব্দকোষ</a><a href="../about/">আমাদের কথা</a></nav>
+  <div class="topbar-spacer"></div>
+  <div id="search-box" role="search">
+    <input id="search-input" type="search" placeholder="লেসন খুঁজুন… ( / )" aria-label="কোর্সে অনুসন্ধান করুন">
+    <div id="search-results" role="listbox"></div>
+  </div>
+  <button id="theme-toggle" class="icon-btn" type="button">🖥 <span class="vis-label">সিস্টেম</span></button>
+</header>
+<div class="page-with-sidebar">
+
+<aside class="sidebar" id="course-sidebar">
+  <div class="sidebar-progress">
+    <div class="label"><span>কোর্সের অগ্রগতি</span><span data-progress-pct>0%</span></div>
+    <div class="progress-track"><div class="progress-fill" data-progress-fill style="width:0%"></div></div>
+  </div>
+  <div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-faint);font-weight:700;padding:0 .5rem;margin-bottom:.4rem;">কোর্স মডিউল</div>
+  
+<details class="side-module">
+  <summary><span class="num">01</span><span class="side-check" data-slug="introduction"></span> পরিচিতি ও সেটআপ</summary>
+  <a href="../introduction/">পরিচিতি ও সেটআপ</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">02</span><span class="side-check" data-slug="print-output"></span> প্রিন্ট, ভ্যারিয়েবল ও বেসিক আউটপুট</summary>
+  <a href="../print-output/">প্রিন্ট, ভ্যারিয়েবল ও বেসিক আউটপুট</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">03</span><span class="side-check" data-slug="strings"></span> স্ট্রিং ও ইউজার ইনপুট</summary>
+  <a href="../strings/">স্ট্রিং ও ইউজার ইনপুট</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">04</span><span class="side-check" data-slug="control-flow"></span> কন্ট্রোল ফ্লো ও লুপ</summary>
+  <a href="../control-flow/">কন্ট্রোল ফ্লো ও লুপ</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">05</span><span class="side-check" data-slug="functions"></span> ফাংশন</summary>
+  <a href="../functions/">ফাংশন</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">06</span><span class="side-check" data-slug="lists"></span> লিস্ট</summary>
+  <a href="../lists/">লিস্ট</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">07</span><span class="side-check" data-slug="tuples"></span> টাপল</summary>
+  <a href="../tuples/">টাপল</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">08</span><span class="side-check" data-slug="dictionaries"></span> ডিকশনারি</summary>
+  <a href="../dictionaries/">ডিকশনারি</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">09</span><span class="side-check" data-slug="sets-comprehensions"></span> সেট ও কম্প্রিহেনশন</summary>
+  <a href="../sets-comprehensions/">সেট ও কম্প্রিহেনশন</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">10</span><span class="side-check" data-slug="args-kwargs"></span> *args এবং **kwargs</summary>
+  <a href="../args-kwargs/">*args এবং **kwargs</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">11</span><span class="side-check" data-slug="functional-programming"></span> ফাংশনাল প্রোগ্রামিং ও অ্যাডভান্সড ফাংশন</summary>
+  <a href="../functional-programming/">ফাংশনাল প্রোগ্রামিং ও অ্যাডভান্সড ফাংশন</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">12</span><span class="side-check" data-slug="closures-decorators"></span> ক্লোজার ও ডেকোরেটর</summary>
+  <a href="../closures-decorators/">ক্লোজার ও ডেকোরেটর</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">13</span><span class="side-check" data-slug="generators"></span> জেনারেটর</summary>
+  <a href="../generators/">জেনারেটর</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">14</span><span class="side-check" data-slug="oop"></span> অবজেক্ট-ওরিয়েন্টেড প্রোগ্রামিং</summary>
+  <a href="../oop/">অবজেক্ট-ওরিয়েন্টেড প্রোগ্রামিং</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">15</span><span class="side-check" data-slug="exceptions"></span> এরর ও এক্সসেপশন হ্যান্ডলিং</summary>
+  <a href="../exceptions/">এরর ও এক্সসেপশন হ্যান্ডলিং</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">16</span><span class="side-check" data-slug="file-io"></span> ফাইল I/O</summary>
+  <a href="../file-io/">ফাইল I/O</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">17</span><span class="side-check" data-slug="os-system"></span> OS ও সিস্টেম মডিউল</summary>
+  <a href="../os-system/">OS ও সিস্টেম মডিউল</a>
+</details>
+<details class="side-module" open>
+  <summary><span class="num">18</span><span class="side-check" data-slug="tkinter"></span> Tkinter দিয়ে GUI প্রোগ্রামিং</summary>
+  <a href="../tkinter/#concept">ধারণা ও সিনট্যাক্স</a><a href="../tkinter/#examples">উদাহরণ</a><a href="../tkinter/#mistakes">সাধারণ ভুল</a><a href="../tkinter/#exercise">অনুশীলনী ও চ্যালেঞ্জ</a><a href="../tkinter/#quiz">কুইজ</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">19</span><span class="side-check" data-slug="projects"></span> Python প্রজেক্ট</summary>
+  <a href="../projects/">Python প্রজেক্ট</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">20</span><span class="side-check" data-slug="sql"></span> Python + SQL</summary>
+  <a href="../sql/">Python + SQL</a>
+</details>
+  <button id="reset-progress-btn" class="btn btn-ghost btn-sm" type="button" style="margin-top:1rem;width:100%;">অগ্রগতি রিসেট করুন</button>
+</aside>
+<main class="main" id="main-content">
+
+<div class="paper">
+  <nav class="breadcrumb"><a href="../index.html">হোম</a> / <a href="../roadmap/">কোর্স</a> / Tkinter দিয়ে GUI প্রোগ্রামিং</nav>
+  <div class="badge-row"><span class="badge intermediate">মধ্যম স্তর</span> <span class="badge time">৫০ মিনিট</span></div>
+  <h1>মডিউল 18 — Tkinter দিয়ে GUI প্রোগ্রামিং</h1>
+  <p style="font-size:1.05rem;color:var(--ink-soft);max-width:62ch;">আপনার প্রথম উইন্ডো-যুক্ত, ক্লিকযোগ্য ডেস্কটপ অ্যাপ্লিকেশন তৈরি করা।</p>
+  <p class="note">পূর্বশর্ত: মডিউল ১৭ — OS ও সিস্টেম মডিউল</p>
+
+  <div class="objectives"><h3>এই লেসন শেষে আপনি যা করতে পারবেন</h3><ul><li>একটি উইন্ডো তৈরি করা এবং লেবেল, বাটন, ও এন্ট্রি ফিল্ড যোগ করা</li><li>একটি callback ফাংশন দিয়ে একটি বাটন ক্লিকে সাড়া দেওয়া</li><li>event-driven প্রোগ্রামিং ব্যাখ্যা করা</li></ul></div>
+
+  <h2 id="concept">ধারণা ও সিনট্যাক্স</h2>
+  
+<p>এখন পর্যন্ত আপনার লেখা প্রতিটি প্রোগ্রাম উপর থেকে নিচে চলে শেষ হয়ে গেছে। একটি <strong>GUI</strong> (গ্রাফিকাল
+ইউজার ইন্টারফেস) অ্যাপ্লিকেশন আলাদা: এটি একটি উইন্ডো আঁকে, তারপর অপেক্ষা করে — কেউ কিছু ক্লিক না করা পর্যন্ত
+কিছুই করে না। এটাই <strong>event-driven প্রোগ্রামিং</strong>: আপনি ছোট ছোট ফাংশন ("callback") লিখেন যা নির্দিষ্ট
+event-এর সাড়ায় চলে, যেমন একটি বাটন ক্লিক।</p>
+<p><code>tkinter</code> হলো Python-এর বিল্ট-ইন GUI টুলকিট — কোনো অতিরিক্ত ইনস্টলেশনের প্রয়োজন নেই — যা এটিকে
+ডেস্কটপ অ্যাপ ডেভেলপমেন্টের স্বাভাবিক শুরুর জায়গা করে দেয়।</p>
+
+  <div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">সিনট্যাক্স</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-82241"><code><span class="kw">import</span> tkinter <span class="kw">as</span> tk
+&nbsp;
+root = tk.Tk()
+label = tk.Label(root, text=<span class="str">&quot;Hello&quot;</span>)
+label.pack()
+root.mainloop()</code></pre></div>
+
+  <h2 id="examples">উদাহরণ</h2>
+  <h3>আপনার প্রথম উইন্ডো <span class="badge veryeasy" style="margin-left:.4rem;">খুব সহজ</span></h3><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">আপনার প্রথম উইন্ডো</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-25035"><code><span class="kw">import</span> tkinter <span class="kw">as</span> tk
+&nbsp;
+root = tk.Tk()
+root.title(<span class="str">&quot;My First App&quot;</span>)
+label = tk.Label(root, text=<span class="str">&quot;Hello, Tkinter!&quot;</span>)
+label.pack(padx=<span class="num">20</span>, pady=<span class="num">20</span>)
+root.mainloop()</code></pre><div class="cb-output"><span class="out-label">আউটপুট</span>(&#x27;Hello, Tkinter!&#x27; টেক্সট সহ একটি ছোট উইন্ডো খোলে)</div><div data-runner class="runner"><textarea class="run-editor" spellcheck="false" aria-label="সম্পাদনাযোগ্য Python কোড">import tkinter as tk
+
+root = tk.Tk()
+root.title(&quot;My First App&quot;)
+label = tk.Label(root, text=&quot;Hello, Tkinter!&quot;)
+label.pack(padx=20, pady=20)
+root.mainloop()</textarea><div class="tracer-controls"><button class="btn btn-primary btn-sm run-btn" type="button">▶ ব্রাউজারে চালান</button><button class="btn btn-ghost btn-sm run-reset" type="button">রিসেট</button></div><div class="run-output" role="status" aria-live="polite"></div></div></div><p>Tk() মূল উইন্ডো তৈরি করে; .pack() একটি widget তার ভেতরে বসায়; mainloop() event loop শুরু করে যা উইন্ডোটিকে খোলা ও সাড়া-দেওয়ার মতো রাখে।</p><h3>একটি callback সহ একটি বাটন <span class="badge easy" style="margin-left:.4rem;">সহজ</span></h3><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">একটি callback সহ একটি বাটন</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-16620"><code><span class="kw">import</span> tkinter <span class="kw">as</span> tk
+&nbsp;
+<span class="kw">def</span> on_click():
+    label.config(text=<span class="str">&quot;Button was clicked!&quot;</span>)
+&nbsp;
+root = tk.Tk()
+label = tk.Label(root, text=<span class="str">&quot;Waiting...&quot;</span>)
+label.pack(pady=<span class="num">10</span>)
+button = tk.Button(root, text=<span class="str">&quot;Click me&quot;</span>, command=on_click)
+button.pack(pady=<span class="num">10</span>)
+root.mainloop()</code></pre><div class="cb-output"><span class="out-label">আউটপুট</span>(বাটন চাপলে লেবেলের টেক্সট &#x27;Button was clicked!&#x27;-এ বদলে যায়)</div><div data-runner class="runner"><textarea class="run-editor" spellcheck="false" aria-label="সম্পাদনাযোগ্য Python কোড">import tkinter as tk
+
+def on_click():
+    label.config(text=&quot;Button was clicked!&quot;)
+
+root = tk.Tk()
+label = tk.Label(root, text=&quot;Waiting...&quot;)
+label.pack(pady=10)
+button = tk.Button(root, text=&quot;Click me&quot;, command=on_click)
+button.pack(pady=10)
+root.mainloop()</textarea><div class="tracer-controls"><button class="btn btn-primary btn-sm run-btn" type="button">▶ ব্রাউজারে চালান</button><button class="btn btn-ghost btn-sm run-reset" type="button">রিসেট</button></div><div class="run-output" role="status" aria-live="polite"></div></div></div><p>command=on_click on_click-কে callback হিসেবে নিবন্ধন করে — বাটন ক্লিক হলেই এটি স্বয়ংক্রিয়ভাবে চলে। এটাই event-driven প্রোগ্রামিং।</p><h3>একটি Entry ফিল্ড থেকে পড়া <span class="badge realworld" style="margin-left:.4rem;">বাস্তব উদাহরণ</span></h3><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">একটি Entry ফিল্ড থেকে পড়া</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-7975"><code><span class="kw">import</span> tkinter <span class="kw">as</span> tk
+&nbsp;
+<span class="kw">def</span> greet():
+    name = entry.get()
+    result_label.config(text=f<span class="str">&quot;Hello, {name}!&quot;</span>)
+&nbsp;
+root = tk.Tk()
+entry = tk.Entry(root)
+entry.pack(pady=<span class="num">5</span>)
+tk.Button(root, text=<span class="str">&quot;Greet&quot;</span>, command=greet).pack(pady=<span class="num">5</span>)
+result_label = tk.Label(root, text=<span class="str">&quot;&quot;</span>)
+result_label.pack(pady=<span class="num">5</span>)
+root.mainloop()</code></pre><div class="cb-output"><span class="out-label">আউটপুট</span>(একটি নাম টাইপ করে Greet ক্লিক করলে একটি ব্যক্তিগত শুভেচ্ছাবার্তা দেখায়)</div><div data-runner class="runner"><textarea class="run-editor" spellcheck="false" aria-label="সম্পাদনাযোগ্য Python কোড">import tkinter as tk
+
+def greet():
+    name = entry.get()
+    result_label.config(text=f&quot;Hello, {name}!&quot;)
+
+root = tk.Tk()
+entry = tk.Entry(root)
+entry.pack(pady=5)
+tk.Button(root, text=&quot;Greet&quot;, command=greet).pack(pady=5)
+result_label = tk.Label(root, text=&quot;&quot;)
+result_label.pack(pady=5)
+root.mainloop()</textarea><div class="tracer-controls"><button class="btn btn-primary btn-sm run-btn" type="button">▶ ব্রাউজারে চালান</button><button class="btn btn-ghost btn-sm run-reset" type="button">রিসেট</button></div><div class="run-output" role="status" aria-live="polite"></div></div></div><p>entry.get() ঠিক বাটন ক্লিক হওয়ার মুহূর্তে Entry widget-এ ব্যবহারকারী যা টাইপ করেছেন তা পড়ে।</p>
+
+  <h2>ভিজ্যুয়াল ব্যাখ্যা</h2>
+  <figure class="diagram"><svg viewBox="0 0 520 354" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flow diagram"><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" style="fill:var(--ink-faint)"/></marker></defs><rect x="120" y="10" width="280" height="46" rx="8" style="fill:var(--surface);stroke:var(--rule);stroke-width:1.5"/><text x="260" y="38" text-anchor="middle" style="fill:var(--ink);font-family:var(--font-mono);font-size:14px">উইন্ডো তৈরি করুন (Tk())</text><line x1="260" y1="56" x2="260" y2="80" style="stroke:var(--ink-faint);stroke-width:1.5" marker-end="url(#arrow)"/><rect x="120" y="82" width="280" height="46" rx="8" style="fill:var(--surface);stroke:var(--rule);stroke-width:1.5"/><text x="260" y="110" text-anchor="middle" style="fill:var(--ink);font-family:var(--font-mono);font-size:14px">Widget যোগ করুন (Label, Button, Entry)</text><line x1="260" y1="128" x2="260" y2="152" style="stroke:var(--ink-faint);stroke-width:1.5" marker-end="url(#arrow)"/><rect x="120" y="154" width="280" height="46" rx="8" style="fill:var(--surface);stroke:var(--rule);stroke-width:1.5"/><text x="260" y="182" text-anchor="middle" style="fill:var(--ink);font-family:var(--font-mono);font-size:14px">root.mainloop() শুরু হয় — উইন্ডো সাড়া-দেওয়ার মতো হয়ে যায়</text><line x1="260" y1="200" x2="260" y2="224" style="stroke:var(--ink-faint);stroke-width:1.5" marker-end="url(#arrow)"/><rect x="120" y="226" width="280" height="46" rx="8" style="fill:var(--surface);stroke:var(--rule);stroke-width:1.5"/><text x="260" y="254" text-anchor="middle" style="fill:var(--ink);font-family:var(--font-mono);font-size:14px">ব্যবহারকারী একটি বাটন ক্লিক করে</text><line x1="260" y1="272" x2="260" y2="296" style="stroke:var(--ink-faint);stroke-width:1.5" marker-end="url(#arrow)"/><rect x="120" y="298" width="280" height="46" rx="8" style="fill:var(--surface);stroke:var(--rule);stroke-width:1.5"/><text x="260" y="326" text-anchor="middle" style="fill:var(--ink);font-family:var(--font-mono);font-size:14px">সেই বাটনের callback ফাংশন চলে</text></svg><figcaption>একটি GUI অ্যাপ তার জীবনের বেশিরভাগ সময় mainloop()-এর ভেতরে event-এর জন্য অপেক্ষা করে কাটায়।</figcaption></figure>
+
+  <details class="disclosure"><summary>💡 এটা কেন কাজ করে?</summary><div class="disclosure-body"><p>উপরের ধারণার ব্যাখ্যাটি আবার ধীরে ধীরে, লাইন বাই লাইন পড়ুন — সেখানকার প্রতিটি কিওয়ার্ড উদাহরণের কোডের একটি লাইনের সাথে সরাসরি মিলে যায়। এখনো পরিষ্কার না হলে, এই লেসনে ট্রেসড উদাহরণ থাকলে সেটি এক ধাপ এক ধাপ করে আবার চালিয়ে দেখুন।</p></div></details>
+
+  <details class="disclosure"><summary>🔍 ভেতরে ভেতরে কী ঘটে? (অ্যাডভান্সড)</summary><div class="disclosure-body"><p>ভেতরে ভেতরে, Python আপনার সোর্স কোডকে বাইটকোডে কম্পাইল করে এবং একটি ভার্চুয়াল মেশিনে (CPython ইন্টারপ্রিটার) চালায়। ভ্যারিয়েবলগুলো একটি নেমস্পেস ডিকশনারিতে থাকা নাম, যা মেমরিতে থাকা অবজেক্টের দিকে নির্দেশ করে — উপরের ট্রেসারের মেমরি প্যানেলে ঠিক এটাই দেখানো হচ্ছে।</p></div></details>
+
+  
+
+  <h2 id="mistakes">সাধারণ ভুল</h2>
+  
+<div class="callout callout-mistake">
+  <div class="callout-head">✗ সাধারণ ভুল 1</div>
+  <p>root.mainloop() ভুলে গেলে উইন্ডো হয় কখনো দেখা যায় না বা তাৎক্ষণিক বন্ধ হয়ে যায়, কারণ সেটিকে বেঁচে রাখা event loop কখনো শুরুই হয় না।</p>
+  <div class="mistake-pair">
+    <div class="mp-bad">
+      <div class="mp-label">✗ এটি এড়িয়ে চলুন</div>
+      <div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">এতে দেখা দেবে স্ক্রিপ্ট চলে ও তাৎক্ষণিক শেষ হয়ে যায় — কোনো উইন্ডো দৃশ্যমান থাকে না</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-50276"><code><span class="kw">import</span> tkinter <span class="kw">as</span> tk
+root = tk.Tk()
+label = tk.Label(root, text=<span class="str">&quot;Hi&quot;</span>)
+label.pack()
+<span class="cm"># root.mainloop() ভুলে গেছি</span></code></pre></div>
+    </div>
+    <div class="mp-good">
+      <div class="mp-label">✓ সঠিক পদ্ধতি</div>
+      <div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">সংশোধিত</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-48444"><code><span class="kw">import</span> tkinter <span class="kw">as</span> tk
+root = tk.Tk()
+label = tk.Label(root, text=<span class="str">&quot;Hi&quot;</span>)
+label.pack()
+root.mainloop()</code></pre></div>
+    </div>
+  </div>
+</div>
+
+  <div class="callout callout-tip"><div class="callout-head">✓ ভালো অভ্যাস</div><ul><li>একটি tkinter স্ক্রিপ্ট সবসময় root.mainloop() দিয়ে শেষ করুন।</li><li>callback ফাংশন ছোট রাখুন — জটিল লজিকের জন্য অন্য ফাংশন কল করুন।</li><li>একটি container-এর ভেতরে .pack(), .grid(), বা .place() একইভাবে ব্যবহার করুন — মিশিয়ে দিলে বিভ্রান্তিকর লেআউট হতে পারে।</li><li>একটি বাটন callback-এর ভেতরে ঝুঁকিপূর্ণ কাজ try/except-এ মুড়িয়ে দিন, এবং পুরো অ্যাপ ক্র্যাশ না করে tkinter.messagebox দিয়ে এরর দেখান।</li></ul></div>
+
+  <h2 id="exercise">অনুশীলনী ও চ্যালেঞ্জ</h2>
+  
+<div class="exercise-box" data-answer="Waiting..." data-explain="লেবেলটি text=&quot;Waiting...&quot; দিয়ে শুরু হয় এবং callback চলার পরই বদলায়।">
+  <p><strong>অনুশীলনী 1 — আউটপুট অনুমান করুন</strong></p>
+  
+  <p>উপরের বাটন উদাহরণে, উইন্ডো খোলার পরপরই, কিছু ক্লিক করার আগে, লেবেলে কী লেখা থাকবে?</p>
+  <textarea class="ex-input" placeholder="এখানে আপনার উত্তর লিখুন…" aria-label="আপনার উত্তর"></textarea>
+  <div class="tracer-controls">
+    <button class="btn btn-primary btn-sm ex-check" type="button">উত্তর যাচাই করুন</button>
+    <button class="btn btn-ghost btn-sm ex-hint-btn" type="button">ইঙ্গিত</button>
+    <button class="btn btn-ghost btn-sm ex-sol-btn" type="button">সমাধান দেখুন</button>
+  </div>
+  <div class="ex-feedback"></div>
+  <div class="ex-hint" style="display:none;margin-top:.6rem;color:var(--ink-soft);font-size:.88rem;">💡 Label-এর প্রাথমিক text= আর্গুমেন্টটি দেখুন।</div>
+  <div class="ex-sol" style="display:none;margin-top:.6rem;"><p>Waiting...</p></div>
+</div>
+  
+<div class="exercise-box" style="border-color:var(--rule);">
+  <p><strong>🏆 চ্যালেঞ্জ</strong></p>
+  <p>একটি Entry ফিল্ড ও একটি বাটন সহ একটি ছোট Tkinter অ্যাপ তৈরি করুন, যেখানে বাটন ক্লিক করলে ব্যবহারকারী যা টাইপ করেছেন তা নিশ্চিত করে একটি মেসেজ বক্স (tkinter.messagebox ব্যবহার করে) দেখায়।</p>
+  <ul><li>টেক্সট সংগ্রহ করতে একটি Entry widget ব্যবহার করুন</li><li>এটি দেখাতে tkinter.messagebox.showinfo() ব্যবহার করুন</li><li>উইন্ডোটির একটি title দিন</li></ul>
+  <details class="disclosure"><summary>💡 ইঙ্গিত প্রয়োজন?</summary><div class="disclosure-body"><p>from tkinter import messagebox, তারপর messagebox.showinfo(&quot;Title&quot;, f&quot;You typed: {text}&quot;)</p></div></details>
+  <details class="disclosure"><summary>🔍 একটি নমুনা সমাধান দেখুন</summary><div class="disclosure-body"><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">Python</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-34325"><code><span class="kw">import</span> tkinter <span class="kw">as</span> tk
+<span class="kw">from</span> tkinter <span class="kw">import</span> messagebox
+&nbsp;
+<span class="kw">def</span> show_message():
+    messagebox.showinfo(<span class="str">&quot;You typed&quot;</span>, entry.get())
+&nbsp;
+root = tk.Tk()
+root.title(<span class="str">&quot;Echo App&quot;</span>)
+entry = tk.Entry(root)
+entry.pack(pady=<span class="num">5</span>)
+tk.Button(root, text=<span class="str">&quot;Show&quot;</span>, command=show_message).pack(pady=<span class="num">5</span>)
+root.mainloop()</code></pre></div></div></details>
+</div>
+
+  <h2 id="quiz">কুইজ</h2>
+  <p>প্রতিটি প্রশ্নের উত্তর দিন, তারপর জমা দিয়ে নিজের স্কোর ও ব্যাখ্যা দেখুন।</p>
+  
+<div class="quiz" id="quiz-tkinter">
+  
+<div class="quiz-q" data-correct="1" id="quiz-tkinter-q0">
+  <p class="qtext">1. কী একটি tkinter উইন্ডোর event loop শুরু করে?</p>
+  <div class="quiz-opt" role="button" tabindex="0" data-idx="0">root.start()</div><div class="quiz-opt" role="button" tabindex="0" data-idx="1">root.mainloop()</div><div class="quiz-opt" role="button" tabindex="0" data-idx="2">root.run()</div><div class="quiz-opt" role="button" tabindex="0" data-idx="3">এটি স্বয়ংক্রিয়ভাবে শুরু হয়</div>
+  <div class="quiz-explain">mainloop() উইন্ডোটিকে বন্ধ না হওয়া পর্যন্ত খোলা রাখে ও event শোনে।</div>
+</div>
+<div class="quiz-q" data-correct="0" id="quiz-tkinter-q1">
+  <p class="qtext">2. event-driven প্রোগ্রামিংয়ে একটি &#x27;callback&#x27; কী?</p>
+  <div class="quiz-opt" role="button" tabindex="0" data-idx="0">একটি event-এর সাড়ায় স্বয়ংক্রিয়ভাবে চলা একটি ফাংশন</div><div class="quiz-opt" role="button" tabindex="0" data-idx="1">একটি নির্দিষ্ট ধরনের ভ্যারিয়েবল</div><div class="quiz-opt" role="button" tabindex="0" data-idx="2">এক ধরনের লুপ</div><div class="quiz-opt" role="button" tabindex="0" data-idx="3">একটি এরর মেসেজ</div>
+  <div class="quiz-explain">একটি callback হলো এমন কোড যা কোনো নির্দিষ্ট event (যেমন একটি ক্লিক) ঘটলে চলার জন্য নিবন্ধিত।</div>
+</div>
+<div class="quiz-q" data-correct="2" id="quiz-tkinter-q2">
+  <p class="qtext">3. একটি Entry widget-এ ব্যবহারকারী যা টাইপ করেছেন তা কীভাবে পড়বেন?</p>
+  <div class="quiz-opt" role="button" tabindex="0" data-idx="0">entry.text</div><div class="quiz-opt" role="button" tabindex="0" data-idx="1">entry.value</div><div class="quiz-opt" role="button" tabindex="0" data-idx="2">entry.get()</div><div class="quiz-opt" role="button" tabindex="0" data-idx="3">entry.read()</div>
+  <div class="quiz-explain">.get() একটি Entry widget থেকে বর্তমান টেক্সট বের করে আনে।</div>
+</div>
+  <div class="tracer-controls">
+    <button class="btn btn-primary quiz-submit" type="button">উত্তর জমা দিন</button>
+    <button class="btn btn-ghost quiz-retry" type="button" style="display:none;">আবার চেষ্টা করুন</button>
+  </div>
+  <div class="quiz-score" style="display:none;"></div>
+</div>
+
+  <h2>সারাংশ</h2>
+  <ul><li>tkinter হলো Python-এর বিল্ট-ইন GUI টুলকিট — কোনো অতিরিক্ত ইনস্টলেশনের প্রয়োজন নেই।</li><li>GUI প্রোগ্রাম event-driven: এগুলো mainloop()-এ অপেক্ষা করে এবং callback দিয়ে ব্যবহারকারীর কাজে সাড়া দেয়।</li><li>Label, Button, ও Entry হলো টেক্সট দেখানো, একটি কাজ চালু করা, ও ইনপুট নেওয়ার মূল widget।</li><li>একটি tkinter স্ক্রিপ্ট সবসময় root.mainloop() দিয়ে শেষ করুন।</li></ul>
+
+  <h2>সম্পর্কিত লেসন</h2><div class="related-list"><a href="../os-system/">OS ও সিস্টেম মডিউল</a><a href="../exceptions/">এরর ও এক্সসেপশন হ্যান্ডলিং</a><a href="../projects/">Python প্রজেক্ট</a></div>
+
+  
+<div class="mark-complete-row">
+  <button id="mark-complete-btn" class="btn btn-primary" type="button" aria-live="polite">এই লেসনটি সম্পন্ন হিসেবে চিহ্নিত করুন</button>
+  <span style="color:var(--ink-faint);font-size:.85rem;">আপনার ব্রাউজারে ব্যক্তিগতভাবে সংরক্ষিত হয় — কোনো অ্যাকাউন্ট প্রয়োজন নেই।</span>
+</div>
+</div>
+<nav class="lesson-nav" aria-label="লেসন নেভিগেশন"><a href="../os-system/"><div class="dir">← আগের লেসন</div><div>17 — OS ও সিস্টেম মডিউল</div></a><a class="next" href="../projects/"><div class="dir">পরের লেসন →</div><div>19 — Python প্রজেক্ট</div></a></nav>
+
+</main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <a class="brand" href="../index.html" style="margin-bottom:.6rem;"><span class="mark">Py</span>সম্পূর্ণ পাইথন কোর্স</a>
+      <p style="color:var(--ink-soft);font-size:.88rem;max-width:32ch;">যারা সত্যিকার অর্থে পাইথন বুঝতে চান, তাদের জন্য তৈরি — সম্পূর্ণ ফ্রি, উন্মুক্ত এবং নিজের গতিতে শেখার সুযোগ।</p>
+    </div>
+    <div><h4>শিখুন</h4><a href="../roadmap/">কোর্স রোডম্যাপ</a><a href="../exercises/">অনুশীলনী</a><a href="../projects/">প্রজেক্ট</a><a href="../playground/">প্লেগ্রাউন্ড</a></div><div><h4>রেফারেন্স</h4><a href="../cheatsheets/">চিটশিট</a><a href="../glossary/">শব্দকোষ</a><a href="../faq/">প্রশ্নোত্তর</a></div><div><h4>মডিউল</h4><a href="../introduction/">০১ পরিচিতি</a><a href="../oop/">১৪ OOP</a><a href="../sql/">২০ Python + SQL</a></div><div><h4>সাইট</h4><a href="../about/">আমাদের কথা</a><a href="../sitemap.xml">সাইটম্যাপ</a></div>
+  </div>
+  <div class="footer-bottom">© ২০২৬ সম্পূর্ণ পাইথন কোর্স। শেখার জন্য কনটেন্ট সম্পূর্ণ ফ্রি। কোনো অ্যাকাউন্ট প্রয়োজন নেই — আপনার অগ্রগতি আপনার ব্রাউজারেই থাকে।</div>
+</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Python + SQL | সম্পূর্ণ পাইথন কোর্স</title>
+<meta name="description" content="সরাসরি Python থেকে SQLite দিয়ে ডেটা স্থায়ীভাবে সংরক্ষণ ও query করা।">
+<link rel="canonical" href="https://engr-rabbi.github.io/python-handbook-bangla/sql/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Python + SQL | সম্পূর্ণ পাইথন কোর্স">
+<meta property="og:description" content="সরাসরি Python থেকে SQLite দিয়ে ডেটা স্থায়ীভাবে সংরক্ষণ ও query করা।">
+<meta property="og:url" content="https://engr-rabbi.github.io/python-handbook-bangla/sql/">
+<meta property="og:site_name" content="সম্পূর্ণ পাইথন কোর্স">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Python + SQL | সম্পূর্ণ পাইথন কোর্স">
+<meta name="twitter:description" content="সরাসরি Python থেকে SQLite দিয়ে ডেটা স্থায়ীভাবে সংরক্ষণ ও query করা।">
+<meta name="theme-color" content="#B65C38">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23B65C38'/%3E%3Ctext x='50' y='68' font-size='55' font-family='monospace' fill='white' text-anchor='middle'%3EPy%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Python + SQL", "description": "\u09b8\u09b0\u09be\u09b8\u09b0\u09bf Python \u09a5\u09c7\u0995\u09c7 SQLite \u09a6\u09bf\u09af\u09bc\u09c7 \u09a1\u09c7\u099f\u09be \u09b8\u09cd\u09a5\u09be\u09af\u09bc\u09c0\u09ad\u09be\u09ac\u09c7 \u09b8\u0982\u09b0\u0995\u09cd\u09b7\u09a3 \u0993 query \u0995\u09b0\u09be\u0964", "educationalLevel": "Advanced", "learningResourceType": "Lesson", "isPartOf": {"@type": "Course", "name": "\u09b8\u09ae\u09cd\u09aa\u09c2\u09b0\u09cd\u09a3 \u09aa\u09be\u0987\u09a5\u09a8 \u0995\u09cb\u09b0\u09cd\u09b8"}, "inLanguage": "bn"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "\u09b9\u09cb\u09ae", "item": "https://engr-rabbi.github.io/python-handbook-bangla/"}, {"@type": "ListItem", "position": 2, "name": "\u0995\u09cb\u09b0\u09cd\u09b8", "item": "https://engr-rabbi.github.io/python-handbook-bangla/roadmap/"}, {"@type": "ListItem", "position": 3, "name": "Python + SQL", "item": "https://engr-rabbi.github.io/python-handbook-bangla/sql/"}]}</script>
+</head>
+<body data-root="../" data-slug="sql">
+<script>window.PY_TOTAL_LESSONS = 20;</script>
+<a class="skip-link" href="#main-content">মূল কনটেন্টে যান</a>
+
+<header class="topbar">
+  <button id="menu-toggle" class="icon-btn menu-toggle" aria-label="কোর্স মেনু খুলুন" aria-controls="course-sidebar">☰</button>
+  <a class="brand" href="../index.html"><span class="mark">Py</span>সম্পূর্ণ পাইথন কোর্স</a>
+  <nav class="topnav" aria-label="মূল নেভিগেশন"><a href="../" aria-current="page">হোম</a><a href="../roadmap/">কোর্স</a><a href="../playground/">প্লেগ্রাউন্ড</a><a href="../exercises/">অনুশীলনী</a><a href="../projects/">প্রজেক্ট</a><a href="../cheatsheets/">চিটশিট</a><a href="../glossary/">শব্দকোষ</a><a href="../about/">আমাদের কথা</a></nav>
+  <div class="topbar-spacer"></div>
+  <div id="search-box" role="search">
+    <input id="search-input" type="search" placeholder="লেসন খুঁজুন… ( / )" aria-label="কোর্সে অনুসন্ধান করুন">
+    <div id="search-results" role="listbox"></div>
+  </div>
+  <button id="theme-toggle" class="icon-btn" type="button">🖥 <span class="vis-label">সিস্টেম</span></button>
+</header>
+<div class="page-with-sidebar">
+
+<aside class="sidebar" id="course-sidebar">
+  <div class="sidebar-progress">
+    <div class="label"><span>কোর্সের অগ্রগতি</span><span data-progress-pct>0%</span></div>
+    <div class="progress-track"><div class="progress-fill" data-progress-fill style="width:0%"></div></div>
+  </div>
+  <div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-faint);font-weight:700;padding:0 .5rem;margin-bottom:.4rem;">কোর্স মডিউল</div>
+  
+<details class="side-module">
+  <summary><span class="num">01</span><span class="side-check" data-slug="introduction"></span> পরিচিতি ও সেটআপ</summary>
+  <a href="../introduction/">পরিচিতি ও সেটআপ</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">02</span><span class="side-check" data-slug="print-output"></span> প্রিন্ট, ভ্যারিয়েবল ও বেসিক আউটপুট</summary>
+  <a href="../print-output/">প্রিন্ট, ভ্যারিয়েবল ও বেসিক আউটপুট</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">03</span><span class="side-check" data-slug="strings"></span> স্ট্রিং ও ইউজার ইনপুট</summary>
+  <a href="../strings/">স্ট্রিং ও ইউজার ইনপুট</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">04</span><span class="side-check" data-slug="control-flow"></span> কন্ট্রোল ফ্লো ও লুপ</summary>
+  <a href="../control-flow/">কন্ট্রোল ফ্লো ও লুপ</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">05</span><span class="side-check" data-slug="functions"></span> ফাংশন</summary>
+  <a href="../functions/">ফাংশন</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">06</span><span class="side-check" data-slug="lists"></span> লিস্ট</summary>
+  <a href="../lists/">লিস্ট</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">07</span><span class="side-check" data-slug="tuples"></span> টাপল</summary>
+  <a href="../tuples/">টাপল</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">08</span><span class="side-check" data-slug="dictionaries"></span> ডিকশনারি</summary>
+  <a href="../dictionaries/">ডিকশনারি</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">09</span><span class="side-check" data-slug="sets-comprehensions"></span> সেট ও কম্প্রিহেনশন</summary>
+  <a href="../sets-comprehensions/">সেট ও কম্প্রিহেনশন</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">10</span><span class="side-check" data-slug="args-kwargs"></span> *args এবং **kwargs</summary>
+  <a href="../args-kwargs/">*args এবং **kwargs</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">11</span><span class="side-check" data-slug="functional-programming"></span> ফাংশনাল প্রোগ্রামিং ও অ্যাডভান্সড ফাংশন</summary>
+  <a href="../functional-programming/">ফাংশনাল প্রোগ্রামিং ও অ্যাডভান্সড ফাংশন</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">12</span><span class="side-check" data-slug="closures-decorators"></span> ক্লোজার ও ডেকোরেটর</summary>
+  <a href="../closures-decorators/">ক্লোজার ও ডেকোরেটর</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">13</span><span class="side-check" data-slug="generators"></span> জেনারেটর</summary>
+  <a href="../generators/">জেনারেটর</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">14</span><span class="side-check" data-slug="oop"></span> অবজেক্ট-ওরিয়েন্টেড প্রোগ্রামিং</summary>
+  <a href="../oop/">অবজেক্ট-ওরিয়েন্টেড প্রোগ্রামিং</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">15</span><span class="side-check" data-slug="exceptions"></span> এরর ও এক্সসেপশন হ্যান্ডলিং</summary>
+  <a href="../exceptions/">এরর ও এক্সসেপশন হ্যান্ডলিং</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">16</span><span class="side-check" data-slug="file-io"></span> ফাইল I/O</summary>
+  <a href="../file-io/">ফাইল I/O</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">17</span><span class="side-check" data-slug="os-system"></span> OS ও সিস্টেম মডিউল</summary>
+  <a href="../os-system/">OS ও সিস্টেম মডিউল</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">18</span><span class="side-check" data-slug="tkinter"></span> Tkinter দিয়ে GUI প্রোগ্রামিং</summary>
+  <a href="../tkinter/">Tkinter দিয়ে GUI প্রোগ্রামিং</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">19</span><span class="side-check" data-slug="projects"></span> Python প্রজেক্ট</summary>
+  <a href="../projects/">Python প্রজেক্ট</a>
+</details>
+<details class="side-module" open>
+  <summary><span class="num">20</span><span class="side-check" data-slug="sql"></span> Python + SQL</summary>
+  <a href="../sql/#concept">ধারণা ও সিনট্যাক্স</a><a href="../sql/#examples">উদাহরণ</a><a href="../sql/#mistakes">সাধারণ ভুল</a><a href="../sql/#exercise">অনুশীলনী ও চ্যালেঞ্জ</a><a href="../sql/#quiz">কুইজ</a>
+</details>
+  <button id="reset-progress-btn" class="btn btn-ghost btn-sm" type="button" style="margin-top:1rem;width:100%;">অগ্রগতি রিসেট করুন</button>
+</aside>
+<main class="main" id="main-content">
+
+<div class="paper">
+  <nav class="breadcrumb"><a href="../index.html">হোম</a> / <a href="../roadmap/">কোর্স</a> / Python + SQL</nav>
+  <div class="badge-row"><span class="badge advanced">উচ্চ স্তর</span> <span class="badge time">৫৫ মিনিট</span></div>
+  <h1>মডিউল 20 — Python + SQL</h1>
+  <p style="font-size:1.05rem;color:var(--ink-soft);max-width:62ch;">সরাসরি Python থেকে SQLite দিয়ে ডেটা স্থায়ীভাবে সংরক্ষণ ও query করা।</p>
+  <p class="note">পূর্বশর্ত: মডিউল ১৯ — Python প্রজেক্ট</p>
+
+  <div class="objectives"><h3>এই লেসন শেষে আপনি যা করতে পারবেন</h3><ul><li>Python থেকে একটি SQLite ডেটাবেসের সাথে সংযুক্ত হওয়া ও একটি টেবিল তৈরি করা</li><li>SQL দিয়ে রেকর্ড ইনসার্ট, সিলেক্ট, আপডেট, ও ডিলিট করা</li><li>একটি সহজ CRUD (Create, Read, Update, Delete) ওয়ার্কফ্লো তৈরি করা</li></ul></div>
+
+  <h2 id="concept">ধারণা ও সিনট্যাক্স</h2>
+  
+<p>ছোট পরিমাণ ডেটার জন্য ফাইল ঠিকই আছে, কিন্তু একবার আপনার খোঁজা, ফিল্টার করা, সাজানো, বা নির্ভরযোগ্যভাবে রেকর্ড
+আপডেট করার প্রয়োজন হলে, একটি <strong>ডেটাবেস</strong>ই সঠিক টুল। <strong>SQL</strong> (Structured Query Language)
+হলো relational ডেটাবেসের সাথে কথা বলতে ব্যবহৃত ভাষা। <strong>SQLite</strong> হলো একটি লাইটওয়েট, ফাইল-ভিত্তিক
+ডেটাবেস ইঞ্জিন যা Python-এর স্ট্যান্ডার্ড লাইব্রেরিতে <code>sqlite3</code> মডিউল দিয়ে বিল্ট-ইন রয়েছে — কোনো
+আলাদা সার্ভার লাগে না, যা এটিকে শেখার জন্য এবং ছোট অ্যাপ্লিকেশনের জন্য আদর্শ করে তোলে।</p>
+
+  <div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">সিনট্যাক্স</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-90040"><code><span class="kw">import</span> sqlite3
+conn = sqlite3.connect(<span class="str">&quot;app.db&quot;</span>)
+cursor = conn.cursor()
+cursor.execute(<span class="str">&quot;SELECT * FROM students WHERE grade &gt; ?&quot;</span>, (<span class="num">80</span>,))
+conn.commit()
+conn.close()</code></pre></div>
+
+  <h2 id="examples">উদাহরণ</h2>
+  <h3>সংযুক্ত হওয়া ও একটি টেবিল তৈরি করা <span class="badge veryeasy" style="margin-left:.4rem;">খুব সহজ</span></h3><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">সংযুক্ত হওয়া ও একটি টেবিল তৈরি করা</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-63211"><code><span class="kw">import</span> sqlite3
+&nbsp;
+conn = sqlite3.connect(<span class="str">&quot;school.db&quot;</span>)
+cursor = conn.cursor()
+cursor.execute(<span class="str">&quot;&quot;</span>&quot;
+    CREATE TABLE IF NOT EXISTS students (
+        id INTEGER PRIMARY KEY,
+        name TEXT,
+        grade INTEGER
+    )
+<span class="str">&quot;&quot;</span>&quot;)
+conn.commit()
+conn.close()</code></pre><div class="cb-output"><span class="out-label">আউটপুট</span>(একটি খালি students টেবিল সহ school.db তৈরি করে — কোনো কনসোল আউটপুট নেই)</div><div data-runner class="runner"><textarea class="run-editor" spellcheck="false" aria-label="সম্পাদনাযোগ্য Python কোড">import sqlite3
+
+conn = sqlite3.connect(&quot;school.db&quot;)
+cursor = conn.cursor()
+cursor.execute(&quot;&quot;&quot;
+    CREATE TABLE IF NOT EXISTS students (
+        id INTEGER PRIMARY KEY,
+        name TEXT,
+        grade INTEGER
+    )
+&quot;&quot;&quot;)
+conn.commit()
+conn.close()</textarea><div class="tracer-controls"><button class="btn btn-primary btn-sm run-btn" type="button">▶ ব্রাউজারে চালান</button><button class="btn btn-ghost btn-sm run-reset" type="button">রিসেট</button></div><div class="run-output" role="status" aria-live="polite"></div></div></div><p>connect() ডেটাবেস ফাইলটি খোলে (বা তৈরি করে)। IF NOT EXISTS টেবিল আগে থেকে থাকলে এরর প্রতিরোধ করে। commit() পরিবর্তনটি ডিস্কে সংরক্ষণ করে।</p><h3>নিরাপদে রেকর্ড ইনসার্ট করা <span class="badge easy" style="margin-left:.4rem;">সহজ</span></h3><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">নিরাপদে রেকর্ড ইনসার্ট করা</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-78001"><code><span class="kw">import</span> sqlite3
+&nbsp;
+conn = sqlite3.connect(<span class="str">&quot;school.db&quot;</span>)
+cursor = conn.cursor()
+cursor.execute(<span class="str">&quot;INSERT INTO students (name, grade) VALUES (?, ?)&quot;</span>, (<span class="str">&quot;Ada&quot;</span>, <span class="num">92</span>))
+conn.commit()
+conn.close()</code></pre><div class="cb-output"><span class="out-label">আউটপুট</span>(students টেবিলে একটি row যোগ করে)</div><div data-runner class="runner"><textarea class="run-editor" spellcheck="false" aria-label="সম্পাদনাযোগ্য Python কোড">import sqlite3
+
+conn = sqlite3.connect(&quot;school.db&quot;)
+cursor = conn.cursor()
+cursor.execute(&quot;INSERT INTO students (name, grade) VALUES (?, ?)&quot;, (&quot;Ada&quot;, 92))
+conn.commit()
+conn.close()</textarea><div class="tracer-controls"><button class="btn btn-primary btn-sm run-btn" type="button">▶ ব্রাউজারে চালান</button><button class="btn btn-ghost btn-sm run-reset" type="button">রিসেট</button></div><div class="run-output" role="status" aria-live="polite"></div></div></div><p>? placeholder-গুলো টাপল থেকে নিরাপদে পূরণ হয় — সবসময় এভাবেই করুন, + দিয়ে SQL স্ট্রিং বানানোর বদলে, যা SQL injection বাগের দরজা খুলে দেয়।</p><h3>WHERE ও ORDER BY দিয়ে সিলেক্ট করা <span class="badge intermediate" style="margin-left:.4rem;">মধ্যম</span></h3><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">WHERE ও ORDER BY দিয়ে সিলেক্ট করা</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-35030"><code><span class="kw">import</span> sqlite3
+&nbsp;
+conn = sqlite3.connect(<span class="str">&quot;school.db&quot;</span>)
+cursor = conn.cursor()
+cursor.execute(<span class="str">&quot;SELECT name, grade FROM students WHERE grade &gt; ? ORDER BY grade DESC&quot;</span>, (<span class="num">80</span>,))
+<span class="kw">for</span> row <span class="kw">in</span> cursor.fetchall():
+    <span class="kw">print</span>(row)
+conn.close()</code></pre><div class="cb-output"><span class="out-label">আউটপুট</span>(&#x27;Ada&#x27;, 92)</div><div data-runner class="runner"><textarea class="run-editor" spellcheck="false" aria-label="সম্পাদনাযোগ্য Python কোড">import sqlite3
+
+conn = sqlite3.connect(&quot;school.db&quot;)
+cursor = conn.cursor()
+cursor.execute(&quot;SELECT name, grade FROM students WHERE grade &gt; ? ORDER BY grade DESC&quot;, (80,))
+for row in cursor.fetchall():
+    print(row)
+conn.close()</textarea><div class="tracer-controls"><button class="btn btn-primary btn-sm run-btn" type="button">▶ ব্রাউজারে চালান</button><button class="btn btn-ghost btn-sm run-reset" type="button">রিসেট</button></div><div class="run-output" role="status" aria-live="polite"></div></div></div><p>WHERE row ফিল্টার করে; ORDER BY grade DESC ফলাফল সর্বোচ্চ থেকে সর্বনিম্ন grade অনুযায়ী সাজায়। fetchall() প্রতিটি মিলে যাওয়া row টাপলের একটি লিস্ট হিসেবে ফিরিয়ে দেয়।</p><h3>আপডেট ও ডিলিট করা <span class="badge realworld" style="margin-left:.4rem;">বাস্তব উদাহরণ</span></h3><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">আপডেট ও ডিলিট করা</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-2503"><code><span class="kw">import</span> sqlite3
+&nbsp;
+conn = sqlite3.connect(<span class="str">&quot;school.db&quot;</span>)
+cursor = conn.cursor()
+cursor.execute(<span class="str">&quot;UPDATE students SET grade = ? WHERE name = ?&quot;</span>, (<span class="num">95</span>, <span class="str">&quot;Ada&quot;</span>))
+cursor.execute(<span class="str">&quot;DELETE FROM students WHERE grade &lt; ?&quot;</span>, (<span class="num">50</span>,))
+conn.commit()
+conn.close()</code></pre><div class="cb-output"><span class="out-label">আউটপুট</span>(Ada-এর grade আপডেট করে, 50-এর কম grade থাকা কোনো শিক্ষার্থী থাকলে বাদ দেয় — কোনো কনসোল আউটপুট নেই)</div><div data-runner class="runner"><textarea class="run-editor" spellcheck="false" aria-label="সম্পাদনাযোগ্য Python কোড">import sqlite3
+
+conn = sqlite3.connect(&quot;school.db&quot;)
+cursor = conn.cursor()
+cursor.execute(&quot;UPDATE students SET grade = ? WHERE name = ?&quot;, (95, &quot;Ada&quot;))
+cursor.execute(&quot;DELETE FROM students WHERE grade &lt; ?&quot;, (50,))
+conn.commit()
+conn.close()</textarea><div class="tracer-controls"><button class="btn btn-primary btn-sm run-btn" type="button">▶ ব্রাউজারে চালান</button><button class="btn btn-ghost btn-sm run-reset" type="button">রিসেট</button></div><div class="run-output" role="status" aria-live="polite"></div></div></div><p>UPDATE WHERE-এ মিলে যাওয়া বিদ্যমান row বদলায়; DELETE WHERE-এ মিলে যাওয়া row বাদ দেয়। দুটোতেই আসলে সংরক্ষণ করতে commit() লাগবে।</p>
+
+  <h2>ভিজ্যুয়াল ব্যাখ্যা</h2>
+  <figure class="diagram"><svg viewBox="0 0 520 354" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flow diagram"><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" style="fill:var(--ink-faint)"/></marker></defs><rect x="120" y="10" width="280" height="46" rx="8" style="fill:var(--surface);stroke:var(--rule);stroke-width:1.5"/><text x="260" y="38" text-anchor="middle" style="fill:var(--ink);font-family:var(--font-mono);font-size:14px">sqlite3.connect(&quot;app.db&quot;)</text><line x1="260" y1="56" x2="260" y2="80" style="stroke:var(--ink-faint);stroke-width:1.5" marker-end="url(#arrow)"/><rect x="120" y="82" width="280" height="46" rx="8" style="fill:var(--surface);stroke:var(--rule);stroke-width:1.5"/><text x="260" y="110" text-anchor="middle" style="fill:var(--ink);font-family:var(--font-mono);font-size:14px">cursor = conn.cursor()</text><line x1="260" y1="128" x2="260" y2="152" style="stroke:var(--ink-faint);stroke-width:1.5" marker-end="url(#arrow)"/><rect x="120" y="154" width="280" height="46" rx="8" style="fill:var(--surface);stroke:var(--rule);stroke-width:1.5"/><text x="260" y="182" text-anchor="middle" style="fill:var(--ink);font-family:var(--font-mono);font-size:14px">cursor.execute(&quot;SELECT / INSERT / UPDATE / DELETE ...&quot;)</text><line x1="260" y1="200" x2="260" y2="224" style="stroke:var(--ink-faint);stroke-width:1.5" marker-end="url(#arrow)"/><rect x="120" y="226" width="280" height="46" rx="8" style="fill:var(--surface);stroke:var(--rule);stroke-width:1.5"/><text x="260" y="254" text-anchor="middle" style="fill:var(--ink);font-family:var(--font-mono);font-size:14px">conn.commit()  ← ডিস্কে পরিবর্তন সংরক্ষণ করে</text><line x1="260" y1="272" x2="260" y2="296" style="stroke:var(--ink-faint);stroke-width:1.5" marker-end="url(#arrow)"/><rect x="120" y="298" width="280" height="46" rx="8" style="fill:var(--surface);stroke:var(--rule);stroke-width:1.5"/><text x="260" y="326" text-anchor="middle" style="fill:var(--ink);font-family:var(--font-mono);font-size:14px">conn.close()</text></svg><figcaption>যেকোনো Python + SQLite অপারেশনের সাধারণ জীবনচক্র।</figcaption></figure>
+
+  <details class="disclosure"><summary>💡 এটা কেন কাজ করে?</summary><div class="disclosure-body"><p>উপরের ধারণার ব্যাখ্যাটি আবার ধীরে ধীরে, লাইন বাই লাইন পড়ুন — সেখানকার প্রতিটি কিওয়ার্ড উদাহরণের কোডের একটি লাইনের সাথে সরাসরি মিলে যায়। এখনো পরিষ্কার না হলে, এই লেসনে ট্রেসড উদাহরণ থাকলে সেটি এক ধাপ এক ধাপ করে আবার চালিয়ে দেখুন।</p></div></details>
+
+  <details class="disclosure"><summary>🔍 ভেতরে ভেতরে কী ঘটে? (অ্যাডভান্সড)</summary><div class="disclosure-body"><p>ভেতরে ভেতরে, Python আপনার সোর্স কোডকে বাইটকোডে কম্পাইল করে এবং একটি ভার্চুয়াল মেশিনে (CPython ইন্টারপ্রিটার) চালায়। ভ্যারিয়েবলগুলো একটি নেমস্পেস ডিকশনারিতে থাকা নাম, যা মেমরিতে থাকা অবজেক্টের দিকে নির্দেশ করে — উপরের ট্রেসারের মেমরি প্যানেলে ঠিক এটাই দেখানো হচ্ছে।</p></div></details>
+
+  
+
+  <h2 id="mistakes">সাধারণ ভুল</h2>
+  
+<div class="callout callout-mistake">
+  <div class="callout-head">✗ সাধারণ ভুল 1</div>
+  <p>সরাসরি ব্যবহারকারীর ইনপুট বসিয়ে SQL স্ট্রিং বানানো SQL injection নামে একটি গুরুত্বপূর্ণ সিকিউরিটি ঝুঁকি তৈরি করে।</p>
+  <div class="mistake-pair">
+    <div class="mp-bad">
+      <div class="mp-label">✗ এটি এড়িয়ে চলুন</div>
+      <div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">এতে দেখা দেবে কোনো Python এরর নয়, কিন্তু একটি আসল সিকিউরিটি ঝুঁকি</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-52398"><code>name = input(<span class="str">&quot;Name: &quot;</span>)
+cursor.execute(f<span class="str">&quot;SELECT * FROM students WHERE name = &#x27;{name}&#x27;&quot;</span>)</code></pre></div>
+    </div>
+    <div class="mp-good">
+      <div class="mp-label">✓ সঠিক পদ্ধতি</div>
+      <div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">সংশোধিত</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-28724"><code>name = input(<span class="str">&quot;Name: &quot;</span>)
+cursor.execute(<span class="str">&quot;SELECT * FROM students WHERE name = ?&quot;</span>, (name,))</code></pre></div>
+    </div>
+  </div>
+</div>
+<div class="callout callout-mistake">
+  <div class="callout-head">✗ সাধারণ ভুল 2</div>
+  <p>conn.commit() ভুলে গেলে INSERT/UPDATE/DELETE পরিবর্তনগুলো সংযোগ বন্ধ হওয়ার সাথে সাথেই হারিয়ে যায়।</p>
+  <div class="mistake-pair">
+    <div class="mp-bad">
+      <div class="mp-label">✗ এটি এড়িয়ে চলুন</div>
+      <div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">এতে দেখা দেবে ক্র্যাশ নয়, কিন্তু ডেটা নিঃশব্দে কখনো সংরক্ষিত হয় না</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-56762"><code>cursor.execute(<span class="str">&quot;INSERT INTO students (name, grade) VALUES (?, ?)&quot;</span>, (<span class="str">&quot;Sam&quot;</span>, <span class="num">88</span>))
+conn.close()  <span class="cm"># commit ভুলে গেছি — ইনসার্টটি হারিয়ে যায়!</span></code></pre></div>
+    </div>
+    <div class="mp-good">
+      <div class="mp-label">✓ সঠিক পদ্ধতি</div>
+      <div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">সংশোধিত</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-63143"><code>cursor.execute(<span class="str">&quot;INSERT INTO students (name, grade) VALUES (?, ?)&quot;</span>, (<span class="str">&quot;Sam&quot;</span>, <span class="num">88</span>))
+conn.commit()
+conn.close()</code></pre></div>
+    </div>
+  </div>
+</div>
+
+  <div class="callout callout-tip"><div class="callout-head">✓ ভালো অভ্যাস</div><ul><li>একটি query-তে মানের জন্য সবসময় ? placeholder ব্যবহার করুন — কখনো স্ট্রিং ফরম্যাটিং দিয়ে SQL বানাবেন না।</li><li>কোনো INSERT, UPDATE, বা DELETE-এর পর conn.commit() কল করুন।</li><li>ডেটাবেসের কাজ শেষ হলে সংযোগ বন্ধ করে দিন (বা একটি with ব্লক ব্যবহার করুন)।</li><li>CREATE TABLE IF NOT EXISTS ব্যবহার করুন যাতে সেটআপ কোড একের বেশি বার নিরাপদে চলতে পারে।</li></ul></div>
+
+  <h2 id="exercise">অনুশীলনী ও চ্যালেঞ্জ</h2>
+  
+<div class="exercise-box" data-answer="&quot;SELECT * FROM students WHERE grade = ?&quot;" data-explain="? নিরাপদে টাপল থেকে 100 দিয়ে বদলে যায়, SQL injection-এর কোনো ঝুঁকি এড়িয়ে।">
+  <p><strong>অনুশীলনী 1 — ফাঁকা পূরণ করুন</strong></p>
+  <div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">এই কোডটি দেওয়া আছে</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-60277"><code>cursor.execute(____________________, (<span class="num">100</span>,))</code></pre></div>
+  <p>স্ট্রিং ফরম্যাটিংয়ের বদলে একটি placeholder ব্যবহার করে execute() কলটি সম্পূর্ণ করুন যা ঠিক grade 100 আছে এমন সব শিক্ষার্থী নিরাপদে সিলেক্ট করে।</p>
+  <textarea class="ex-input" placeholder="এখানে আপনার উত্তর লিখুন…" aria-label="আপনার উত্তর"></textarea>
+  <div class="tracer-controls">
+    <button class="btn btn-primary btn-sm ex-check" type="button">উত্তর যাচাই করুন</button>
+    <button class="btn btn-ghost btn-sm ex-hint-btn" type="button">ইঙ্গিত</button>
+    <button class="btn btn-ghost btn-sm ex-sol-btn" type="button">সমাধান দেখুন</button>
+  </div>
+  <div class="ex-feedback"></div>
+  <div class="ex-hint" style="display:none;margin-top:.6rem;color:var(--ink-soft);font-size:.88rem;">💡 একটি একক ? placeholder ব্যবহার করুন যা টাপলের একটি মানের সাথে মেলে।</div>
+  <div class="ex-sol" style="display:none;margin-top:.6rem;"><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">Python</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-92980"><code><span class="str">&quot;SELECT * FROM students WHERE grade = ?&quot;</span></code></pre></div></div>
+</div>
+  
+<div class="exercise-box" style="border-color:var(--rule);">
+  <p><strong>🏆 চ্যালেঞ্জ</strong></p>
+  <p>&#x27;books&#x27; টেবিলের (id, title, author) জন্য একটি ছোট CRUD স্ক্রিপ্ট তৈরি করুন যা টেবিল তৈরি করে, দুটি বই ইনসার্ট করে, তারপর title অনুযায়ী সাজিয়ে প্রতিটি বই সিলেক্ট করে প্রিন্ট করে।</p>
+  <ul><li>CREATE TABLE IF NOT EXISTS ব্যবহার করুন</li><li>? placeholder দিয়ে কমপক্ষে ২টি row ইনসার্ট করুন</li><li>ORDER BY title দিয়ে SELECT করুন, এবং প্রতিটি row প্রিন্ট করুন</li></ul>
+  <details class="disclosure"><summary>💡 ইঙ্গিত প্রয়োজন?</summary><div class="disclosure-body"><p>cursor.execute(&quot;SELECT * FROM books ORDER BY title&quot;)</p></div></details>
+  <details class="disclosure"><summary>🔍 একটি নমুনা সমাধান দেখুন</summary><div class="disclosure-body"><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">Python</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-90607"><code><span class="kw">import</span> sqlite3
+&nbsp;
+conn = sqlite3.connect(<span class="str">&quot;library.db&quot;</span>)
+cursor = conn.cursor()
+cursor.execute(<span class="str">&quot;CREATE TABLE IF NOT EXISTS books (id INTEGER PRIMARY KEY, title TEXT, author TEXT)&quot;</span>)
+cursor.execute(<span class="str">&quot;INSERT INTO books (title, author) VALUES (?, ?)&quot;</span>, (<span class="str">&quot;Dune&quot;</span>, <span class="str">&quot;Herbert&quot;</span>))
+cursor.execute(<span class="str">&quot;INSERT INTO books (title, author) VALUES (?, ?)&quot;</span>, (<span class="str">&quot;Emma&quot;</span>, <span class="str">&quot;Austen&quot;</span>))
+conn.commit()
+cursor.execute(<span class="str">&quot;SELECT * FROM books ORDER BY title&quot;</span>)
+<span class="kw">for</span> row <span class="kw">in</span> cursor.fetchall():
+    <span class="kw">print</span>(row)
+conn.close()</code></pre></div></div></details>
+</div>
+
+  <h2 id="quiz">কুইজ</h2>
+  <p>প্রতিটি প্রশ্নের উত্তর দিন, তারপর জমা দিয়ে নিজের স্কোর ও ব্যাখ্যা দেখুন।</p>
+  
+<div class="quiz" id="quiz-sql">
+  
+<div class="quiz-q" data-correct="1" id="quiz-sql-q0">
+  <p class="qtext">1. Python-এর স্ট্যান্ডার্ড লাইব্রেরি SQLite-এর জন্য কোন মডিউল দেয়?</p>
+  <div class="quiz-opt" role="button" tabindex="0" data-idx="0">sql</div><div class="quiz-opt" role="button" tabindex="0" data-idx="1">sqlite3</div><div class="quiz-opt" role="button" tabindex="0" data-idx="2">db</div><div class="quiz-opt" role="button" tabindex="0" data-idx="3">pysql</div>
+  <div class="quiz-explain">sqlite3 Python-এর স্ট্যান্ডার্ড লাইব্রেরিতে বিল্ট-ইন — কোনো ইনস্টলেশন লাগে না।</div>
+</div>
+<div class="quiz-q" data-correct="1" id="quiz-sql-q1">
+  <p class="qtext">2. f-string দিয়ে SQL বানানোর বদলে কেন ? placeholder ব্যবহার করা উচিত?</p>
+  <div class="quiz-opt" role="button" tabindex="0" data-idx="0">Placeholder টাইপ করতে ছোট</div><div class="quiz-opt" role="button" tabindex="0" data-idx="1">এটি SQL injection ঝুঁকি প্রতিরোধ করে</div><div class="quiz-opt" role="button" tabindex="0" data-idx="2">f-string আসলে SQL-এর সাথে কাজ করেই না</div><div class="quiz-opt" role="button" tabindex="0" data-idx="3">আসলে কোনো কারণ নেই</div>
+  <div class="quiz-explain">Placeholder ডেটাবেস ড্রাইভারকে মান নিরাপদে escape করতে দেয়, SQL injection আক্রমণ বন্ধ করে।</div>
+</div>
+<div class="quiz-q" data-correct="1" id="quiz-sql-q2">
+  <p class="qtext">3. একটি পরিবর্তন আসলেই সংরক্ষণ করতে INSERT/UPDATE/DELETE-এর পর কী কল করতে হবে?</p>
+  <div class="quiz-opt" role="button" tabindex="0" data-idx="0">conn.save()</div><div class="quiz-opt" role="button" tabindex="0" data-idx="1">conn.commit()</div><div class="quiz-opt" role="button" tabindex="0" data-idx="2">cursor.finish()</div><div class="quiz-opt" role="button" tabindex="0" data-idx="3">কিছুই না, এটা স্বয়ংক্রিয়ভাবে সংরক্ষিত হয়</div>
+  <div class="quiz-explain">commit() ট্রানজেকশনটি ডিস্কে লিখে দেয় — এটা না হলে, পরিবর্তন হারিয়ে যেতে পারে।</div>
+</div>
+<div class="quiz-q" data-correct="1" id="quiz-sql-q3">
+  <p class="qtext">4. WHERE grade &gt; 80 ORDER BY grade DESC কী করে?</p>
+  <div class="quiz-opt" role="button" tabindex="0" data-idx="0">ascending সাজায়, কোনো ফিল্টার নেই</div><div class="quiz-opt" role="button" tabindex="0" data-idx="1">80-এর বেশি grade ফিল্টার করে, সর্বোচ্চ থেকে সর্বনিম্ন সাজিয়ে</div><div class="quiz-opt" role="button" tabindex="0" data-idx="2">80-এর কম row বাদ দেয়</div><div class="quiz-opt" role="button" tabindex="0" data-idx="3">ঠিক 80 সিলেক্ট করে</div>
+  <div class="quiz-explain">WHERE row ফিল্টার করে; ORDER BY ... DESC সেগুলো সর্বোচ্চ থেকে সর্বনিম্ন সাজায়।</div>
+</div>
+  <div class="tracer-controls">
+    <button class="btn btn-primary quiz-submit" type="button">উত্তর জমা দিন</button>
+    <button class="btn btn-ghost quiz-retry" type="button" style="display:none;">আবার চেষ্টা করুন</button>
+  </div>
+  <div class="quiz-score" style="display:none;"></div>
+</div>
+
+  <h2>সারাংশ</h2>
+  <ul><li>sqlite3 কোনো আলাদা সার্ভার ছাড়াই Python-কে একটি লাইটওয়েট, ফাইল-ভিত্তিক SQL ডেটাবেসের সাথে সংযুক্त করে।</li><li>মানের জন্য ? placeholder ব্যবহার করুন — সরাসরি ব্যবহারকারীর ইনপুট দিয়ে SQL স্ট্রিং বানাবেন না।</li><li>commit() INSERT/UPDATE/DELETE পরিবর্তন সংরক্ষণ করে; এটা না হলে হারিয়ে যেতে পারে।</li><li>WHERE row ফিল্টার করে এবং ORDER BY সেগুলো সাজায় — প্রতিটি উপকারী query-এর ভিত্তি।</li></ul>
+
+  <h2>সম্পর্কিত লেসন</h2><div class="related-list"><a href="../file-io/">ফাইল I/O</a><a href="../projects/">Python প্রজেক্ট</a><a href="../exceptions/">এরর ও এক্সসেপশন হ্যান্ডলিং</a></div>
+
+  
+<div class="mark-complete-row">
+  <button id="mark-complete-btn" class="btn btn-primary" type="button" aria-live="polite">এই লেসনটি সম্পন্ন হিসেবে চিহ্নিত করুন</button>
+  <span style="color:var(--ink-faint);font-size:.85rem;">আপনার ব্রাউজারে ব্যক্তিগতভাবে সংরক্ষিত হয় — কোনো অ্যাকাউন্ট প্রয়োজন নেই।</span>
+</div>
+</div>
+<nav class="lesson-nav" aria-label="লেসন নেভিগেশন"><a href="../projects/"><div class="dir">← আগের লেসন</div><div>19 — Python প্রজেক্ট</div></a><div></div></nav>
+
+</main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <a class="brand" href="../index.html" style="margin-bottom:.6rem;"><span class="mark">Py</span>সম্পূর্ণ পাইথন কোর্স</a>
+      <p style="color:var(--ink-soft);font-size:.88rem;max-width:32ch;">যারা সত্যিকার অর্থে পাইথন বুঝতে চান, তাদের জন্য তৈরি — সম্পূর্ণ ফ্রি, উন্মুক্ত এবং নিজের গতিতে শেখার সুযোগ।</p>
+    </div>
+    <div><h4>শিখুন</h4><a href="../roadmap/">কোর্স রোডম্যাপ</a><a href="../exercises/">অনুশীলনী</a><a href="../projects/">প্রজেক্ট</a><a href="../playground/">প্লেগ্রাউন্ড</a></div><div><h4>রেফারেন্স</h4><a href="../cheatsheets/">চিটশিট</a><a href="../glossary/">শব্দকোষ</a><a href="../faq/">প্রশ্নোত্তর</a></div><div><h4>মডিউল</h4><a href="../introduction/">০১ পরিচিতি</a><a href="../oop/">১৪ OOP</a><a href="../sql/">২০ Python + SQL</a></div><div><h4>সাইট</h4><a href="../about/">আমাদের কথা</a><a href="../sitemap.xml">সাইটম্যাপ</a></div>
+  </div>
+  <div class="footer-bottom">© ২০২৬ সম্পূর্ণ পাইথন কোর্স। শেখার জন্য কনটেন্ট সম্পূর্ণ ফ্রি। কোনো অ্যাকাউন্ট প্রয়োজন নেই — আপনার অগ্রগতি আপনার ব্রাউজারেই থাকে।</div>
+</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

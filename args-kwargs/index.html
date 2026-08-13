@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>*args এবং **kwargs | সম্পূর্ণ পাইথন কোর্স</title>
+<meta name="description" content="যেকোনো সংখ্যক আর্গুমেন্ট গ্রহণ করতে পারে এমন ফাংশন লেখা।">
+<link rel="canonical" href="https://engr-rabbi.github.io/python-handbook-bangla/args-kwargs/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="*args এবং **kwargs | সম্পূর্ণ পাইথন কোর্স">
+<meta property="og:description" content="যেকোনো সংখ্যক আর্গুমেন্ট গ্রহণ করতে পারে এমন ফাংশন লেখা।">
+<meta property="og:url" content="https://engr-rabbi.github.io/python-handbook-bangla/args-kwargs/">
+<meta property="og:site_name" content="সম্পূর্ণ পাইথন কোর্স">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="*args এবং **kwargs | সম্পূর্ণ পাইথন কোর্স">
+<meta name="twitter:description" content="যেকোনো সংখ্যক আর্গুমেন্ট গ্রহণ করতে পারে এমন ফাংশন লেখা।">
+<meta name="theme-color" content="#B65C38">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23B65C38'/%3E%3Ctext x='50' y='68' font-size='55' font-family='monospace' fill='white' text-anchor='middle'%3EPy%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "*args \u098f\u09ac\u0982 **kwargs", "description": "\u09af\u09c7\u0995\u09cb\u09a8\u09cb \u09b8\u0982\u0996\u09cd\u09af\u0995 \u0986\u09b0\u09cd\u0997\u09c1\u09ae\u09c7\u09a8\u09cd\u099f \u0997\u09cd\u09b0\u09b9\u09a3 \u0995\u09b0\u09a4\u09c7 \u09aa\u09be\u09b0\u09c7 \u098f\u09ae\u09a8 \u09ab\u09be\u0982\u09b6\u09a8 \u09b2\u09c7\u0996\u09be\u0964", "educationalLevel": "Intermediate", "learningResourceType": "Lesson", "isPartOf": {"@type": "Course", "name": "\u09b8\u09ae\u09cd\u09aa\u09c2\u09b0\u09cd\u09a3 \u09aa\u09be\u0987\u09a5\u09a8 \u0995\u09cb\u09b0\u09cd\u09b8"}, "inLanguage": "bn"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "\u09b9\u09cb\u09ae", "item": "https://engr-rabbi.github.io/python-handbook-bangla/"}, {"@type": "ListItem", "position": 2, "name": "\u0995\u09cb\u09b0\u09cd\u09b8", "item": "https://engr-rabbi.github.io/python-handbook-bangla/roadmap/"}, {"@type": "ListItem", "position": 3, "name": "*args \u098f\u09ac\u0982 **kwargs", "item": "https://engr-rabbi.github.io/python-handbook-bangla/args-kwargs/"}]}</script>
+</head>
+<body data-root="../" data-slug="args-kwargs">
+<script>window.PY_TOTAL_LESSONS = 20;</script>
+<a class="skip-link" href="#main-content">মূল কনটেন্টে যান</a>
+
+<header class="topbar">
+  <button id="menu-toggle" class="icon-btn menu-toggle" aria-label="কোর্স মেনু খুলুন" aria-controls="course-sidebar">☰</button>
+  <a class="brand" href="../index.html"><span class="mark">Py</span>সম্পূর্ণ পাইথন কোর্স</a>
+  <nav class="topnav" aria-label="মূল নেভিগেশন"><a href="../" aria-current="page">হোম</a><a href="../roadmap/">কোর্স</a><a href="../playground/">প্লেগ্রাউন্ড</a><a href="../exercises/">অনুশীলনী</a><a href="../projects/">প্রজেক্ট</a><a href="../cheatsheets/">চিটশিট</a><a href="../glossary/">শব্দকোষ</a><a href="../about/">আমাদের কথা</a></nav>
+  <div class="topbar-spacer"></div>
+  <div id="search-box" role="search">
+    <input id="search-input" type="search" placeholder="লেসন খুঁজুন… ( / )" aria-label="কোর্সে অনুসন্ধান করুন">
+    <div id="search-results" role="listbox"></div>
+  </div>
+  <button id="theme-toggle" class="icon-btn" type="button">🖥 <span class="vis-label">সিস্টেম</span></button>
+</header>
+<div class="page-with-sidebar">
+
+<aside class="sidebar" id="course-sidebar">
+  <div class="sidebar-progress">
+    <div class="label"><span>কোর্সের অগ্রগতি</span><span data-progress-pct>0%</span></div>
+    <div class="progress-track"><div class="progress-fill" data-progress-fill style="width:0%"></div></div>
+  </div>
+  <div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-faint);font-weight:700;padding:0 .5rem;margin-bottom:.4rem;">কোর্স মডিউল</div>
+  
+<details class="side-module">
+  <summary><span class="num">01</span><span class="side-check" data-slug="introduction"></span> পরিচিতি ও সেটআপ</summary>
+  <a href="../introduction/">পরিচিতি ও সেটআপ</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">02</span><span class="side-check" data-slug="print-output"></span> প্রিন্ট, ভ্যারিয়েবল ও বেসিক আউটপুট</summary>
+  <a href="../print-output/">প্রিন্ট, ভ্যারিয়েবল ও বেসিক আউটপুট</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">03</span><span class="side-check" data-slug="strings"></span> স্ট্রিং ও ইউজার ইনপুট</summary>
+  <a href="../strings/">স্ট্রিং ও ইউজার ইনপুট</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">04</span><span class="side-check" data-slug="control-flow"></span> কন্ট্রোল ফ্লো ও লুপ</summary>
+  <a href="../control-flow/">কন্ট্রোল ফ্লো ও লুপ</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">05</span><span class="side-check" data-slug="functions"></span> ফাংশন</summary>
+  <a href="../functions/">ফাংশন</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">06</span><span class="side-check" data-slug="lists"></span> লিস্ট</summary>
+  <a href="../lists/">লিস্ট</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">07</span><span class="side-check" data-slug="tuples"></span> টাপল</summary>
+  <a href="../tuples/">টাপল</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">08</span><span class="side-check" data-slug="dictionaries"></span> ডিকশনারি</summary>
+  <a href="../dictionaries/">ডিকশনারি</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">09</span><span class="side-check" data-slug="sets-comprehensions"></span> সেট ও কম্প্রিহেনশন</summary>
+  <a href="../sets-comprehensions/">সেট ও কম্প্রিহেনশন</a>
+</details>
+<details class="side-module" open>
+  <summary><span class="num">10</span><span class="side-check" data-slug="args-kwargs"></span> *args এবং **kwargs</summary>
+  <a href="../args-kwargs/#concept">ধারণা ও সিনট্যাক্স</a><a href="../args-kwargs/#examples">উদাহরণ</a><a href="../args-kwargs/#mistakes">সাধারণ ভুল</a><a href="../args-kwargs/#exercise">অনুশীলনী ও চ্যালেঞ্জ</a><a href="../args-kwargs/#quiz">কুইজ</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">11</span><span class="side-check" data-slug="functional-programming"></span> ফাংশনাল প্রোগ্রামিং ও অ্যাডভান্সড ফাংশন</summary>
+  <a href="../functional-programming/">ফাংশনাল প্রোগ্রামিং ও অ্যাডভান্সড ফাংশন</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">12</span><span class="side-check" data-slug="closures-decorators"></span> ক্লোজার ও ডেকোরেটর</summary>
+  <a href="../closures-decorators/">ক্লোজার ও ডেকোরেটর</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">13</span><span class="side-check" data-slug="generators"></span> জেনারেটর</summary>
+  <a href="../generators/">জেনারেটর</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">14</span><span class="side-check" data-slug="oop"></span> অবজেক্ট-ওরিয়েন্টেড প্রোগ্রামিং</summary>
+  <a href="../oop/">অবজেক্ট-ওরিয়েন্টেড প্রোগ্রামিং</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">15</span><span class="side-check" data-slug="exceptions"></span> এরর ও এক্সসেপশন হ্যান্ডলিং</summary>
+  <a href="../exceptions/">এরর ও এক্সসেপশন হ্যান্ডলিং</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">16</span><span class="side-check" data-slug="file-io"></span> ফাইল I/O</summary>
+  <a href="../file-io/">ফাইল I/O</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">17</span><span class="side-check" data-slug="os-system"></span> OS ও সিস্টেম মডিউল</summary>
+  <a href="../os-system/">OS ও সিস্টেম মডিউল</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">18</span><span class="side-check" data-slug="tkinter"></span> Tkinter দিয়ে GUI প্রোগ্রামিং</summary>
+  <a href="../tkinter/">Tkinter দিয়ে GUI প্রোগ্রামিং</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">19</span><span class="side-check" data-slug="projects"></span> Python প্রজেক্ট</summary>
+  <a href="../projects/">Python প্রজেক্ট</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">20</span><span class="side-check" data-slug="sql"></span> Python + SQL</summary>
+  <a href="../sql/">Python + SQL</a>
+</details>
+  <button id="reset-progress-btn" class="btn btn-ghost btn-sm" type="button" style="margin-top:1rem;width:100%;">অগ্রগতি রিসেট করুন</button>
+</aside>
+<main class="main" id="main-content">
+
+<div class="paper">
+  <nav class="breadcrumb"><a href="../index.html">হোম</a> / <a href="../roadmap/">কোর্স</a> / *args এবং **kwargs</nav>
+  <div class="badge-row"><span class="badge intermediate">মধ্যম স্তর</span> <span class="badge time">৩৫ মিনিট</span></div>
+  <h1>মডিউল 10 — *args এবং **kwargs</h1>
+  <p style="font-size:1.05rem;color:var(--ink-soft);max-width:62ch;">যেকোনো সংখ্যক আর্গুমেন্ট গ্রহণ করতে পারে এমন ফাংশন লেখা।</p>
+  <p class="note">পূর্বশর্ত: মডিউল ০৫ — ফাংশন</p>
+
+  <div class="objectives"><h3>এই লেসন শেষে আপনি যা করতে পারবেন</h3><ul><li>*args দিয়ে যেকোনো সংখ্যক positional আর্গুমেন্ট গ্রহণ করা</li><li>**kwargs দিয়ে যেকোনো সংখ্যক নামযুক্ত আর্গুমেন্ট গ্রহণ করা</li><li>সাধারণ, *args, ও **kwargs প্যারামিটার সঠিক ক্রমে সাজানো</li></ul></div>
+
+  <h2 id="concept">ধারণা ও সিনট্যাক্স</h2>
+  
+<p>কখনো কখনো একটি ফাংশনের কতটা আর্গুমেন্ট লাগবে তা আগে থেকে জানা থাকে না — যেমন একটি <code>sum_all()</code>
+ফাংশনের কথা ভাবুন যেটা 2টি সংখ্যা দিয়েও চলবে, 20টি দিয়েও। <code>*args</code> যেকোনো সংখ্যক অতিরিক্ত positional
+আর্গুমেন্ট একটি টাপলে জমা করে; <code>**kwargs</code> যেকোনো সংখ্যক অতিরিক্ত নামযুক্ত আর্গুমেন্ট একটি ডিকশনারিতে
+জমা করে। <code>args</code> ও <code>kwargs</code> নামগুলো আসলে প্রথা মাত্র — অ্যাস্টেরিস্কগুলোই আসলে গুরুত্বপূর্ণ।</p>
+
+  <div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">সিনট্যাক্স</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-97389"><code><span class="kw">def</span> func(a, b, *args, **kwargs):
+    <span class="kw">print</span>(a, b)
+    <span class="kw">print</span>(args)      <span class="cm"># অতিরিক্ত positional args-এর tuple</span>
+    <span class="kw">print</span>(kwargs)     <span class="cm"># অতিরিক্ত keyword args-এর dict</span></code></pre></div>
+
+  <h2 id="examples">উদাহরণ</h2>
+  <h3>*args মৌলিক ধারণা <span class="badge veryeasy" style="margin-left:.4rem;">খুব সহজ</span></h3><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">*args মৌলিক ধারণা</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-54194"><code><span class="kw">def</span> total(*numbers):
+    <span class="kw">return</span> sum(numbers)
+&nbsp;
+<span class="kw">print</span>(total(<span class="num">1</span>, <span class="num">2</span>))
+<span class="kw">print</span>(total(<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">5</span>))</code></pre><div class="cb-output"><span class="out-label">আউটপুট</span>3
+15</div><div data-runner class="runner"><textarea class="run-editor" spellcheck="false" aria-label="সম্পাদনাযোগ্য Python কোড">def total(*numbers):
+    return sum(numbers)
+
+print(total(1, 2))
+print(total(1, 2, 3, 4, 5))</textarea><div class="tracer-controls"><button class="btn btn-primary btn-sm run-btn" type="button">▶ ব্রাউজারে চালান</button><button class="btn btn-ghost btn-sm run-reset" type="button">রিসেট</button></div><div class="run-output" role="status" aria-live="polite"></div></div></div><p>numbers পাস করা যত positional আর্গুমেন্টই থাকুক তা ধরে রাখা একটি টাপলে পরিণত হয় — sum() যতগুলোই থাকুক না কেন সবগুলো যোগ করে দেয়।</p><h3>সাধারণ প্যারামিটারের সাথে *args <span class="badge easy" style="margin-left:.4rem;">সহজ</span></h3><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">সাধারণ প্যারামিটারের সাথে *args</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-70480"><code><span class="kw">def</span> describe(name, *hobbies):
+    <span class="kw">print</span>(f<span class="str">&quot;{name} enjoys: {&#x27;, &#x27;.join(hobbies)}&quot;</span>)
+&nbsp;
+describe(<span class="str">&quot;Ada&quot;</span>, <span class="str">&quot;chess&quot;</span>, <span class="str">&quot;coding&quot;</span>, <span class="str">&quot;reading&quot;</span>)</code></pre><div class="cb-output"><span class="out-label">আউটপুট</span>Ada enjoys: chess, coding, reading</div><div data-runner class="runner"><textarea class="run-editor" spellcheck="false" aria-label="সম্পাদনাযোগ্য Python কোড">def describe(name, *hobbies):
+    print(f&quot;{name} enjoys: {&#x27;, &#x27;.join(hobbies)}&quot;)
+
+describe(&quot;Ada&quot;, &quot;chess&quot;, &quot;coding&quot;, &quot;reading&quot;)</textarea><div class="tracer-controls"><button class="btn btn-primary btn-sm run-btn" type="button">▶ ব্রাউজারে চালান</button><button class="btn btn-ghost btn-sm run-reset" type="button">রিসেট</button></div><div class="run-output" role="status" aria-live="polite"></div></div></div><p>name সবসময়ের মতো প্রথম আর্গুমেন্ট নেয়; বাকি প্রতিটি positional আর্গুমেন্ট hobbies টাপলে চলে যায়।</p><h3>**kwargs মৌলিক ধারণা <span class="badge intermediate" style="margin-left:.4rem;">মধ্যম</span></h3><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">**kwargs মৌলিক ধারণা</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-39991"><code><span class="kw">def</span> build_profile(**details):
+    <span class="kw">for</span> key, value <span class="kw">in</span> details.items():
+        <span class="kw">print</span>(f<span class="str">&quot;{key}: {value}&quot;</span>)
+&nbsp;
+build_profile(name=<span class="str">&quot;Ada&quot;</span>, role=<span class="str">&quot;Engineer&quot;</span>, city=<span class="str">&quot;London&quot;</span>)</code></pre><div class="cb-output"><span class="out-label">আউটপুট</span>name: Ada
+role: Engineer
+city: London</div><div data-runner class="runner"><textarea class="run-editor" spellcheck="false" aria-label="সম্পাদনাযোগ্য Python কোড">def build_profile(**details):
+    for key, value in details.items():
+        print(f&quot;{key}: {value}&quot;)
+
+build_profile(name=&quot;Ada&quot;, role=&quot;Engineer&quot;, city=&quot;London&quot;)</textarea><div class="tracer-controls"><button class="btn btn-primary btn-sm run-btn" type="button">▶ ব্রাউজারে চালান</button><button class="btn btn-ghost btn-sm run-reset" type="button">রিসেট</button></div><div class="run-output" role="status" aria-live="polite"></div></div></div><p>details পাস করা প্রতিটি keyword আর্গুমেন্টের একটি ডিকশনারিতে পরিণত হয়, যা কলারকে ইচ্ছামতো নামযুক্ত ফিল্ড দেওয়ার সুযোগ দেয়।</p><h3>দুটো একসাথে ব্যবহার করা <span class="badge realworld" style="margin-left:.4rem;">বাস্তব উদাহরণ</span></h3><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">দুটো একসাথে ব্যবহার করা</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-49564"><code><span class="kw">def</span> order(item, *extras, **notes):
+    <span class="kw">print</span>(<span class="str">&quot;Item:&quot;</span>, item)
+    <span class="kw">print</span>(<span class="str">&quot;Extras:&quot;</span>, extras)
+    <span class="kw">print</span>(<span class="str">&quot;Notes:&quot;</span>, notes)
+&nbsp;
+order(<span class="str">&quot;Burger&quot;</span>, <span class="str">&quot;cheese&quot;</span>, <span class="str">&quot;bacon&quot;</span>, spicy=<span class="kw">True</span>, delivery=<span class="str">&quot;ASAP&quot;</span>)</code></pre><div class="cb-output"><span class="out-label">আউটপুট</span>Item: Burger
+Extras: (&#x27;cheese&#x27;, &#x27;bacon&#x27;)
+Notes: {&#x27;spicy&#x27;: True, &#x27;delivery&#x27;: &#x27;ASAP&#x27;}</div><div data-runner class="runner"><textarea class="run-editor" spellcheck="false" aria-label="সম্পাদনাযোগ্য Python কোড">def order(item, *extras, **notes):
+    print(&quot;Item:&quot;, item)
+    print(&quot;Extras:&quot;, extras)
+    print(&quot;Notes:&quot;, notes)
+
+order(&quot;Burger&quot;, &quot;cheese&quot;, &quot;bacon&quot;, spicy=True, delivery=&quot;ASAP&quot;)</textarea><div class="tracer-controls"><button class="btn btn-primary btn-sm run-btn" type="button">▶ ব্রাউজারে চালান</button><button class="btn btn-ghost btn-sm run-reset" type="button">রিসেট</button></div><div class="run-output" role="status" aria-live="polite"></div></div></div><p>প্যারামিটারের ক্রম গুরুত্বপূর্ণ: প্রথমে সাধারণ প্যারামিটার, তারপর *args, তারপর **kwargs — Python ফাংশনের সিগনেচারে এই ক্রম বাধ্যতামূলক করে দেয়।</p>
+
+  <h2>ভিজ্যুয়াল ব্যাখ্যা</h2>
+  <figure class="diagram"><svg viewBox="0 0 520 282" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flow diagram"><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" style="fill:var(--ink-faint)"/></marker></defs><rect x="120" y="10" width="280" height="46" rx="8" style="fill:var(--surface);stroke:var(--rule);stroke-width:1.5"/><text x="260" y="38" text-anchor="middle" style="fill:var(--ink);font-family:var(--font-mono);font-size:14px">কল: order(&quot;Burger&quot;, &quot;cheese&quot;, &quot;bacon&quot;, spicy=True)</text><line x1="260" y1="56" x2="260" y2="80" style="stroke:var(--ink-faint);stroke-width:1.5" marker-end="url(#arrow)"/><rect x="120" y="82" width="280" height="46" rx="8" style="fill:var(--surface);stroke:var(--rule);stroke-width:1.5"/><text x="260" y="110" text-anchor="middle" style="fill:var(--ink);font-family:var(--font-mono);font-size:14px">item = &quot;Burger&quot;</text><line x1="260" y1="128" x2="260" y2="152" style="stroke:var(--ink-faint);stroke-width:1.5" marker-end="url(#arrow)"/><rect x="120" y="154" width="280" height="46" rx="8" style="fill:var(--surface);stroke:var(--rule);stroke-width:1.5"/><text x="260" y="182" text-anchor="middle" style="fill:var(--ink);font-family:var(--font-mono);font-size:14px">extras = (&quot;cheese&quot;, &quot;bacon&quot;)  ← *args দিয়ে জমা হয়েছে</text><line x1="260" y1="200" x2="260" y2="224" style="stroke:var(--ink-faint);stroke-width:1.5" marker-end="url(#arrow)"/><rect x="120" y="226" width="280" height="46" rx="8" style="fill:var(--surface);stroke:var(--rule);stroke-width:1.5"/><text x="260" y="254" text-anchor="middle" style="fill:var(--ink);font-family:var(--font-mono);font-size:14px">notes = {&quot;spicy&quot;: True}  ← **kwargs দিয়ে জমা হয়েছে</text></svg><figcaption>অতিরিক্ত positional আর্গুমেন্ট *args-এ টাপল হিসেবে যায়; অতিরিক্ত keyword আর্গুমেন্ট **kwargs-এ ডিকশনারি হিসেবে যায়।</figcaption></figure>
+
+  <details class="disclosure"><summary>💡 এটা কেন কাজ করে?</summary><div class="disclosure-body"><p>উপরের ধারণার ব্যাখ্যাটি আবার ধীরে ধীরে, লাইন বাই লাইন পড়ুন — সেখানকার প্রতিটি কিওয়ার্ড উদাহরণের কোডের একটি লাইনের সাথে সরাসরি মিলে যায়। এখনো পরিষ্কার না হলে, এই লেসনে ট্রেসড উদাহরণ থাকলে সেটি এক ধাপ এক ধাপ করে আবার চালিয়ে দেখুন।</p></div></details>
+
+  <details class="disclosure"><summary>🔍 ভেতরে ভেতরে কী ঘটে? (অ্যাডভান্সড)</summary><div class="disclosure-body"><p>ভেতরে ভেতরে, Python আপনার সোর্স কোডকে বাইটকোডে কম্পাইল করে এবং একটি ভার্চুয়াল মেশিনে (CPython ইন্টারপ্রিটার) চালায়। ভ্যারিয়েবলগুলো একটি নেমস্পেস ডিকশনারিতে থাকা নাম, যা মেমরিতে থাকা অবজেক্টের দিকে নির্দেশ করে — উপরের ট্রেসারের মেমরি প্যানেলে ঠিক এটাই দেখানো হচ্ছে।</p></div></details>
+
+  
+
+  <h2 id="mistakes">সাধারণ ভুল</h2>
+  
+<div class="callout callout-mistake">
+  <div class="callout-head">✗ সাধারণ ভুল 1</div>
+  <p>ফাংশনের সংজ্ঞায় *args-কে **kwargs-এর আগে আসতে হবে, এবং কোনোটিই একটি আবশ্যক positional প্যারামিটারের আগে আসতে পারবে না।</p>
+  <div class="mistake-pair">
+    <div class="mp-bad">
+      <div class="mp-label">✗ এটি এড়িয়ে চলুন</div>
+      <div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">এতে দেখা দেবে SyntaxError: invalid syntax</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-58565"><code><span class="kw">def</span> func(**kwargs, *args):
+    <span class="kw">pass</span></code></pre></div>
+    </div>
+    <div class="mp-good">
+      <div class="mp-label">✓ সঠিক পদ্ধতি</div>
+      <div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">সংশোধিত</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-50981"><code><span class="kw">def</span> func(*args, **kwargs):
+    <span class="kw">pass</span></code></pre></div>
+    </div>
+  </div>
+</div>
+
+  <div class="callout callout-tip"><div class="callout-head">✓ ভালো অভ্যাস</div><ul><li>*args/**kwargs তখনই ব্যবহার করুন যখন আর্গুমেন্টের সংখ্যা আসলেই পরিবর্তনশীল — যেখানে নামযুক্ত প্যারামিটার বেশি স্পষ্ট হতো সেখানে অতিরিক্ত ব্যবহার করবেন না।</li><li>একটি ফাংশন কী ধরনের অতিরিক্ত আর্গুমেন্ট প্রত্যাশা করে তা ডকুমেন্ট করুন, যদিও Python এটা বাধ্যতামূলক করবে না।</li><li>প্রয়োজনে my_func(*my_list, **my_dict) দিয়ে একটি বিদ্যমান লিস্ট/ডিকশনারি কলের ভেতরে unpack করুন।</li></ul></div>
+
+  <h2 id="exercise">অনুশীলনী ও চ্যালেঞ্জ</h2>
+  
+<div class="exercise-box" data-answer="4" data-explain="চারটি positional আর্গুমেন্ট পাস করা হয়েছে, তাই args একটি ৪-আইটেমের টাপল, এবং len(args) হয় 4।">
+  <p><strong>অনুশীলনী 1 — আউটপুট অনুমান করুন</strong></p>
+  <div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">এই কোডটি দেওয়া আছে</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-91590"><code><span class="kw">def</span> show(*args):
+    <span class="kw">print</span>(len(args))
+&nbsp;
+show(<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>)</code></pre></div>
+  <p>এটি কী প্রিন্ট করবে?</p>
+  <textarea class="ex-input" placeholder="এখানে আপনার উত্তর লিখুন…" aria-label="আপনার উত্তর"></textarea>
+  <div class="tracer-controls">
+    <button class="btn btn-primary btn-sm ex-check" type="button">উত্তর যাচাই করুন</button>
+    <button class="btn btn-ghost btn-sm ex-hint-btn" type="button">ইঙ্গিত</button>
+    <button class="btn btn-ghost btn-sm ex-sol-btn" type="button">সমাধান দেখুন</button>
+  </div>
+  <div class="ex-feedback"></div>
+  <div class="ex-hint" style="display:none;margin-top:.6rem;color:var(--ink-soft);font-size:.88rem;">💡 args পাস করা সবকিছুর একটি টাপলে পরিণত হয়।</div>
+  <div class="ex-sol" style="display:none;margin-top:.6rem;"><p>4</p></div>
+</div>
+  
+<div class="exercise-box" style="border-color:var(--rule);">
+  <p><strong>🏆 চ্যালেঞ্জ</strong></p>
+  <p>make_pizza(size, *toppings) নামে একটি ফাংশন লিখুন যা পিৎজার সাইজ এবং কমা-বিভক্ত টপিংয়ের একটি তালিকা প্রিন্ট করে, তারপর একটি সাইজ ও কমপক্ষে ৩টি টপিং দিয়ে এটি কল করুন।</p>
+  <ul><li>size একটি আবশ্যক, নামযুক্ত প্যারামিটার হবে</li><li>toppings যেকোনো সংখ্যক অতিরিক্ত আর্গুমেন্ট জমা করবে</li><li>একটি বন্ধুত্বপূর্ণ সারাংশ বাক্য প্রিন্ট করুন</li></ul>
+  <details class="disclosure"><summary>💡 ইঙ্গিত প্রয়োজন?</summary><div class="disclosure-body"><p>&#x27;, &#x27;.join(toppings) টাপলটিকে একটি readable স্ট্রিংয়ে বদলে দেয়।</p></div></details>
+  <details class="disclosure"><summary>🔍 একটি নমুনা সমাধান দেখুন</summary><div class="disclosure-body"><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">Python</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-88601"><code><span class="kw">def</span> make_pizza(size, *toppings):
+    <span class="kw">print</span>(f<span class="str">&quot;Making a {size}-inch pizza with: {&#x27;, &#x27;.join(toppings)}&quot;</span>)
+&nbsp;
+make_pizza(<span class="num">12</span>, <span class="str">&quot;cheese&quot;</span>, <span class="str">&quot;mushroom&quot;</span>, <span class="str">&quot;olives&quot;</span>)</code></pre></div></div></details>
+</div>
+
+  <h2 id="quiz">কুইজ</h2>
+  <p>প্রতিটি প্রশ্নের উত্তর দিন, তারপর জমা দিয়ে নিজের স্কোর ও ব্যাখ্যা দেখুন।</p>
+  
+<div class="quiz" id="quiz-args-kwargs">
+  
+<div class="quiz-q" data-correct="1" id="quiz-args-kwargs-q0">
+  <p class="qtext">1. *args তার মানগুলো কোন ডেটা টাইপে জমা করে?</p>
+  <div class="quiz-opt" role="button" tabindex="0" data-idx="0">একটি লিস্ট</div><div class="quiz-opt" role="button" tabindex="0" data-idx="1">একটি টাপল</div><div class="quiz-opt" role="button" tabindex="0" data-idx="2">একটি ডিকশনারি</div><div class="quiz-opt" role="button" tabindex="0" data-idx="3">একটি সেট</div>
+  <div class="quiz-explain">*args অতিরিক্ত positional আর্গুমেন্ট একটি টাপলে জমা করে।</div>
+</div>
+<div class="quiz-q" data-correct="2" id="quiz-args-kwargs-q1">
+  <p class="qtext">2. **kwargs তার মানগুলো কোন ডেটা টাইপে জমা করে?</p>
+  <div class="quiz-opt" role="button" tabindex="0" data-idx="0">একটি লিস্ট</div><div class="quiz-opt" role="button" tabindex="0" data-idx="1">একটি টাপল</div><div class="quiz-opt" role="button" tabindex="0" data-idx="2">একটি ডিকশনারি</div><div class="quiz-opt" role="button" tabindex="0" data-idx="3">একটি সেট</div>
+  <div class="quiz-explain">**kwargs অতিরিক্ত keyword আর্গুমেন্ট একটি ডিকশনারিতে জমা করে।</div>
+</div>
+<div class="quiz-q" data-correct="1" id="quiz-args-kwargs-q2">
+  <p class="qtext">3. একটি ফাংশন সিগনেচারে এগুলো কোন ক্রমে থাকতে হবে?</p>
+  <div class="quiz-opt" role="button" tabindex="0" data-idx="0">**kwargs, *args, সাধারণ প্যারাম</div><div class="quiz-opt" role="button" tabindex="0" data-idx="1">সাধারণ প্যারাম, *args, **kwargs</div><div class="quiz-opt" role="button" tabindex="0" data-idx="2">*args, সাধারণ প্যারাম, **kwargs</div><div class="quiz-opt" role="button" tabindex="0" data-idx="3">ক্রম কখনো গুরুত্বপূর্ণ নয়</div>
+  <div class="quiz-explain">প্রথমে সাধারণ প্যারামিটার, তারপর *args, তারপর **kwargs।</div>
+</div>
+  <div class="tracer-controls">
+    <button class="btn btn-primary quiz-submit" type="button">উত্তর জমা দিন</button>
+    <button class="btn btn-ghost quiz-retry" type="button" style="display:none;">আবার চেষ্টা করুন</button>
+  </div>
+  <div class="quiz-score" style="display:none;"></div>
+</div>
+
+  <h2>সারাংশ</h2>
+  <ul><li>*args একটি ফাংশনকে যেকোনো সংখ্যক অতিরিক্ত positional আর্গুমেন্ট, একটি টাপল হিসেবে গ্রহণ করতে দেয়।</li><li>**kwargs একটি ফাংশনকে যেকোনো সংখ্যক অতিরিক্ত নামযুক্ত আর্গুমেন্ট, একটি ডিকশনারি হিসেবে গ্রহণ করতে দেয়।</li><li>প্যারামিটারের ক্রম সবসময়: সাধারণ প্যারামিটার, তারপর *args, তারপর **kwargs।</li></ul>
+
+  <h2>সম্পর্কিত লেসন</h2><div class="related-list"><a href="../functions/">ফাংশন</a><a href="../functional-programming/">ফাংশনাল প্রোগ্রামিং ও অ্যাডভান্সড ফাংশন</a><a href="../closures-decorators/">ক্লোজার ও ডেকোরেটর</a></div>
+
+  
+<div class="mark-complete-row">
+  <button id="mark-complete-btn" class="btn btn-primary" type="button" aria-live="polite">এই লেসনটি সম্পন্ন হিসেবে চিহ্নিত করুন</button>
+  <span style="color:var(--ink-faint);font-size:.85rem;">আপনার ব্রাউজারে ব্যক্তিগতভাবে সংরক্ষিত হয় — কোনো অ্যাকাউন্ট প্রয়োজন নেই।</span>
+</div>
+</div>
+<nav class="lesson-nav" aria-label="লেসন নেভিগেশন"><a href="../sets-comprehensions/"><div class="dir">← আগের লেসন</div><div>09 — সেট ও কম্প্রিহেনশন</div></a><a class="next" href="../functional-programming/"><div class="dir">পরের লেসন →</div><div>11 — ফাংশনাল প্রোগ্রামিং ও অ্যাডভান্সড ফাংশন</div></a></nav>
+
+</main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <a class="brand" href="../index.html" style="margin-bottom:.6rem;"><span class="mark">Py</span>সম্পূর্ণ পাইথন কোর্স</a>
+      <p style="color:var(--ink-soft);font-size:.88rem;max-width:32ch;">যারা সত্যিকার অর্থে পাইথন বুঝতে চান, তাদের জন্য তৈরি — সম্পূর্ণ ফ্রি, উন্মুক্ত এবং নিজের গতিতে শেখার সুযোগ।</p>
+    </div>
+    <div><h4>শিখুন</h4><a href="../roadmap/">কোর্স রোডম্যাপ</a><a href="../exercises/">অনুশীলনী</a><a href="../projects/">প্রজেক্ট</a><a href="../playground/">প্লেগ্রাউন্ড</a></div><div><h4>রেফারেন্স</h4><a href="../cheatsheets/">চিটশিট</a><a href="../glossary/">শব্দকোষ</a><a href="../faq/">প্রশ্নোত্তর</a></div><div><h4>মডিউল</h4><a href="../introduction/">০১ পরিচিতি</a><a href="../oop/">১৪ OOP</a><a href="../sql/">২০ Python + SQL</a></div><div><h4>সাইট</h4><a href="../about/">আমাদের কথা</a><a href="../sitemap.xml">সাইটম্যাপ</a></div>
+  </div>
+  <div class="footer-bottom">© ২০২৬ সম্পূর্ণ পাইথন কোর্স। শেখার জন্য কনটেন্ট সম্পূর্ণ ফ্রি। কোনো অ্যাকাউন্ট প্রয়োজন নেই — আপনার অগ্রগতি আপনার ব্রাউজারেই থাকে।</div>
+</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

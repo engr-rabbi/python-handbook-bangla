@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>লিস্ট | সম্পূর্ণ পাইথন কোর্স</title>
+<meta name="description" content="Python-এর নমনীয়, ক্রমিক, পরিবর্তনযোগ্য সংগ্রহ — সবচেয়ে বেশি ব্যবহৃত ডেটা স্ট্রাকচার।">
+<link rel="canonical" href="https://engr-rabbi.github.io/python-handbook-bangla/lists/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="লিস্ট | সম্পূর্ণ পাইথন কোর্স">
+<meta property="og:description" content="Python-এর নমনীয়, ক্রমিক, পরিবর্তনযোগ্য সংগ্রহ — সবচেয়ে বেশি ব্যবহৃত ডেটা স্ট্রাকচার।">
+<meta property="og:url" content="https://engr-rabbi.github.io/python-handbook-bangla/lists/">
+<meta property="og:site_name" content="সম্পূর্ণ পাইথন কোর্স">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="লিস্ট | সম্পূর্ণ পাইথন কোর্স">
+<meta name="twitter:description" content="Python-এর নমনীয়, ক্রমিক, পরিবর্তনযোগ্য সংগ্রহ — সবচেয়ে বেশি ব্যবহৃত ডেটা স্ট্রাকচার।">
+<meta name="theme-color" content="#B65C38">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23B65C38'/%3E%3Ctext x='50' y='68' font-size='55' font-family='monospace' fill='white' text-anchor='middle'%3EPy%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "\u09b2\u09bf\u09b8\u09cd\u099f", "description": "Python-\u098f\u09b0 \u09a8\u09ae\u09a8\u09c0\u09af\u09bc, \u0995\u09cd\u09b0\u09ae\u09bf\u0995, \u09aa\u09b0\u09bf\u09ac\u09b0\u09cd\u09a4\u09a8\u09af\u09cb\u0997\u09cd\u09af \u09b8\u0982\u0997\u09cd\u09b0\u09b9 \u2014 \u09b8\u09ac\u099a\u09c7\u09af\u09bc\u09c7 \u09ac\u09c7\u09b6\u09bf \u09ac\u09cd\u09af\u09ac\u09b9\u09c3\u09a4 \u09a1\u09c7\u099f\u09be \u09b8\u09cd\u099f\u09cd\u09b0\u09be\u0995\u099a\u09be\u09b0\u0964", "educationalLevel": "Beginner", "learningResourceType": "Lesson", "isPartOf": {"@type": "Course", "name": "\u09b8\u09ae\u09cd\u09aa\u09c2\u09b0\u09cd\u09a3 \u09aa\u09be\u0987\u09a5\u09a8 \u0995\u09cb\u09b0\u09cd\u09b8"}, "inLanguage": "bn"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "\u09b9\u09cb\u09ae", "item": "https://engr-rabbi.github.io/python-handbook-bangla/"}, {"@type": "ListItem", "position": 2, "name": "\u0995\u09cb\u09b0\u09cd\u09b8", "item": "https://engr-rabbi.github.io/python-handbook-bangla/roadmap/"}, {"@type": "ListItem", "position": 3, "name": "\u09b2\u09bf\u09b8\u09cd\u099f", "item": "https://engr-rabbi.github.io/python-handbook-bangla/lists/"}]}</script>
+</head>
+<body data-root="../" data-slug="lists">
+<script>window.PY_TOTAL_LESSONS = 20;</script>
+<a class="skip-link" href="#main-content">মূল কনটেন্টে যান</a>
+
+<header class="topbar">
+  <button id="menu-toggle" class="icon-btn menu-toggle" aria-label="কোর্স মেনু খুলুন" aria-controls="course-sidebar">☰</button>
+  <a class="brand" href="../index.html"><span class="mark">Py</span>সম্পূর্ণ পাইথন কোর্স</a>
+  <nav class="topnav" aria-label="মূল নেভিগেশন"><a href="../" aria-current="page">হোম</a><a href="../roadmap/">কোর্স</a><a href="../playground/">প্লেগ্রাউন্ড</a><a href="../exercises/">অনুশীলনী</a><a href="../projects/">প্রজেক্ট</a><a href="../cheatsheets/">চিটশিট</a><a href="../glossary/">শব্দকোষ</a><a href="../about/">আমাদের কথা</a></nav>
+  <div class="topbar-spacer"></div>
+  <div id="search-box" role="search">
+    <input id="search-input" type="search" placeholder="লেসন খুঁজুন… ( / )" aria-label="কোর্সে অনুসন্ধান করুন">
+    <div id="search-results" role="listbox"></div>
+  </div>
+  <button id="theme-toggle" class="icon-btn" type="button">🖥 <span class="vis-label">সিস্টেম</span></button>
+</header>
+<div class="page-with-sidebar">
+
+<aside class="sidebar" id="course-sidebar">
+  <div class="sidebar-progress">
+    <div class="label"><span>কোর্সের অগ্রগতি</span><span data-progress-pct>0%</span></div>
+    <div class="progress-track"><div class="progress-fill" data-progress-fill style="width:0%"></div></div>
+  </div>
+  <div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-faint);font-weight:700;padding:0 .5rem;margin-bottom:.4rem;">কোর্স মডিউল</div>
+  
+<details class="side-module">
+  <summary><span class="num">01</span><span class="side-check" data-slug="introduction"></span> পরিচিতি ও সেটআপ</summary>
+  <a href="../introduction/">পরিচিতি ও সেটআপ</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">02</span><span class="side-check" data-slug="print-output"></span> প্রিন্ট, ভ্যারিয়েবল ও বেসিক আউটপুট</summary>
+  <a href="../print-output/">প্রিন্ট, ভ্যারিয়েবল ও বেসিক আউটপুট</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">03</span><span class="side-check" data-slug="strings"></span> স্ট্রিং ও ইউজার ইনপুট</summary>
+  <a href="../strings/">স্ট্রিং ও ইউজার ইনপুট</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">04</span><span class="side-check" data-slug="control-flow"></span> কন্ট্রোল ফ্লো ও লুপ</summary>
+  <a href="../control-flow/">কন্ট্রোল ফ্লো ও লুপ</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">05</span><span class="side-check" data-slug="functions"></span> ফাংশন</summary>
+  <a href="../functions/">ফাংশন</a>
+</details>
+<details class="side-module" open>
+  <summary><span class="num">06</span><span class="side-check" data-slug="lists"></span> লিস্ট</summary>
+  <a href="../lists/#concept">ধারণা ও সিনট্যাক্স</a><a href="../lists/#examples">উদাহরণ</a><a href="../lists/#mistakes">সাধারণ ভুল</a><a href="../lists/#exercise">অনুশীলনী ও চ্যালেঞ্জ</a><a href="../lists/#quiz">কুইজ</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">07</span><span class="side-check" data-slug="tuples"></span> টাপল</summary>
+  <a href="../tuples/">টাপল</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">08</span><span class="side-check" data-slug="dictionaries"></span> ডিকশনারি</summary>
+  <a href="../dictionaries/">ডিকশনারি</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">09</span><span class="side-check" data-slug="sets-comprehensions"></span> সেট ও কম্প্রিহেনশন</summary>
+  <a href="../sets-comprehensions/">সেট ও কম্প্রিহেনশন</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">10</span><span class="side-check" data-slug="args-kwargs"></span> *args এবং **kwargs</summary>
+  <a href="../args-kwargs/">*args এবং **kwargs</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">11</span><span class="side-check" data-slug="functional-programming"></span> ফাংশনাল প্রোগ্রামিং ও অ্যাডভান্সড ফাংশন</summary>
+  <a href="../functional-programming/">ফাংশনাল প্রোগ্রামিং ও অ্যাডভান্সড ফাংশন</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">12</span><span class="side-check" data-slug="closures-decorators"></span> ক্লোজার ও ডেকোরেটর</summary>
+  <a href="../closures-decorators/">ক্লোজার ও ডেকোরেটর</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">13</span><span class="side-check" data-slug="generators"></span> জেনারেটর</summary>
+  <a href="../generators/">জেনারেটর</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">14</span><span class="side-check" data-slug="oop"></span> অবজেক্ট-ওরিয়েন্টেড প্রোগ্রামিং</summary>
+  <a href="../oop/">অবজেক্ট-ওরিয়েন্টেড প্রোগ্রামিং</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">15</span><span class="side-check" data-slug="exceptions"></span> এরর ও এক্সসেপশন হ্যান্ডলিং</summary>
+  <a href="../exceptions/">এরর ও এক্সসেপশন হ্যান্ডলিং</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">16</span><span class="side-check" data-slug="file-io"></span> ফাইল I/O</summary>
+  <a href="../file-io/">ফাইল I/O</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">17</span><span class="side-check" data-slug="os-system"></span> OS ও সিস্টেম মডিউল</summary>
+  <a href="../os-system/">OS ও সিস্টেম মডিউল</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">18</span><span class="side-check" data-slug="tkinter"></span> Tkinter দিয়ে GUI প্রোগ্রামিং</summary>
+  <a href="../tkinter/">Tkinter দিয়ে GUI প্রোগ্রামিং</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">19</span><span class="side-check" data-slug="projects"></span> Python প্রজেক্ট</summary>
+  <a href="../projects/">Python প্রজেক্ট</a>
+</details>
+<details class="side-module">
+  <summary><span class="num">20</span><span class="side-check" data-slug="sql"></span> Python + SQL</summary>
+  <a href="../sql/">Python + SQL</a>
+</details>
+  <button id="reset-progress-btn" class="btn btn-ghost btn-sm" type="button" style="margin-top:1rem;width:100%;">অগ্রগতি রিসেট করুন</button>
+</aside>
+<main class="main" id="main-content">
+
+<div class="paper">
+  <nav class="breadcrumb"><a href="../index.html">হোম</a> / <a href="../roadmap/">কোর্স</a> / লিস্ট</nav>
+  <div class="badge-row"><span class="badge beginner">শুরুর স্তর</span> <span class="badge time">৫০ মিনিট</span></div>
+  <h1>মডিউল 06 — লিস্ট</h1>
+  <p style="font-size:1.05rem;color:var(--ink-soft);max-width:62ch;">Python-এর নমনীয়, ক্রমিক, পরিবর্তনযোগ্য সংগ্রহ — সবচেয়ে বেশি ব্যবহৃত ডেটা স্ট্রাকচার।</p>
+  <p class="note">পূর্বশর্ত: মডিউল ০৫ — ফাংশন</p>
+
+  <div class="objectives"><h3>এই লেসন শেষে আপনি যা করতে পারবেন</h3><ul><li>লিস্ট তৈরি, ইনডেক্স ও স্লাইস করা</li><li>append(), insert(), remove(), pop() দিয়ে আইটেম যোগ ও বাদ দেওয়া</li><li>একটি লিস্টের উপর লুপ চালানো, নেস্টেড লিস্ট সহ</li><li>join() ও split() দিয়ে লিস্ট ও স্ট্রিংয়ের মধ্যে রূপান্তর করা</li></ul></div>
+
+  <h2 id="concept">ধারণা ও সিনট্যাক্স</h2>
+  
+<p>একটি <strong>লিস্ট</strong> হলো মানের একটি ক্রমিক, পরিবর্তনযোগ্য সংগ্রহ, স্কয়ার ব্র্যাকেট দিয়ে লেখা হয়:
+<code>[10, 20, 30]</code>। লিস্ট যেকোনো টাইপ ধরে রাখতে পারে — এমনকি টাইপের মিশ্রণ, বা অন্য একটি লিস্টও — এবং
+যখনই আপনার কোনো কিছুর "একের বেশি" ট্র্যাক রাখা প্রয়োজন হয়, তখনই লিস্ট ব্যবহার করা হয়: একটি শপিং লিস্ট, শিক্ষার্থীর নাম,
+একটি গেমের স্কোর।</p>
+<p>স্ট্রিংয়ের থেকে আলাদাভাবে, একটি লিস্ট <strong>পরিবর্তনযোগ্য (mutable)</strong> — তৈরি হওয়ার পরও আপনি আইটেম বদলাতে,
+যোগ করতে বা বাদ দিতে পারেন। এই একটি বৈশিষ্ট্য (mutability) দিয়েই লিস্ট আর পরের মডিউলে দেখা টাপল আলাদা হয়ে যায়।</p>
+
+  <div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">সিনট্যাক্স</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-1463"><code>numbers = [<span class="num">10</span>, <span class="num">20</span>, <span class="num">30</span>, <span class="num">40</span>]
+numbers.append(<span class="num">50</span>)
+numbers[<span class="num">0</span>]      <span class="cm"># প্রথম আইটেম</span>
+numbers[-<span class="num">1</span>]     <span class="cm"># শেষ আইটেম</span>
+numbers[<span class="num">1</span>:<span class="num">3</span>]    <span class="cm"># একটি slice</span></code></pre></div>
+
+  <h2 id="examples">উদাহরণ</h2>
+  <h3>লিস্ট তৈরি ও ইনডেক্স করা <span class="badge veryeasy" style="margin-left:.4rem;">খুব সহজ</span></h3><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">লিস্ট তৈরি ও ইনডেক্স করা</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-31649"><code>scores = [<span class="num">88</span>, <span class="num">92</span>, <span class="num">79</span>, <span class="num">95</span>]
+<span class="kw">print</span>(scores[<span class="num">0</span>])
+<span class="kw">print</span>(scores[-<span class="num">1</span>])</code></pre><div class="cb-output"><span class="out-label">আউটপুট</span>88
+95</div><div data-runner class="runner"><textarea class="run-editor" spellcheck="false" aria-label="সম্পাদনাযোগ্য Python কোড">scores = [88, 92, 79, 95]
+print(scores[0])
+print(scores[-1])</textarea><div class="tracer-controls"><button class="btn btn-primary btn-sm run-btn" type="button">▶ ব্রাউজারে চালান</button><button class="btn btn-ghost btn-sm run-reset" type="button">রিসেট</button></div><div class="run-output" role="status" aria-live="polite"></div></div></div><p>লিস্টও স্ট্রিংয়ের মতোই 0-ভিত্তিক ইনডেক্সিং ব্যবহার করে — scores[0] প্রথম স্কোর, scores[-1] সর্বশেষ।</p><h3>append(), insert(), remove() <span class="badge easy" style="margin-left:.4rem;">সহজ</span></h3><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">append(), insert(), remove()</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-82615"><code>tasks = [<span class="str">&quot;email&quot;</span>, <span class="str">&quot;meeting&quot;</span>]
+tasks.append(<span class="str">&quot;lunch&quot;</span>)
+tasks.insert(<span class="num">1</span>, <span class="str">&quot;review PR&quot;</span>)
+tasks.remove(<span class="str">&quot;meeting&quot;</span>)
+<span class="kw">print</span>(tasks)</code></pre><div class="cb-output"><span class="out-label">আউটপুট</span>[&#x27;email&#x27;, &#x27;review PR&#x27;, &#x27;lunch&#x27;]</div><div data-runner class="runner"><textarea class="run-editor" spellcheck="false" aria-label="সম্পাদনাযোগ্য Python কোড">tasks = [&quot;email&quot;, &quot;meeting&quot;]
+tasks.append(&quot;lunch&quot;)
+tasks.insert(1, &quot;review PR&quot;)
+tasks.remove(&quot;meeting&quot;)
+print(tasks)</textarea><div class="tracer-controls"><button class="btn btn-primary btn-sm run-btn" type="button">▶ ব্রাউজারে চালান</button><button class="btn btn-ghost btn-sm run-reset" type="button">রিসেট</button></div><div class="run-output" role="status" aria-live="polite"></div></div></div><p>append() শেষে যোগ করে; insert(index, value) একটি নির্দিষ্ট পজিশনে যোগ করে; remove(value) প্রথম মিলে যাওয়া আইটেম বাদ দেয়।</p><h3>একটি লিস্টের উপর লুপ চালানো <span class="badge easy" style="margin-left:.4rem;">সহজ</span></h3><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">একটি লিস্টের উপর লুপ চালানো</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-14053"><code>colors = [<span class="str">&quot;red&quot;</span>, <span class="str">&quot;green&quot;</span>, <span class="str">&quot;blue&quot;</span>]
+<span class="kw">for</span> color <span class="kw">in</span> colors:
+    <span class="kw">print</span>(color.upper())</code></pre><div class="cb-output"><span class="out-label">আউটপুট</span>RED
+GREEN
+BLUE</div><div data-runner class="runner"><textarea class="run-editor" spellcheck="false" aria-label="সম্পাদনাযোগ্য Python কোড">colors = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;]
+for color in colors:
+    print(color.upper())</textarea><div class="tracer-controls"><button class="btn btn-primary btn-sm run-btn" type="button">▶ ব্রাউজারে চালান</button><button class="btn btn-ghost btn-sm run-reset" type="button">রিসেট</button></div><div class="run-output" role="status" aria-live="polite"></div></div></div><p>একটি for লুপ পালাক্রমে প্রতিটি আইটেম দেয় — কোনো ম্যানুয়াল ইনডেক্সিং লাগে না।</p><h3>নেস্টেড লিস্ট <span class="badge intermediate" style="margin-left:.4rem;">মধ্যম</span></h3><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">নেস্টেড লিস্ট</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-83402"><code>grid = [[<span class="num">1</span>, <span class="num">2</span>], [<span class="num">3</span>, <span class="num">4</span>], [<span class="num">5</span>, <span class="num">6</span>]]
+<span class="kw">print</span>(grid[<span class="num">1</span>][<span class="num">0</span>])
+<span class="kw">for</span> row <span class="kw">in</span> grid:
+    <span class="kw">print</span>(row)</code></pre><div class="cb-output"><span class="out-label">আউটপুট</span>3
+[1, 2]
+[3, 4]
+[5, 6]</div><div data-runner class="runner"><textarea class="run-editor" spellcheck="false" aria-label="সম্পাদনাযোগ্য Python কোড">grid = [[1, 2], [3, 4], [5, 6]]
+print(grid[1][0])
+for row in grid:
+    print(row)</textarea><div class="tracer-controls"><button class="btn btn-primary btn-sm run-btn" type="button">▶ ব্রাউজারে চালান</button><button class="btn btn-ghost btn-sm run-reset" type="button">রিসেট</button></div><div class="run-output" role="status" aria-live="polite"></div></div></div><p>একটি লিস্টের ভেতরে অন্য লিস্ট থাকতে পারে। grid[1][0] মানে 'ইনডেক্স 1-এর row, তারপর সেই row-এর ইনডেক্স 0-এর আইটেম'।</p><h3>join(), split(), min(), max() <span class="badge realworld" style="margin-left:.4rem;">বাস্তব উদাহরণ</span></h3><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">join(), split(), min(), max()</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-77752"><code>sentence = <span class="str">&quot;the quick brown fox&quot;</span>
+words = sentence.split()
+<span class="kw">print</span>(words)
+<span class="kw">print</span>(<span class="str">&quot;-&quot;</span>.join(words))
+scores = [<span class="num">88</span>, <span class="num">92</span>, <span class="num">79</span>, <span class="num">95</span>]
+<span class="kw">print</span>(min(scores), max(scores))</code></pre><div class="cb-output"><span class="out-label">আউটপুট</span>[&#x27;the&#x27;, &#x27;quick&#x27;, &#x27;brown&#x27;, &#x27;fox&#x27;]
+the-quick-brown-fox
+79 95</div><div data-runner class="runner"><textarea class="run-editor" spellcheck="false" aria-label="সম্পাদনাযোগ্য Python কোড">sentence = &quot;the quick brown fox&quot;
+words = sentence.split()
+print(words)
+print(&quot;-&quot;.join(words))
+scores = [88, 92, 79, 95]
+print(min(scores), max(scores))</textarea><div class="tracer-controls"><button class="btn btn-primary btn-sm run-btn" type="button">▶ ব্রাউজারে চালান</button><button class="btn btn-ghost btn-sm run-reset" type="button">রিসেট</button></div><div class="run-output" role="status" aria-live="polite"></div></div></div><p>split() একটি স্ট্রিংকে শব্দের একটি লিস্টে ভাগ করে; join() উল্টো কাজটি করে, একটি separator দিয়ে লিস্টকে জোড়া দিয়ে ফিরে স্ট্রিং বানায়।</p>
+
+  <h2>ভিজ্যুয়াল ব্যাখ্যা</h2>
+  <figure class="diagram"><svg viewBox="0 0 560 110" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="numbers = [10, 20, 30, 40]"><text x="280" y="20" text-anchor="middle" style="fill:var(--ink-faint);font-family:var(--font-mono);font-size:12px">numbers = [10, 20, 30, 40]</text><rect x="100.0" y="34" width="90.0" height="44" style="fill:var(--surface);stroke:var(--rule);stroke-width:1.5"/><text x="145.0" y="61" text-anchor="middle" style="fill:var(--ink);font-family:var(--font-mono);font-size:14px;font-weight:600">10</text><text x="145.0" y="96" text-anchor="middle" style="fill:var(--ink-faint);font-family:var(--font-mono);font-size:11px">0</text><rect x="190.0" y="34" width="90.0" height="44" style="fill:var(--surface);stroke:var(--rule);stroke-width:1.5"/><text x="235.0" y="61" text-anchor="middle" style="fill:var(--ink);font-family:var(--font-mono);font-size:14px;font-weight:600">20</text><text x="235.0" y="96" text-anchor="middle" style="fill:var(--ink-faint);font-family:var(--font-mono);font-size:11px">1</text><rect x="280.0" y="34" width="90.0" height="44" style="fill:var(--surface);stroke:var(--rule);stroke-width:1.5"/><text x="325.0" y="61" text-anchor="middle" style="fill:var(--ink);font-family:var(--font-mono);font-size:14px;font-weight:600">30</text><text x="325.0" y="96" text-anchor="middle" style="fill:var(--ink-faint);font-family:var(--font-mono);font-size:11px">2</text><rect x="370.0" y="34" width="90.0" height="44" style="fill:var(--surface);stroke:var(--rule);stroke-width:1.5"/><text x="415.0" y="61" text-anchor="middle" style="fill:var(--ink);font-family:var(--font-mono);font-size:14px;font-weight:600">40</text><text x="415.0" y="96" text-anchor="middle" style="fill:var(--ink-faint);font-family:var(--font-mono);font-size:11px">3</text></svg><figcaption>একটি লিস্টের প্রতিটি আইটেম 0 থেকে শুরু হওয়া একটি নম্বরযুক্ত ইনডেক্সে থাকে।</figcaption></figure>
+
+  
+
+  <details class="disclosure"><summary>🔍 ভেতরে ভেতরে কী ঘটে? (অ্যাডভান্সড)</summary><div class="disclosure-body"><p>ভেতরে ভেতরে, Python আপনার সোর্স কোডকে বাইটকোডে কম্পাইল করে এবং একটি ভার্চুয়াল মেশিনে (CPython ইন্টারপ্রিটার) চালায়। ভ্যারিয়েবলগুলো একটি নেমস্পেস ডিকশনারিতে থাকা নাম, যা মেমরিতে থাকা অবজেক্টের দিকে নির্দেশ করে — উপরের ট্রেসারের মেমরি প্যানেলে ঠিক এটাই দেখানো হচ্ছে।</p></div></details>
+
+  <h3>একটি লিস্ট বড় হতে দেখুন</h3><p>নিচের নিয়ন্ত্রণগুলো দিয়ে এই উদাহরণটি এক লাইন করে চালিয়ে দেখুন এবং ইন্টারপ্রিটারের মেমরি লাইভ পরিবর্তন হতে দেখুন।</p>
+<div class="tracer" data-trace="[{&quot;line&quot;: 0, &quot;vars&quot;: {&quot;fruits&quot;: &quot;[&#x27;apple&#x27;, &#x27;banana&#x27;]&quot;}, &quot;output&quot;: &quot;&quot;, &quot;desc&quot;: &quot;\u09a6\u09c1\u099f\u09bf \u0986\u0987\u099f\u09c7\u09ae \u09b8\u09b9 \u098f\u0995\u099f\u09bf \u09b2\u09bf\u09b8\u09cd\u099f \u09a4\u09c8\u09b0\u09bf \u09b9\u09b2\u09cb\u0964 apple \u0986\u099b\u09c7 \u0987\u09a8\u09a1\u09c7\u0995\u09cd\u09b8 0-\u098f, banana \u0987\u09a8\u09a1\u09c7\u0995\u09cd\u09b8 1-\u098f\u0964&quot;}, {&quot;line&quot;: 1, &quot;vars&quot;: {&quot;fruits&quot;: &quot;[&#x27;apple&#x27;, &#x27;banana&#x27;, &#x27;cherry&#x27;]&quot;}, &quot;output&quot;: &quot;&quot;, &quot;desc&quot;: &quot;append() \u09b6\u09c7\u09b7\u09c7 &#x27;cherry&#x27; \u09af\u09c1\u0995\u09cd\u0924 \u0995\u09b0\u09c7, \u09aa\u09b0\u09ac\u09b0\u09cd\u09a4\u09c0 \u0996\u09be\u09b2\u09bf \u0987\u09a8\u09a1\u09c7\u0995\u09cd\u09b8 (2)-\u098f\u0964&quot;}, {&quot;line&quot;: 2, &quot;vars&quot;: {&quot;fruits&quot;: &quot;[&#x27;apple&#x27;, &#x27;banana&#x27;, &#x27;cherry&#x27;]&quot;}, &quot;output&quot;: &quot;[&#x27;apple&#x27;, &#x27;banana&#x27;, &#x27;cherry&#x27;]&quot;, &quot;desc&quot;: &quot;print() \u09b8\u09ae\u09cd\u09aa\u09c2\u09b0\u09cd\u09a3, \u09ac\u09b0\u09cd\u09a4\u09ae\u09be\u09a8 \u09b2\u09bf\u09b8\u09cd\u099f\u099f\u09bf \u09a6\u09c7\u0996\u09be\u09af\u09bc\u0964&quot;}]">
+  <div class="tracer-panel trace-code">
+    <h4>কোড</h4>
+    <div class="codeblock" style="margin:0;">
+      <div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">কোড</span></div>
+      <pre><code><span class="cb-line">fruits = [<span class="str">&quot;apple&quot;</span>, <span class="str">&quot;banana&quot;</span>]</span>
+<span class="cb-line">fruits.append(<span class="str">&quot;cherry&quot;</span>)</span>
+<span class="cb-line"><span class="kw">print</span>(fruits)</span></code></pre>
+    </div>
+  </div>
+  <div class="tracer-panel">
+    <h4>ইন্টারপ্রিটারের অবস্থা</h4>
+    <div class="trace-mem"></div>
+    <div style="margin-top:.8rem;">
+      <h4 style="margin-bottom:.3rem;">কনসোল আউটপুট</h4>
+      <div class="cb-output trace-out" style="border-top:none;"></div>
+    </div>
+    <div class="tracer-desc"></div>
+    <div class="tracer-controls">
+      <button class="btn btn-primary btn-sm trace-play" type="button">▶ চালান</button>
+      <button class="btn btn-ghost btn-sm trace-step" type="button">পরের ধাপ ⏭</button>
+      <button class="btn btn-ghost btn-sm trace-restart" type="button">⏮ পুনরায় শুরু</button>
+      <label class="range-wrap">গতি
+        <select class="trace-speed">
+          <option value="1600">ধীর</option>
+          <option value="900" selected>স্বাভাবিক</option>
+          <option value="400">দ্রুত</option>
+        </select>
+      </label>
+      <span class="tracer-step-of"></span>
+    </div>
+    <input type="range" class="trace-range" min="0" max="0" value="0" step="1" style="width:100%;margin-top:.6rem;" aria-label="ধাপে ধাপে এক্সিকিউশন দেখুন">
+  </div>
+</div>
+
+  <h2 id="mistakes">সাধারণ ভুল</h2>
+  
+<div class="callout callout-mistake">
+  <div class="callout-head">✗ সাধারণ ভুল 1</div>
+  <p>যে ইনডেক্স নেই সেখানে অ্যাক্সেস করলে, None-এর মতো কিছু ফিরিয়ে না দিয়ে একটি এরর দেখা দেয়।</p>
+  <div class="mistake-pair">
+    <div class="mp-bad">
+      <div class="mp-label">✗ এটি এড়িয়ে চলুন</div>
+      <div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">এতে দেখা দেবে IndexError: list index out of range</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-6503"><code>colors = [<span class="str">&quot;red&quot;</span>, <span class="str">&quot;green&quot;</span>]
+<span class="kw">print</span>(colors[<span class="num">5</span>])</code></pre></div>
+    </div>
+    <div class="mp-good">
+      <div class="mp-label">✓ সঠিক পদ্ধতি</div>
+      <div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">সংশোধিত</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-4865"><code>colors = [<span class="str">&quot;red&quot;</span>, <span class="str">&quot;green&quot;</span>]
+<span class="kw">if</span> len(colors) &gt; <span class="num">5</span>:
+    <span class="kw">print</span>(colors[<span class="num">5</span>])
+<span class="kw">else</span>:
+    <span class="kw">print</span>(<span class="str">&quot;No item at that index&quot;</span>)</code></pre></div>
+    </div>
+  </div>
+</div>
+<div class="callout callout-mistake">
+  <div class="callout-head">✗ সাধারণ ভুল 2</div>
+  <p>Python-এর লিস্ট কিছু ভাষার array-এর মতো নির্দিষ্ট আকারের না হলেও, pop() ও remove() ভুল ইনপুটে এখনও জোরে এরর দেয়, তাই আগে চেক করা ভালো।</p>
+  <div class="mistake-pair">
+    <div class="mp-bad">
+      <div class="mp-label">✗ এটি এড়িয়ে চলুন</div>
+      <div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">এতে দেখা দেবে ValueError: list.remove(x): x not in list</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-24143"><code>items = [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>]
+items.remove(<span class="num">9</span>)</code></pre></div>
+    </div>
+    <div class="mp-good">
+      <div class="mp-label">✓ সঠিক পদ্ধতি</div>
+      <div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">সংশোধিত</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-72073"><code>items = [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>]
+<span class="kw">if</span> <span class="num">9</span> <span class="kw">in</span> items:
+    items.remove(<span class="num">9</span>)</code></pre></div>
+    </div>
+  </div>
+</div>
+
+  <div class="callout callout-tip"><div class="callout-head">✓ ভালো অভ্যাস</div><ul><li>বাদ দেওয়ার আগে <code>in</code> দিয়ে মেম্বারশিপ চেক করুন: <code>if x in my_list:</code>।</li><li>ম্যানুয়াল append লুপের চেয়ে নতুন লিস্ট বানানোর সময় list comprehension (পরের মডিউল) বেশি পছন্দ করুন।</li><li>লিস্ট ভ্যারিয়েবলের নাম বহুবচনে দিন: <code>students</code>, <code>student</code> নয়।</li><li>লিস্টের আকার হার্ডকোড না করে <code>len(my_list)</code> ব্যবহার করুন।</li></ul></div>
+
+  <h2 id="exercise">অনুশীলনী ও চ্যালেঞ্জ</h2>
+  
+<div class="exercise-box" data-answer="[1, 2, 3, 4, 5]" data-explain="sort() লিস্টটি সরাসরি বদলে দেয়, সংখ্যাগুলোকে ছোট থেকে বড় ক্রমে সাজিয়ে।">
+  <p><strong>অনুশীলনী 1 — আউটপুট অনুমান করুন</strong></p>
+  <div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">এই কোডটি দেওয়া আছে</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-39035"><code>nums = [<span class="num">5</span>, <span class="num">1</span>, <span class="num">4</span>, <span class="num">2</span>, <span class="num">3</span>]
+nums.sort()
+<span class="kw">print</span>(nums)</code></pre></div>
+  <p>এটি কী প্রিন্ট করবে?</p>
+  <textarea class="ex-input" placeholder="এখানে আপনার উত্তর লিখুন…" aria-label="আপনার উত্তর"></textarea>
+  <div class="tracer-controls">
+    <button class="btn btn-primary btn-sm ex-check" type="button">উত্তর যাচাই করুন</button>
+    <button class="btn btn-ghost btn-sm ex-hint-btn" type="button">ইঙ্গিত</button>
+    <button class="btn btn-ghost btn-sm ex-sol-btn" type="button">সমাধান দেখুন</button>
+  </div>
+  <div class="ex-feedback"></div>
+  <div class="ex-hint" style="display:none;margin-top:.6rem;color:var(--ink-soft);font-size:.88rem;">💡 sort() লিস্টটিকে নিজের জায়গায়, ডিফল্টভাবে ascending ক্রমে সাজিয়ে দেয়।</div>
+  <div class="ex-sol" style="display:none;margin-top:.6rem;"><p>[1, 2, 3, 4, 5]</p></div>
+</div>
+  
+<div class="exercise-box" style="border-color:var(--rule);">
+  <p><strong>🏆 চ্যালেঞ্জ</strong></p>
+  <p>একটি প্রোগ্রাম লিখুন যা একটি খালি লিস্ট থেকে শুরু করে, ব্যবহারকারীর টাইপ করা পাঁচটি সংখ্যা (int()-এ রূপান্তর করে) যোগ করে, তারপর লিস্টটি তার sum ও average সহ প্রিন্ট করে।</p>
+  <ul><li>input() দিয়ে ৫টি সংখ্যা সংগ্রহ করতে একটি লুপ ব্যবহার করুন</li><li>লিস্ট তৈরি করতে append() ব্যবহার করুন</li><li>sum এবং average (sum / count) প্রিন্ট করুন</li></ul>
+  <details class="disclosure"><summary>💡 ইঙ্গিত প্রয়োজন?</summary><div class="disclosure-body"><p>sum(my_list) একটি লিস্টের সব সংখ্যা যোগ করে দেয়।</p></div></details>
+  <details class="disclosure"><summary>🔍 একটি নমুনা সমাধান দেখুন</summary><div class="disclosure-body"><div class="codeblock"><div class="cb-head"><span class="cb-dots"><span></span><span></span><span></span></span><span class="cb-title">Python</span><button class="cb-btn cb-copy" type="button">কপি</button></div><pre id="code-98919"><code>numbers = []
+<span class="kw">for</span> i <span class="kw">in</span> range(<span class="num">5</span>):
+    numbers.append(int(input(<span class="str">&quot;Enter a number: &quot;</span>)))
+<span class="kw">print</span>(numbers)
+<span class="kw">print</span>(<span class="str">&quot;Sum:&quot;</span>, sum(numbers))
+<span class="kw">print</span>(<span class="str">&quot;Average:&quot;</span>, sum(numbers) / len(numbers))</code></pre></div></div></details>
+</div>
+
+  <h2 id="quiz">কুইজ</h2>
+  <p>প্রতিটি প্রশ্নের উত্তর দিন, তারপর জমা দিয়ে নিজের স্কোর ও ব্যাখ্যা দেখুন।</p>
+  
+<div class="quiz" id="quiz-lists">
+  
+<div class="quiz-q" data-correct="1" id="quiz-lists-q0">
+  <p class="qtext">1. কোন মেথড একটি লিস্টের শেষে একটি আইটেম যোগ করে?</p>
+  <div class="quiz-opt" role="button" tabindex="0" data-idx="0">insert()</div><div class="quiz-opt" role="button" tabindex="0" data-idx="1">append()</div><div class="quiz-opt" role="button" tabindex="0" data-idx="2">add()</div><div class="quiz-opt" role="button" tabindex="0" data-idx="3">extend()</div>
+  <div class="quiz-explain">append() লিস্টের শেষে একটি আইটেম যোগ করে।</div>
+</div>
+<div class="quiz-q" data-correct="1" id="quiz-lists-q1">
+  <p class="qtext">2. লিস্ট ও টাপলের মূল পার্থক্য কী?</p>
+  <div class="quiz-opt" role="button" tabindex="0" data-idx="0">লিস্টে সংখ্যা রাখা যায় না</div><div class="quiz-opt" role="button" tabindex="0" data-idx="1">লিস্ট পরিবর্তনযোগ্য (mutable); টাপল নয়</div><div class="quiz-opt" role="button" tabindex="0" data-idx="2">টাপল তৈরি করতে সবসময় বেশি দ্রুত</div><div class="quiz-opt" role="button" tabindex="0" data-idx="3">কোনো পার্থক্য নেই</div>
+  <div class="quiz-explain">Mutability-ই মূল পার্থক্য — পরের মডিউলে এটা দেখবেন।</div>
+</div>
+<div class="quiz-q" data-correct="1" id="quiz-lists-q2">
+  <p class="qtext">3. grid = [[1,2],[3,4]]-এর জন্য grid[1][0] মানে কী?</p>
+  <div class="quiz-opt" role="button" tabindex="0" data-idx="0">পুরো grid-এর আইটেম 1</div><div class="quiz-opt" role="button" tabindex="0" data-idx="1">row 1, আইটেম 0 → 3</div><div class="quiz-opt" role="button" tabindex="0" data-idx="2">row 0, আইটেম 1 → 2</div><div class="quiz-opt" role="button" tabindex="0" data-idx="3">এটি অবৈধ সিনট্যাক্স</div>
+  <div class="quiz-explain">grid[1] হলো [3, 4], আর তার [0] হলো 3।</div>
+</div>
+<div class="quiz-q" data-correct="1" id="quiz-lists-q3">
+  <p class="qtext">4. কোন ফাংশন শব্দের একটি লিস্টকে ফিরে একটি সিঙ্গেল স্ট্রিংয়ে রূপান্তর করে?</p>
+  <div class="quiz-opt" role="button" tabindex="0" data-idx="0">split()</div><div class="quiz-opt" role="button" tabindex="0" data-idx="1">join()</div><div class="quiz-opt" role="button" tabindex="0" data-idx="2">combine()</div><div class="quiz-opt" role="button" tabindex="0" data-idx="3">merge()</div>
+  <div class="quiz-explain">&#x27;-&#x27;.join(list_of_words) শব্দগুলোকে separator দিয়ে জোড়া দেয়।</div>
+</div>
+<div class="quiz-q" data-correct="2" id="quiz-lists-q4">
+  <p class="qtext">5. লিস্টের দৈর্ঘ্যের চেয়ে বড় ইনডেক্সে অ্যাক্সেস করলে কী হয়?</p>
+  <div class="quiz-opt" role="button" tabindex="0" data-idx="0">Python None ফেরত দেয়</div><div class="quiz-opt" role="button" tabindex="0" data-idx="1">Python 0 ফেরত দেয়</div><div class="quiz-opt" role="button" tabindex="0" data-idx="2">IndexError দেখা দেয়</div><div class="quiz-opt" role="button" tabindex="0" data-idx="3">লিস্ট স্বয়ংক্রিয়ভাবে বড় হয়ে যায়</div>
+  <div class="quiz-explain">রেঞ্জের বাইরে ইনডেক্সিং করলে IndexError দেখা দেয়।</div>
+</div>
+  <div class="tracer-controls">
+    <button class="btn btn-primary quiz-submit" type="button">উত্তর জমা দিন</button>
+    <button class="btn btn-ghost quiz-retry" type="button" style="display:none;">আবার চেষ্টা করুন</button>
+  </div>
+  <div class="quiz-score" style="display:none;"></div>
+</div>
+
+  <h2>সারাংশ</h2>
+  <ul><li>লিস্ট হলো স্কয়ার ব্র্যাকেট দিয়ে লেখা ক্রমিক, পরিবর্তনযোগ্য সংগ্রহ।</li><li>append(), insert(), remove(), এবং pop() লিস্টকে নিজের জায়গায় বদলায়।</li><li>লিস্ট নেস্টেড হতে পারে; ভেতরের একটি আইটেম grid[row][col] দিয়ে অ্যাক্সেস করা যায়।</li><li>split() ও join() স্ট্রিং ও শব্দের লিস্টের মধ্যে রূপান্তর করে।</li></ul>
+
+  <h2>সম্পর্কিত লেসন</h2><div class="related-list"><a href="../strings/">স্ট্রিং ও ইউজার ইনপুট</a><a href="../tuples/">টাপল</a><a href="../sets-comprehensions/">সেট ও কম্প্রিহেনশন</a></div>
+
+  
+<div class="mark-complete-row">
+  <button id="mark-complete-btn" class="btn btn-primary" type="button" aria-live="polite">এই লেসনটি সম্পন্ন হিসেবে চিহ্নিত করুন</button>
+  <span style="color:var(--ink-faint);font-size:.85rem;">আপনার ব্রাউজারে ব্যক্তিগতভাবে সংরক্ষিত হয় — কোনো অ্যাকাউন্ট প্রয়োজন নেই।</span>
+</div>
+</div>
+<nav class="lesson-nav" aria-label="লেসন নেভিগেশন"><a href="../functions/"><div class="dir">← আগের লেসন</div><div>05 — ফাংশন</div></a><a class="next" href="../tuples/"><div class="dir">পরের লেসন →</div><div>07 — টাপল</div></a></nav>
+
+</main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <a class="brand" href="../index.html" style="margin-bottom:.6rem;"><span class="mark">Py</span>সম্পূর্ণ পাইথন কোর্স</a>
+      <p style="color:var(--ink-soft);font-size:.88rem;max-width:32ch;">যারা সত্যিকার অর্থে পাইথন বুঝতে চান, তাদের জন্য তৈরি — সম্পূর্ণ ফ্রি, উন্মুক্ত এবং নিজের গতিতে শেখার সুযোগ।</p>
+    </div>
+    <div><h4>শিখুন</h4><a href="../roadmap/">কোর্স রোডম্যাপ</a><a href="../exercises/">অনুশীলনী</a><a href="../projects/">প্রজেক্ট</a><a href="../playground/">প্লেগ্রাউন্ড</a></div><div><h4>রেফারেন্স</h4><a href="../cheatsheets/">চিটশিট</a><a href="../glossary/">শব্দকোষ</a><a href="../faq/">প্রশ্নোত্তর</a></div><div><h4>মডিউল</h4><a href="../introduction/">০১ পরিচিতি</a><a href="../oop/">১৪ OOP</a><a href="../sql/">২০ Python + SQL</a></div><div><h4>সাইট</h4><a href="../about/">আমাদের কথা</a><a href="../sitemap.xml">সাইটম্যাপ</a></div>
+  </div>
+  <div class="footer-bottom">© ২০২৬ সম্পূর্ণ পাইথন কোর্স। শেখার জন্য কনটেন্ট সম্পূর্ণ ফ্রি। কোনো অ্যাকাউন্ট প্রয়োজন নেই — আপনার অগ্রগতি আপনার ব্রাউজারেই থাকে।</div>
+</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>
